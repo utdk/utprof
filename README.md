@@ -1,3 +1,3 @@
-# utexas_content_type_profile
+# utexas_profile
 
-Team Member feature for UT Drupal Kit 3+
+Profile feature for UT Drupal Kit 3+
