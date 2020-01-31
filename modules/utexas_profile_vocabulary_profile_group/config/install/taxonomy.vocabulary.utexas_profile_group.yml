@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'UTexas Profile Group'
+vid: utexas_profile_group
+description: 'Use Profile Groups to categorize profiles into groups.'
+weight: 0
