@@ -8,11 +8,11 @@
 /**
  * Implements hook_uninstall().
  */
-function utexas_profile_vocabulary_profile_tag_uninstall()
+function utexas_profile_vocabulary_profile_tags_uninstall()
 {
   $config_factory = \Drupal::configFactory();
 
   // Remove the vocabulary that this module installed.
-  $config_factory->getEditable('taxonomy.vocabulary.utexas_profile_tag')->delete();
+  $config_factory->getEditable('taxonomy.vocabulary.utexas_profile_tags')->delete();
 }
 
