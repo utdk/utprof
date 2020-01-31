@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Install and uninstall functions for the UTexas profile vocabulary profile group module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function utexas_profile_vocabulary_profile_group_uninstall() {
+  $config_factory = \Drupal::configFactory();
+
+  // Remove the vocabulary that this module installed.
+  $config_factory->getEditable('taxonomy.vocabulary.utexas_profile_group')->delete();
+}
+
