@@ -2,17 +2,16 @@
 
 /**
  * @file
- * Install and uninstall functions for the UTexas profile vocabulary profile tag module.
+ * Install/uninstall functions for the UTexas Profile Tags module.
  */
 
 /**
  * Implements hook_uninstall().
  */
-function utexas_profile_vocabulary_profile_tags_uninstall()
-{
+function utexas_profile_vocabulary_profile_tags_uninstall() {
   $config_factory = \Drupal::configFactory();
 
   // Remove the vocabulary that this module installed.
-  $config_factory->getEditable('taxonomy.vocabulary.utexas_profile_tags')->delete();
+  $config_factory->getEditable('taxonomy.vocabulary.utexas_profile_tags')
+    ->delete();
 }
-
