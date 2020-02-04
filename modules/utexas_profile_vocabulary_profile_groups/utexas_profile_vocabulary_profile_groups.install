@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Install and uninstall functions for the UTexas profile vocabulary profile groups module.
+ * Install/uninstall functions for the UTexas Profile Groups module.
  */
 
 /**
@@ -12,6 +12,6 @@ function utexas_profile_vocabulary_profile_groups_uninstall() {
   $config_factory = \Drupal::configFactory();
 
   // Remove the vocabulary that this module installed.
-  $config_factory->getEditable('taxonomy.vocabulary.utexas_profile_groups')->delete();
+  $config_factory->getEditable('taxonomy.vocabulary.utexas_profile_groups')
+    ->delete();
 }
-
