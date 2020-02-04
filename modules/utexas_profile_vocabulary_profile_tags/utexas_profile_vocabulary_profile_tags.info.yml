@@ -1,0 +1,10 @@
+name: Profile Tags Vocabulary
+description: Provides a Profile Tags svocabulary component for the utexas_profile module.
+package: UTexas
+
+type: module
+core: 8.x
+
+dependencies:
+  - utexas:utexas_profile
+

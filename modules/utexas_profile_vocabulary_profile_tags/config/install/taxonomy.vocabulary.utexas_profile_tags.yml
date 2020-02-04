@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Profile Tags'
+vid: utexas_profile_tags
+description: 'Use Profile Tags to group profiles into categories.'
+weight: 0
