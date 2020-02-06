@@ -1,7 +1,7 @@
 langcode: en
 status: true
 dependencies: {  }
-id: utexas_role_profile_editor
+id: utexas_profile_editor
 label: 'Profile Editor'
 weight: 2
 is_admin: null
