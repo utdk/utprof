@@ -1,0 +1,22 @@
+name: Content Type - Profile
+description: Provides a content type component for the 'Profile' module.
+package: UTDK Profile
+type: module
+core: 8.x
+dependencies:
+  - bootstrap_horizontal_tabs
+  - field
+  - link
+  - media
+  - media_library
+  - menu_ui
+  - node
+  - path
+  - taxonomy
+  - text
+  - user
+  - utexas:utexas_media_types
+  - utprof:utprof
+  - utprof:utprof_role_profile_editor
+  - utprof:utprof_vocabulary_groups
+  - utprof:utprof_vocabulary_tags
