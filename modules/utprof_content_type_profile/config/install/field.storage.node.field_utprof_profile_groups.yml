@@ -14,7 +14,7 @@ type: entity_reference
 settings:
   target_type: taxonomy_term
 module: core
-locked: false
+locked: true
 cardinality: -1
 translatable: true
 indexes: {  }

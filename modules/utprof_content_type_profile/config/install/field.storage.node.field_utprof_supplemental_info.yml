@@ -13,7 +13,7 @@ entity_type: node
 type: text_long
 settings: {  }
 module: text
-locked: false
+locked: true
 cardinality: 1
 translatable: true
 indexes: {  }

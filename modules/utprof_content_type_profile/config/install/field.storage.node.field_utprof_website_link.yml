@@ -13,7 +13,7 @@ entity_type: node
 type: link
 settings: {  }
 module: link
-locked: false
+locked: true
 cardinality: 1
 translatable: true
 indexes: {  }

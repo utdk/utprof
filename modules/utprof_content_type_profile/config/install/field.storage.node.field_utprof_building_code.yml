@@ -14,7 +14,7 @@ type: text
 settings:
   max_length: 255
 module: text
-locked: false
+locked: true
 cardinality: 1
 translatable: true
 indexes: {  }

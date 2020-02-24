@@ -10,7 +10,7 @@ entity_type: node
 type: bootstrap_horizontal_tabs
 settings: {  }
 module: bootstrap_horizontal_tabs
-locked: false
+locked: true
 cardinality: -1
 translatable: true
 indexes: {  }
