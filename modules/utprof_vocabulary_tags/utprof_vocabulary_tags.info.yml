@@ -1,6 +1,6 @@
 name: Profile Tags Vocabulary
 description: Provides the 'Tags' vocabulary component for the 'Profile' module.
-package: UTexas
+package: UTDK Profile
 
 type: module
 core: 8.x

@@ -1,6 +1,6 @@
 name: Profile Editor Role
 description: Provides the 'Profile Editor' role component for the 'Profile' module.
-package: UTexas
+package: UTDK Profile
 
 type: module
 core: 8.x
