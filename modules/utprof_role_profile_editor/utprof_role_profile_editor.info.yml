@@ -1,4 +1,4 @@
-name: Profile Editor Role
+name: Role - Profile Editor
 description: Provides the 'Profile Editor' role component for the 'Profile' module.
 package: UTDK Profile
 

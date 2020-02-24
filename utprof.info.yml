@@ -1,4 +1,4 @@
-name: UTexas Profile Feature
+name: Profile
 description: Provides the generalized 'Profile' content type and supporting components.
 package: UTDK Profile
 
