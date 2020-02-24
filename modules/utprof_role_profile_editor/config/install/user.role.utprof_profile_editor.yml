@@ -1,7 +1,7 @@
 langcode: en
 status: true
 dependencies: {  }
-id: utexas_profile_editor
+id: utprof_profile_editor
 label: 'Profile Editor'
 weight: 2
 is_admin: null

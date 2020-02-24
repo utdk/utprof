@@ -35,16 +35,16 @@ Fixes #
 0. `composer run-script dev-scaffold`
 0. `fin init && fin init-site --wcs`
 0. `composer require utexas/utexas_profile:dev-<BRANCH-NAME>`
-0. `fin drush en utexas_profile -y`
+0. `fin drush en utprof -y`
 
 ## Reference: running tests locally
-0. `fin test web/modules/contrib/utexas_profiletests/src/Functional`
-0. `fin test-js web/modules/contrib/utexas_profile/tests/src/FunctionalJavascript`
+0. `fin test web/modules/contrib/utprof/tests/src/Functional`
+0. `fin test-js web/modules/contrib/utprof/tests/src/FunctionalJavascript`
 
 ## Testing steps
 0. Perform a thorough code review.
-0. 
-0. 
+0.
+0.
 
 ## Potential Reviewers
 

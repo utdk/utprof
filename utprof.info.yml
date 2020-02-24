@@ -1,5 +1,5 @@
 name: UTexas Profile Feature
-description: Provides a generalized 'profile' content type and supporting components.
+description: Provides the generalized 'Profile' content type and supporting components.
 package: UTexas
 
 type: module

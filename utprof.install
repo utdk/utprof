@@ -1,7 +1,6 @@
-
 <?php
 
 /**
  * @file
- * Contains install and update functions for the UTexas Profile module.
+ * Contains install and update functions for the UTDK Profile module.
  */
