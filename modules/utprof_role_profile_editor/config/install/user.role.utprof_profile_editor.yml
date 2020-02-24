@@ -1,6 +1,9 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  enforced:
+    module:
+      - utprof_role_profile_editor
 id: utprof_profile_editor
 label: 'Profile Editor'
 weight: 2

@@ -1,6 +1,9 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  enforced:
+    module:
+      - utprof_vocabulary_tags
 name: 'Profile Tags'
 vid: utprof_tags
 description: 'Use Profile Tags to categorize Profiles.'
