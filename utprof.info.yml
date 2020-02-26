@@ -1,6 +1,6 @@
 name: Profile
 description: Provides the generalized 'Profile' content type and supporting components.
-package: UTDK Profile
+package: UT Drupal Kit Profile Add-on
 
 type: module
 core: 8.x
