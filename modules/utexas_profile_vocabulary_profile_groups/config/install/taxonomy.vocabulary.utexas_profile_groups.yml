@@ -1,7 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: 'Profile Groups'
-vid: utexas_profile_groups
-description: 'Use Profile Groups to categorize profiles into groups.'
-weight: 0

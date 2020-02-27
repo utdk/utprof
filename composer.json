@@ -1,14 +1,14 @@
 {
-  "name": "utexas/utexas_profile",
+  "name": "utexas/utprof",
   "type": "drupal-module",
-  "description": "UTexas-focused feature to provide a generalized 'profile' content type and supporting components",
+  "description": "UTexas-focused feature to provide a generalized 'Profile' content type and supporting components",
   "keywords": ["Drupal"],
   "license": "GPL-2.0+",
-  "homepage": "https://github.austin.utexas.edu/eis1-wcs/utexas_profile",
+  "homepage": "https://github.austin.utexas.edu/eis1-wcs/utprof",
   "minimum-stability": "dev",
   "support": {
-    "issues": "https://github.austin.utexas.edu/eis1-wcs/utexas_profile/issues",
-    "source": "https://github.austin.utexas.edu/eis1-wcs/utexas_profile"
+    "issues": "https://github.austin.utexas.edu/eis1-wcs/utprof/issues",
+    "source": "https://github.austin.utexas.edu/eis1-wcs/utprof"
   },
   "require": {
       "composer/installers": "~1.0"

@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Profile Groups'
+vid: utprof_groups
+description: 'Use Profile Groups to categorize Profiles.'
+weight: 0

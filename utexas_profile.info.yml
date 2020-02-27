@@ -1,7 +1,0 @@
-name: UTexas Profile Feature
-description: Provides a generalized 'profile' content type and supporting components.
-package: UTexas
-
-type: module
-core: 8.x
-

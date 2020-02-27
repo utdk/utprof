@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Profile Tags'
+vid: utprof_tags
+description: 'Use Profile Tags to categorize Profiles.'
+weight: 0

@@ -1,9 +1,0 @@
-name: Profile Editor Role
-description: Provides a role component for the utexas_profile module.
-package: UTexas
-
-type: module
-core: 8.x
-
-dependencies:
-  - utexas:utexas_profile
