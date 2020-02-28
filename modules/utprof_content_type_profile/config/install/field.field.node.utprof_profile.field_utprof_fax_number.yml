@@ -4,8 +4,6 @@ dependencies:
   config:
     - field.storage.node.field_utprof_fax_number
     - node.type.utprof_profile
-  module:
-    - text
 id: node.utprof_profile.field_utprof_fax_number
 field_name: field_utprof_fax_number
 entity_type: node
@@ -17,4 +15,4 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: text
+field_type: string

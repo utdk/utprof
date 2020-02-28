@@ -57,7 +57,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: text_textfield
+    type: string_textfield
     region: content
   field_utprof_building_room_numb:
     weight: 128
@@ -65,7 +65,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: text_textfield
+    type: string_textfield
     region: content
   field_utprof_contact_form_link:
     weight: 122
@@ -87,7 +87,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: text_textfield
+    type: string_textfield
     region: content
   field_utprof_display_name:
     weight: 130
@@ -103,7 +103,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: text_textfield
+    type: string_textfield
     region: content
   field_utprof_email_address:
     weight: 121
@@ -119,7 +119,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: text_textfield
+    type: string_textfield
     region: content
   field_utprof_given_name:
     weight: 133
@@ -127,7 +127,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: text_textfield
+    type: string_textfield
     region: content
   field_utprof_headshot:
     type: media_library_widget
@@ -142,7 +142,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: text_textfield
+    type: string_textfield
     region: content
   field_utprof_profile_groups:
     weight: 125
@@ -178,7 +178,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: text_textfield
+    type: string_textfield
     region: content
   field_utprof_website_link:
     weight: 123

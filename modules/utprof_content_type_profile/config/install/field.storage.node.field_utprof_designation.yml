@@ -6,14 +6,15 @@ dependencies:
       - utprof_content_type_profile
   module:
     - node
-    - text
 id: node.field_utprof_designation
 field_name: field_utprof_designation
 entity_type: node
-type: text
+type: string
 settings:
   max_length: 255
-module: text
+  is_ascii: false
+  case_sensitive: false
+module: core
 locked: true
 cardinality: 1
 translatable: true
