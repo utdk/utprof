@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.utprof_profile.field_utprof_contact_form_link
     - field.field.node.utprof_profile.field_utprof_content
     - field.field.node.utprof_profile.field_utprof_designation
-    - field.field.node.utprof_profile.field_utprof_display_name
     - field.field.node.utprof_profile.field_utprof_eid
     - field.field.node.utprof_profile.field_utprof_email_address
     - field.field.node.utprof_profile.field_utprof_fax_number
@@ -88,14 +87,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
-    region: content
-  field_utprof_display_name:
-    weight: 130
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: text_textfield
     region: content
   field_utprof_eid:
     weight: 5
