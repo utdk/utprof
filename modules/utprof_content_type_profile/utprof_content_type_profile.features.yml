@@ -1,2 +1,5 @@
 bundle: utprof
-required: true
+required:
+  - breadcrumbs_visibility.content_type.utprof_profile
+  - page_title_visibility.content_type.utprof_profile
+  - core.base_field_override.node.utprof_profile.title

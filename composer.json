@@ -12,7 +12,9 @@
   },
   "require": {
       "composer/installers": "~1.0",
-      "drupal/bootstrap_horizontal_tabs": "^1.0@alpha"
+      "drupal/bootstrap_horizontal_tabs": "^1.0@alpha",
+      "drupal/breadcrumbs_visibility": "^1.0",
+      "drupal/page_title_visibility": "^1.1"
   },
   "config": {
     "sort-packages": true

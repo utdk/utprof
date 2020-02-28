@@ -5,12 +5,14 @@ type: module
 core: 8.x
 dependencies:
   - bootstrap_horizontal_tabs
+  - breadcrumbs_visibility
   - field
   - link
   - media
   - media_library
   - menu_ui
   - node
+  - page_title_visibility
   - path
   - taxonomy
   - text
