@@ -19,6 +19,5 @@ dependencies:
   - user
   - utexas:utexas_media_types
   - utprof:utprof
-  - utprof:utprof_role_profile_editor
   - utprof:utprof_vocabulary_groups
   - utprof:utprof_vocabulary_tags
