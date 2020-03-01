@@ -9,10 +9,8 @@ dependencies:
 id: node.field_utprof_designation
 field_name: field_utprof_designation
 entity_type: node
-type: string
+type: string_long
 settings:
-  max_length: 255
-  is_ascii: false
   case_sensitive: false
 module: core
 locked: true
