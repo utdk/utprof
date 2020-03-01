@@ -10,7 +10,7 @@ field_name: field_utprof_profile_tags
 entity_type: node
 bundle: utprof_profile
 label: 'Profile Tags'
-description: ''
+description: 'Add one or more tags, separated by a comma.'
 required: false
 translatable: false
 default_value: {  }

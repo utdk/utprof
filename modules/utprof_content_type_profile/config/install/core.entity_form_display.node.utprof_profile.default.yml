@@ -137,13 +137,9 @@ content:
     region: content
   field_utprof_profile_groups:
     weight: 25
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_buttons
     region: content
   field_utprof_profile_tags:
     weight: 26
@@ -153,7 +149,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_reference_autocomplete_tags
     region: content
   field_utprof_supplemental_info:
     weight: 23
