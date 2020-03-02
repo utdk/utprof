@@ -1,6 +1,9 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  enforced:
+    module:
+      - utprof_vocabulary_groups
 name: 'Profile Groups'
 vid: utprof_groups
 description: 'Use Profile Groups to categorize Profiles.'
