@@ -2,6 +2,9 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.utprof_profile.field_utprof_add_basic_info
+    - field.field.node.utprof_profile.field_utprof_add_contact_info
+    - field.field.node.utprof_profile.field_utprof_basic_media
     - field.field.node.utprof_profile.field_utprof_building_code
     - field.field.node.utprof_profile.field_utprof_building_room_numb
     - field.field.node.utprof_profile.field_utprof_contact_form_link
@@ -11,11 +14,9 @@ dependencies:
     - field.field.node.utprof_profile.field_utprof_email_address
     - field.field.node.utprof_profile.field_utprof_fax_number
     - field.field.node.utprof_profile.field_utprof_given_name
-    - field.field.node.utprof_profile.field_utprof_basic_media
     - field.field.node.utprof_profile.field_utprof_phone_number
     - field.field.node.utprof_profile.field_utprof_profile_groups
     - field.field.node.utprof_profile.field_utprof_profile_tags
-    - field.field.node.utprof_profile.field_utprof_add_contact_info
     - field.field.node.utprof_profile.field_utprof_surname
     - field.field.node.utprof_profile.field_utprof_website_link
     - node.type.utprof_profile
@@ -29,6 +30,29 @@ targetEntityType: node
 bundle: utprof_profile
 mode: default
 content:
+  field_utprof_add_basic_info:
+    weight: 118
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_utprof_add_contact_info:
+    weight: 115
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_utprof_basic_media:
+    type: entity_reference_entity_view
+    weight: 104
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
   field_utprof_building_code:
     weight: 107
     label: above
@@ -98,15 +122,6 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
-  field_utprof_basic_media:
-    type: entity_reference_entity_view
-    weight: 104
-    label: above
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    region: content
   field_utprof_phone_number:
     weight: 114
     label: above
@@ -129,13 +144,6 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
-    region: content
-  field_utprof_add_contact_info:
-    weight: 115
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
     region: content
   field_utprof_surname:
     weight: 116
