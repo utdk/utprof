@@ -3,6 +3,8 @@ status: true
 dependencies:
   config:
     - field.field.node.utprof_profile.field_utprof_add_basic_info
+    - field.field.node.utprof_profile.field_utprof_add_contact_info
+    - field.field.node.utprof_profile.field_utprof_basic_media
     - field.field.node.utprof_profile.field_utprof_building_code
     - field.field.node.utprof_profile.field_utprof_building_room_numb
     - field.field.node.utprof_profile.field_utprof_contact_form_link
@@ -12,11 +14,9 @@ dependencies:
     - field.field.node.utprof_profile.field_utprof_email_address
     - field.field.node.utprof_profile.field_utprof_fax_number
     - field.field.node.utprof_profile.field_utprof_given_name
-    - field.field.node.utprof_profile.field_utprof_basic_media
     - field.field.node.utprof_profile.field_utprof_phone_number
     - field.field.node.utprof_profile.field_utprof_profile_groups
     - field.field.node.utprof_profile.field_utprof_profile_tags
-    - field.field.node.utprof_profile.field_utprof_add_contact_info
     - field.field.node.utprof_profile.field_utprof_surname
     - field.field.node.utprof_profile.field_utprof_website_link
     - node.type.utprof_profile
@@ -92,10 +92,10 @@ content:
   field_utprof_designation:
     weight: 4
     settings:
-      rows: 5
+      size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
+    type: string_textfield
     region: content
   field_utprof_eid:
     weight: 5

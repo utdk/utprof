@@ -8,11 +8,11 @@ id: node.utprof_profile.field_utprof_designation
 field_name: field_utprof_designation
 entity_type: node
 bundle: utprof_profile
-label: Designation
-description: ''
+label: Designation(s)
+description: 'Add one or more titles, positions, or classifications (e.g., Assistant Director or PhD, Rhetoric, Purdue University).'
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string_long
+field_type: string

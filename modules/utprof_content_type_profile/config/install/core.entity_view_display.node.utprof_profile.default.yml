@@ -92,7 +92,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    type: text_default
     region: content
   field_utprof_eid:
     weight: 111
