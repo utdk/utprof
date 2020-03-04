@@ -15,7 +15,7 @@ dependencies:
     - field.field.node.utprof_profile.field_utprof_phone_number
     - field.field.node.utprof_profile.field_utprof_profile_groups
     - field.field.node.utprof_profile.field_utprof_profile_tags
-    - field.field.node.utprof_profile.field_utprof_supplemental_info
+    - field.field.node.utprof_profile.field_utprof_add_contact_info
     - field.field.node.utprof_profile.field_utprof_surname
     - field.field.node.utprof_profile.field_utprof_website_link
     - node.type.utprof_profile
@@ -130,7 +130,7 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  field_utprof_supplemental_info:
+  field_utprof_add_contact_info:
     weight: 115
     label: above
     settings: {  }
