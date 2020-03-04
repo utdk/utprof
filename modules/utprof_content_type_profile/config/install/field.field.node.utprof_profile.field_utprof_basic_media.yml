@@ -9,7 +9,7 @@ id: node.utprof_profile.field_utprof_basic_media
 field_name: field_utprof_basic_media
 entity_type: node
 bundle: utprof_profile
-label: Headshot
+label: Image
 description: ''
 required: false
 translatable: false
