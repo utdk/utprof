@@ -2,11 +2,11 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_utprof_headshot
+    - field.storage.node.field_utprof_basic_media
     - media.type.utexas_image
     - node.type.utprof_profile
-id: node.utprof_profile.field_utprof_headshot
-field_name: field_utprof_headshot
+id: node.utprof_profile.field_utprof_basic_media
+field_name: field_utprof_basic_media
 entity_type: node
 bundle: utprof_profile
 label: Headshot
