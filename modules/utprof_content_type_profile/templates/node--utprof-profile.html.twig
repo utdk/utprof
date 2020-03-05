@@ -115,6 +115,7 @@
 
   </div>
 
+{% if has_contact_info %}
   <div class="utprof__contact-wrapper">
 
     {% if content.field_utprof_email_address %}
@@ -168,4 +169,6 @@
     {% endif %}
 
   </div>
+{% endif %}
+
 </article>
