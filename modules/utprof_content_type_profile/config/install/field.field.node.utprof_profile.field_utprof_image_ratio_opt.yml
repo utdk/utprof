@@ -8,8 +8,8 @@ id: node.utprof_profile.field_utprof_image_ratio_opt
 field_name: field_utprof_image_ratio_opt
 entity_type: node
 bundle: utprof_profile
-label: 'Use Image Ratio'
-description: 'If you disable this, your image will use its default ratio.'
+label: 'Crop image to square aspect ratio'
+description: 'Disabling this option will allow the image to render at its original proportions (no cropping). For consistency between profiles, it is recommended to leave this option enabled.'
 required: false
 translatable: false
 default_value:
