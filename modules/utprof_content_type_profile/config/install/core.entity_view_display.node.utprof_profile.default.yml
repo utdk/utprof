@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.utprof_profile.field_utprof_email_address
     - field.field.node.utprof_profile.field_utprof_fax_number
     - field.field.node.utprof_profile.field_utprof_given_name
+    - field.field.node.utprof_profile.field_utprof_image_ratio_opt
     - field.field.node.utprof_profile.field_utprof_phone_number
     - field.field.node.utprof_profile.field_utprof_profile_groups
     - field.field.node.utprof_profile.field_utprof_profile_tags
@@ -31,14 +32,14 @@ bundle: utprof_profile
 mode: default
 content:
   field_utprof_add_basic_info:
-    weight: 118
+    weight: 17
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_utprof_add_contact_info:
-    weight: 115
+    weight: 14
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -46,15 +47,13 @@ content:
     region: content
   field_utprof_basic_media:
     type: entity_reference_entity_id
-    weight: 104
+    weight: 4
     label: hidden
-    settings:
-      view_mode: default
-      link: false
+    settings: {  }
     third_party_settings: {  }
     region: content
   field_utprof_building_code:
-    weight: 107
+    weight: 7
     label: hidden
     settings:
       link_to_entity: false
@@ -62,7 +61,7 @@ content:
     type: string
     region: content
   field_utprof_building_room_numb:
-    weight: 108
+    weight: 8
     label: hidden
     settings:
       link_to_entity: false
@@ -70,7 +69,7 @@ content:
     type: string
     region: content
   field_utprof_contact_form_link:
-    weight: 102
+    weight: 2
     label: hidden
     settings:
       trim_length: 130
@@ -82,7 +81,7 @@ content:
     type: link
     region: content
   field_utprof_content:
-    weight: 117
+    weight: 16
     label: hidden
     settings:
       tab_display: tabs
@@ -90,14 +89,15 @@ content:
     type: bootstrap_horizontal_tabs
     region: content
   field_utprof_designation:
-    weight: 109
+    weight: 9
     label: hidden
-    settings: {  }
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
-    type: text_default
+    type: string
     region: content
   field_utprof_eid:
-    weight: 111
+    weight: 10
     label: hidden
     settings:
       link_to_entity: false
@@ -105,14 +105,14 @@ content:
     type: string
     region: content
   field_utprof_email_address:
-    weight: 101
+    weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: email_mailto
     region: content
   field_utprof_fax_number:
-    weight: 112
+    weight: 11
     label: hidden
     settings:
       link_to_entity: false
@@ -120,7 +120,7 @@ content:
     type: string
     region: content
   field_utprof_given_name:
-    weight: 113
+    weight: 12
     label: hidden
     settings:
       link_to_entity: false
@@ -128,7 +128,7 @@ content:
     type: string
     region: content
   field_utprof_phone_number:
-    weight: 114
+    weight: 13
     label: hidden
     settings:
       link_to_entity: false
@@ -136,7 +136,7 @@ content:
     type: string
     region: content
   field_utprof_profile_groups:
-    weight: 105
+    weight: 5
     label: hidden
     settings:
       link: true
@@ -144,7 +144,7 @@ content:
     type: entity_reference_label
     region: content
   field_utprof_profile_tags:
-    weight: 106
+    weight: 6
     label: hidden
     settings:
       link: true
@@ -152,7 +152,7 @@ content:
     type: entity_reference_label
     region: content
   field_utprof_surname:
-    weight: 116
+    weight: 15
     label: hidden
     settings:
       link_to_entity: false
@@ -160,7 +160,7 @@ content:
     type: string
     region: content
   field_utprof_website_link:
-    weight: 103
+    weight: 3
     label: hidden
     settings:
       trim_length: 80
@@ -172,10 +172,11 @@ content:
     type: link
     region: content
   links:
-    weight: 100
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   display_breadcrumbs: true
   display_page_title: true
+  field_utprof_image_ratio_opt: true
