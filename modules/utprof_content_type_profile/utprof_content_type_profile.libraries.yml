@@ -1,0 +1,6 @@
+utprof:
+  version: 1.x
+  css:
+    theme:
+      css/utprof-node-styles.css: {}
+

@@ -5,11 +5,71 @@
  * Contains utprof content type .module file.
  */
 
-use Drupal\node\Entity\Node;
+use Drupal\Core\Link;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Language\Language;
+use Drupal\Core\Url;
 use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
+use Drupal\node\Entity\Node;
+
+/**
+ * Implements hook_theme().
+ */
+function utprof_content_type_profile_theme() {
+  return [
+    'node__utprof_profile' => [
+      'template' => 'node--utprof-profile',
+      'base hook' => 'node',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function utprof_content_type_profile_preprocess_node(&$variables) {
+  $variables['#attached']['library'][] =  'utprof_content_type_profile/utprof';
+  $node = $variables['elements']['#node'];
+  $type = $node->getType();
+  if ($type === 'utprof_profile') {
+
+    $eid = $node->get('field_utprof_eid');
+    if (!$eid->isEmpty()) {
+      $url = Url::fromUri('https://directory.utexas.edu/index.php?q=' . $eid->getString());
+      $link_options = [
+        'attributes' => [
+          'class' => [
+            'ut-btn',
+          ],
+        ],
+      ];
+      $url->setOptions($link_options);
+      $variables['directory_link'] = Link::fromTextAndUrl(t('View in Directory'), $url);
+    }
+
+    $headshot = $node->get('field_utprof_basic_media');
+    if (!$headshot->isEmpty()) {
+      if ($media = \Drupal::entityTypeManager()->getStorage('media')->load($headshot->getString())) {
+        $image_render_array = $media->field_utexas_media_image->view([
+          'type' => 'responsive_image',
+          'label' => 'hidden',
+          'settings' => [
+            'responsive_image_style' => 'utexas_responsive_image_pca',
+            'image_link' => '',
+          ],
+        ]);
+        $variables['basic_media'] = $image_render_array;
+      }
+    }
+
+    $building_code = $node->get('field_utprof_building_code');
+    if (!$building_code->isEmpty()) {
+      $url = Url::fromUri('https://utdirect.utexas.edu/apps/campus/buildings/nlogon/maps/UTM/' . $building_code->getString());
+      $variables['building_code'] = Link::fromTextAndUrl($building_code, $url);
+    }
+  }
+}
 
 /**
  * Helper function to create a media item.
