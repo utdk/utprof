@@ -5,8 +5,6 @@
  * Profile content type installation file.
  */
 
-
-
 /**
  * Implements hook_install().
  */
