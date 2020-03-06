@@ -48,6 +48,22 @@ function utprof_content_type_profile_preprocess_node(&$variables) {
       $variables['directory_link'] = Link::fromTextAndUrl(t('View in Directory'), $url);
     }
 
+    $contact_link = $node->get('field_utprof_contact_form_link');
+    if (!$contact_link->isEmpty()) {
+      $url = Url::fromUri($contact_link->getString());
+      $link_options = [
+        'attributes' => [
+          'class' => [
+            'ut-btn',
+          ],
+        ],
+      ];
+      // kint($variables['content']['field_utprof_contact_form_link']['#title']);
+      $link_title = $variables['content']['field_utprof_contact_form_link']['#title'];
+      $url->setOptions($link_options);
+      $variables['contact_form_link'] = Link::fromTextAndUrl(t($link_title), $url);
+    }
+
     $headshot = $node->get('field_utprof_basic_media');
     if (!$headshot->isEmpty()) {
       if ($media = \Drupal::entityTypeManager()->getStorage('media')->load($headshot->getString())) {
@@ -68,6 +84,9 @@ function utprof_content_type_profile_preprocess_node(&$variables) {
       $url = Url::fromUri('https://utdirect.utexas.edu/apps/campus/buildings/nlogon/maps/UTM/' . $building_code->getString());
       $variables['building_code'] = Link::fromTextAndUrl($building_code, $url);
     }
+
+
+
   }
 }
 
