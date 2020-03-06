@@ -86,6 +86,10 @@
     flex: 0 1 70%;
   }
 
+  .utprof__wrapper--no-contact-info {
+    flex-basis: auto;
+  }
+
   .utprof__img {
     float: left;
     max-width: 250px;
