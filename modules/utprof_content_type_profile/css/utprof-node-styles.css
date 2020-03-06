@@ -113,40 +113,5 @@
   .utprof__contact-wrapper {
     flex: 0 1 25%;
   }
-
-  .utprof__email-address a {
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-all;
-  }
 }
 
-/* Put border around contact fields. */
-.utprof__contact-wrapper {
-  border: 1px solid #ddd;
-  padding: 0 1.5rem 1.5rem 1.5rem;
-}
-
-.contact-wrapper-title {
-  font-style: italic;
-  border-bottom: 1px solid #ddd;
-  padding: .75rem 0;
-  font-size: 1.125rem;
-  text-align: center;
-}
-
-.utprof__email-address, .utprof__web-link, .utprof__ph-number, .utprof__fax-number, .utprof__wrapper-code-rm, .utprof__contact-link, .utprof__additional-contact-info {
-  margin-top: 1.5rem;
-}
-
-.utprof__additional-contact-info p:last-child {
-  margin-bottom: 0;
-}
-
-.utprof__content ul li {
-  font-weight: bold;
-}
-/* labels:
-line-height: 1.1875rem;
-font-style: normal;
-font-weight: 600; */

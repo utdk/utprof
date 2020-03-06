@@ -3,4 +3,4 @@ utprof:
   css:
     theme:
       css/utprof-node-styles.css: {}
-
+      css/utprof-node-contact-info-styles.css: {}
