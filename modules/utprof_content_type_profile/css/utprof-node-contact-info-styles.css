@@ -28,8 +28,17 @@
   text-align: center;
 }
 
+.utprof__contact-wrapper h5.field__label {
+  font-size: .8rem;
+  margin-bottom: 0;
+}
+
+.utprof__contact-wrapper h5.field__label:after {
+  content: ':';
+}
+
 .utprof__email-address, .utprof__web-link, .utprof__ph-number, .utprof__fax-number, .utprof__wrapper-code-rm, .utprof__contact-link, .utprof__additional-contact-info {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .utprof__additional-contact-info p:last-child {
