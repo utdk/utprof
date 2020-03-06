@@ -60,6 +60,10 @@
     max-width: 175px;
   }
 
+  .utprof__designation-add-basic {
+  padding-top: 0;
+}
+
   .utprof__content-bottom {
     clear: both;
     padding-top: 1.5rem;
