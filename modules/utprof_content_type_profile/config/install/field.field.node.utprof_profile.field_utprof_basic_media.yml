@@ -10,7 +10,7 @@ field_name: field_utprof_basic_media
 entity_type: node
 bundle: utprof_profile
 label: Image
-description: ''
+description: 'For best results, upload an image of at least 500 pixels in width.'
 required: false
 translatable: false
 default_value: {  }

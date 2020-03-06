@@ -80,7 +80,11 @@
   ]
 %}
 <article{{ attributes.addClass(classes) }}>
+{% if has_contact_info %}
   <div class="utprof__wrapper">
+{% else %}
+  <div class="utprof__wrapper utprof__wrapper--no-contact-info">
+{% endif %}
     <div class="utprof__content-top">
 
       {% if basic_media %}
@@ -115,6 +119,7 @@
 
   </div>
 
+{% if has_contact_info %}
   <div class="utprof__contact-wrapper">
     <div class="contact-wrapper-title">Contact Information</div>
 
@@ -170,4 +175,6 @@
     {% endif %}
 
   </div>
+{% endif %}
+
 </article>

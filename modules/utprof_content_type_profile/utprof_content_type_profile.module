@@ -65,12 +65,13 @@ function utprof_content_type_profile_preprocess_node(&$variables) {
 
     $headshot = $node->get('field_utprof_basic_media');
     if (!$headshot->isEmpty()) {
+      $user_defined_image_style = $node->get('field_utprof_image_ratio_opt')->getString() == 1 ? 'utexas_image_style_500w_500h' : 'utexas_image_style_500w';
       if ($media = \Drupal::entityTypeManager()->getStorage('media')->load($headshot->getString())) {
         $image_render_array = $media->field_utexas_media_image->view([
-          'type' => 'responsive_image',
+          'type' => 'image',
           'label' => 'hidden',
           'settings' => [
-            'responsive_image_style' => 'utexas_responsive_image_pca',
+            'image_style' => $user_defined_image_style,
             'image_link' => '',
           ],
         ]);
@@ -84,8 +85,25 @@ function utprof_content_type_profile_preprocess_node(&$variables) {
       $variables['building_code'] = Link::fromTextAndUrl($building_code, $url);
     }
 
+    $contact_info_fields = [
+      'field_utprof_email_address',
+      'field_utprof_website_link',
+      'field_utprof_phone_number',
+      'field_utprof_fax_number',
+      'field_utprof_building_code',
+      'field_utprof_building_room_numb',
+      'field_utprof_contact_form_link',
+      'field_utprof_add_contact_info',
+    ];
 
-
+    $has_contact_info = FALSE;
+    foreach ($contact_info_fields as $contact_info_field) {
+      if ($node->hasField($contact_info_field) && !$node->$contact_info_field->isEmpty()) {
+        $has_contact_info = TRUE;
+        break;
+      }
+    }
+    $variables['has_contact_info'] = $has_contact_info;
   }
 }
 
