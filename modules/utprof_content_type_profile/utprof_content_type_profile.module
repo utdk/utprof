@@ -85,16 +85,20 @@ function utprof_content_type_profile_preprocess_node(&$variables) {
 
     $building_code = $node->get('field_utprof_building_code');
     $building_code_value = NULL;
+    $building_code_link = NULL;
     if (!$building_code->isEmpty()) {
       $url = Url::fromUri('https://utdirect.utexas.edu/apps/campus/buildings/nlogon/maps/UTM/' . $building_code->getString());
-      $building_code_value = Link::fromTextAndUrl($building_code, $url);
+      $building_code = Link::fromTextAndUrl($building_code, $url);
+      $building_code_value = $building_code->getText()->getValue()[0]['value'];
+      $building_code_link = $building_code->getUrl()->getUri();
     }
     $building_room = $node->get('field_utprof_building_room_numb');
     $building_room_value = NULL;
     if (!$building_room->isEmpty()) {
       $building_room_value = $node->get('field_utprof_building_room_numb')->getString();
     }
-    $variables['building_information']['code'] = $building_code_value ?? NULL;
+    $variables['building_information']['code_value'] = $building_code_value ?? NULL;
+    $variables['building_information']['code_link'] = $building_code_link ?? NULL;
     $variables['building_information']['room_number'] = $building_room_value ?? NULL;
 
     $contact_info_fields = [
