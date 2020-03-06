@@ -50,12 +50,13 @@ function utprof_content_type_profile_preprocess_node(&$variables) {
 
     $headshot = $node->get('field_utprof_basic_media');
     if (!$headshot->isEmpty()) {
+      $user_defined_image_style = $node->get('field_utprof_image_ratio_opt')->getString() == 1 ? 'utexas_image_style_500w_500h' : 'utexas_image_style_500w';
       if ($media = \Drupal::entityTypeManager()->getStorage('media')->load($headshot->getString())) {
         $image_render_array = $media->field_utexas_media_image->view([
-          'type' => 'responsive_image',
+          'type' => 'image',
           'label' => 'hidden',
           'settings' => [
-            'responsive_image_style' => 'utexas_responsive_image_pca',
+            'image_style' => $user_defined_image_style,
             'image_link' => '',
           ],
         ]);

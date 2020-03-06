@@ -1,123 +1,85 @@
-/* Styling for the UTProf profiles nodes. */
+/* Styling for Profile node, full display. */
+
+/* Baseline (mobile-first) styles */
 .utprof-profile {
-   display: flex;
-   flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-
-.utprof-profile p {
-  max-width: 65ch;
-}
-
-.utprof__img {
+.utprof__wrapper {
   flex: 0 1 100%;
 }
-
 .utprof__designation-add-basic {
   padding-top: 1.5rem;
 }
-
 .utprof__add-basic-info p:last-child {
   margin-bottom: 0;
 }
-
 .utprof__content-bottom {
+  clear: both;
   padding-top: 1.5rem;
 }
-
 .utprof__content-bottom .utprof__content ul li {
   display: inline-block;
 }
-
 .utprof__contact-wrapper {
   flex: 0 1 100%;
 }
-
 .utprof__wrapper-code-rm .utprof__bldg-code {
   display: inline-block;
   margin-right: .5rem;
 }
-
 .utprof__wrapper-code-rm .utprof__rm-number {
   display: inline-block;
   margin-right: .5rem;
 }
-
 .utprof__contact-wrapper .utprof__additional-contact-info {
   margin-top: 1rem;
 }
-
-@media screen and (min-width: 450px) and (max-width: 699px) {
-  .utprof-profile {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .utprof__wrapper {
-    flex: 0 1 100%;
-  }
-
-  .utprof__img {
-    float: left;
-    padding-right: 1.5rem;
-    max-width: 175px;
-  }
-
-  .utprof__content-bottom {
-    clear: both;
-    padding-top: 1.5rem;
-  }
-
-  .utprof__content-bottom .utprof__content ul li {
-    display: inline-block;
-  }
-
-  .utprof__contact-wrapper {
-    flex: 0 1 100%;
-  }
+.utprof__wrapper--no-contact-info {
+  flex-basis: auto;
+}
+.utprof__img {
+  flex: 0 1 100%;
+}
+.utprof__img img {
+  display: block;
+  margin: auto;
+}
+.utprof-profile p {
+  max-width: 65ch;
 }
 
-@media screen and (min-width: 700px) {
+/* Styles for anything above mobile */
+/* Un-stack the image & basic info;
+Keep the contact info stacked */
+@media screen and (min-width: 501px) {
   .utprof-profile {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
   }
-
-  .utprof__wrapper {
-    flex: 0 1 70%;
-  }
-
-  .utprof__wrapper--no-contact-info {
-    flex-basis: auto;
-  }
-
   .utprof__img {
     float: left;
     max-width: 250px;
     padding-right: 1.5rem;
-    width: 30%;
   }
-
   .utprof__designation-add-basic {
     padding-top: 0;
+  }
 }
 
-  .utprof__content-bottom {
-    clear: both;
-    padding-top: 1.5rem;
+/* Styles for anything above tablet */
+/* Un-stack the contact info */
+@media screen and (min-width: 901px) {
+  .utprof__wrapper {
+    flex: 0 1 70%;
   }
-
-  .utprof__content-bottom .utprof__content ul li {
-    display: inline-block;
-  }
-
   .utprof__contact-wrapper {
     flex: 0 1 25%;
   }
-
   .utprof__email-address a {
     overflow-wrap: break-word;
     word-wrap: break-word;
