@@ -50,7 +50,8 @@ function utprof_content_type_profile_preprocess_node(&$variables) {
 
     $contact_link = $node->get('field_utprof_contact_form_link');
     if (!$contact_link->isEmpty()) {
-      $url = Url::fromUri($contact_link->getString());
+      $contact_values = $contact_link->getValue();
+      $url = Url::fromUri($contact_values[0]['uri']);
       $link_options = [
         'attributes' => [
           'class' => [
@@ -58,10 +59,8 @@ function utprof_content_type_profile_preprocess_node(&$variables) {
           ],
         ],
       ];
-      // kint($variables['content']['field_utprof_contact_form_link']['#title']);
-      $link_title = $variables['content']['field_utprof_contact_form_link']['#title'];
       $url->setOptions($link_options);
-      $variables['contact_form_link'] = Link::fromTextAndUrl(t($link_title), $url);
+      $variables['contact_form_link'] = Link::fromTextAndUrl(t($contact_values[0]['title']), $url);
     }
 
     $headshot = $node->get('field_utprof_basic_media');
