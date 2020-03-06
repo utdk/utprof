@@ -116,6 +116,7 @@
   </div>
 
   <div class="utprof__contact-wrapper">
+    <div class="contact-wrapper-title">Contact Information</div>
 
     {% if content.field_utprof_email_address %}
       <div class="utprof__email-address">
@@ -142,6 +143,7 @@
     {% endif %}
 
    <div class="utprof__wrapper-code-rm">
+    <div class="bldg-code-room-label">Building and Room #:</div>
       {% if content.field_utprof_building_code %}
         <div class="utprof__bldg-code">
           {{ content.field_utprof_building_code }}
