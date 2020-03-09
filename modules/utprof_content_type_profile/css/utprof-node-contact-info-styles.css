@@ -15,7 +15,7 @@
 .utprof__contact-wrapper {
   border: 1px solid #ddd;
   padding: 0 1.5rem .75rem 1.5rem;
-  font-size: .8rem;
+  font-size: .875rem;
 }
 
 .utprof__contact-link a.ut-btn {
@@ -23,7 +23,7 @@
 }
 
 .utprof__contact-wrapper p {
-  font-size: .8rem;
+  font-size: .875rem;
 }
 
 .contact-wrapper-title {
@@ -36,7 +36,7 @@
 }
 
 .utprof__contact-wrapper h5.field__label {
-  font-size: .8rem;
+  font-size: .875rem;
   margin-bottom: 0;
 }
 
