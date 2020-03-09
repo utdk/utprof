@@ -17,7 +17,7 @@ $default_profile_nodes[] = [
   ],
 ];
 
-$filepath_1 = drupal_get_path('module', 'utprof_content_type_profile') . '/assets/general-2.jpg';
+$filepath_1 = drupal_get_path('module', 'utprof_content_type_profile') . '/assets/rodin-young-girl.jpg';
 $default_profile_nodes[] = [
   'title' => t('Sample Profile (maximal content)'),
   'profile_groups' => [
@@ -47,12 +47,12 @@ $default_profile_nodes[] = [
     'field_utprof_content' => [
       0 => [
         'header' => 'History',
-        'body_value' => '<p>Messalina was born around 20 AD. She was a cousin of Nero and Caligula, and became empress when she married Claudius. Along with Augustus’ daughter Julia (who he had banished for sleeping with so many different men), Messalina is probably one of the most notoriously promiscuous women of Rome. Image used under the <a href="https://flic.kr/p/z4EhPK">FlickR Creative Commons</a> license.</p>',
+        'body_value' => "<p>Messalina was the daughter of Domitia Lepida the Younger and her first cousin Marcus Valerius Messalla Barbatus. Her mother was the youngest child of the consul Lucius Domitius Ahenobarbus and Antonia Major. Her mother's brother, Gnaeus Domitius Ahenobarbus, had been the first husband of the future Empress Agrippina the Younger and the biological father of the future Emperor Nero, making Nero Messalina's first cousin despite a seventeen-year age difference. Messalina's grandmothers Claudia Marcella and Antonia Major were half sisters. Claudia Marcella, Messalina's paternal grandmother, was the daughter of Augustus' sister Octavia the Younger by her marriage to Gaius Claudius Marcellus Minor. Image used under the <a href='https://flic.kr/p/z4EhPK'>FlickR Creative Commons</a> license.</p>",
         'body_format' => 'flex_html',
       ],
       1 => [
         'header' => 'Later Work',
-        'body_value' => "<p>One of the few avenues to drawing a moral lesson from the story of Messalina in painting was to picture her violent end. An early example was Francesco Solimena's The Death of Messalina (1708).[46] In this scene of vigorous action, a Roman soldier pulls back his arm to stab the Empress while fending off her mother. A witness in armour observes calmly from the shadows in the background. Georges Rochegrosse's painting of 1916 is a reprise of the same scene.</p>",
+        'body_value' => "<p>Little is known about Messalina's life prior to her marriage in 38 to Claudius, her first cousin once removed, who was then about 47 years old. Two children were born as a result of their union: a daughter Claudia Octavia (born 39 or 40), a future empress, stepsister and first wife to the emperor Nero; and a son, Britannicus. When the Emperor Caligula was murdered in 41, the Praetorian Guard proclaimed Claudius the new emperor and Messalina became empress.</p>",
         'body_format' => 'flex_html',
       ],
     ],
@@ -73,7 +73,7 @@ $default_profile_nodes[] = [
   ],
 ];
 
-$filepath_2 = drupal_get_path('module', 'utprof_content_type_profile') . '/assets/rodin-young-girl.jpg';
+$filepath_2 = drupal_get_path('module', 'utprof_content_type_profile') . '/assets/general-2.jpg';
 $default_profile_nodes[] = [
   'title' => t('Gnaeus Scipio Calvus'),
   'profile_groups' => [
@@ -169,7 +169,7 @@ $default_profile_nodes[] = [
     'field_utprof_content' => [
       0 => [
         'header' => 'History',
-        'body_value' => '<p>Marcus Tullius Cicero was a Roman philosopher, politician, lawyer, orator, political theorist, consul and constitutionalist. He came from a wealthy municipal family of the Roman equestrian order, and is widely considered one of Rome\'s greatest orators and prose stylists. Image used under the <a href="https://flic.kr/p/k9fy44">FlickR Creative Commons</a> license.</p>',
+        'body_value' => "<p>Marcus Tullius Cicero was a Roman philosopher, politician, lawyer, orator, political theorist, consul and constitutionalist. He came from a wealthy municipal family of the Roman equestrian order, and is widely considered one of Rome's greatest orators and prose stylists. Image used under the <a href='https://flic.kr/p/k9fy44'>FlickR Creative Commons</a> license.</p>",
         'body_format' => 'flex_html',
       ],
     ],
