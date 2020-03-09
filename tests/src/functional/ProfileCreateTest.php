@@ -33,7 +33,7 @@ class ProfileCreateTest extends BrowserTestBase {
   protected static $modules = [
     'utprof',
     'utprof_content_type_profile',
-    'utprof_role_profile_editor',
+    // 'utprof_role_profile_editor',
     'utprof_vocabulary_groups',
     'utprof_vocabulary_tags',
   ];
@@ -57,7 +57,7 @@ class ProfileCreateTest extends BrowserTestBase {
 
     $this->testUser = $this->drupalCreateUser();
     $testUser = user_load_by_name($this->testUser->getAccountName());
-    $testUser->addRole('utprof_profile_editor');
+    // $testUser->addRole('utprof_profile_editor');
     $testUser->save();
     $this->drupalLogin($this->testUser);
 
