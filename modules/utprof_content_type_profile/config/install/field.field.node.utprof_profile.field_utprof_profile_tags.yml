@@ -9,7 +9,7 @@ id: node.utprof_profile.field_utprof_profile_tags
 field_name: field_utprof_profile_tags
 entity_type: node
 bundle: utprof_profile
-label: 'Profile Tags'
+label: 'Profile Tags:'
 description: 'Add one or more tags, separated by a comma.'
 required: false
 translatable: false

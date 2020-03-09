@@ -101,6 +101,13 @@ function utprof_content_type_profile_preprocess_node(&$variables) {
     $variables['building_information']['code_link'] = $building_code_link ?? NULL;
     $variables['building_information']['room_number'] = $building_room_value ?? NULL;
 
+    $phone_number = $node->get('field_utprof_phone_number');
+    if (!$phone_number->isEmpty()) {
+      $phone_number_text = $phone_number->getString();
+      $phone_link = Url::fromUri('tel:' . rawurlencode($phone_number_text));
+      $variables['phone_link'] = Link::fromTextAndUrl($phone_number_text, $phone_link);
+    }
+
     $contact_info_fields = [
       'field_utprof_email_address',
       'field_utprof_website_link',

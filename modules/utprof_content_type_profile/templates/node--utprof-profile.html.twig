@@ -139,9 +139,10 @@
         </div>
       {% endif %}
 
-      {% if content.field_utprof_phone_number %}
+      {% if phone_link %}
+        <h5 class="field__label">Phone:</h5>
         <div class="utprof__ph-number">
-          {{ content.field_utprof_phone_number }}
+          {{ phone_link }}
         </div>
       {% endif %}
 
@@ -153,8 +154,8 @@
 
       <div class="utprof__wrapper-code-rm">
         {% if building_information.code_value %}
+          <h5 class="field__label">Campus Location:</h5>
           <div class="utprof__bldg-code">
-            <div class="code-rm-label">Location: </div>
             <a href="{{ building_information.code_link }}">{{ building_information.code_value }}</a>
             {{ building_information.room_number }}
           </div>

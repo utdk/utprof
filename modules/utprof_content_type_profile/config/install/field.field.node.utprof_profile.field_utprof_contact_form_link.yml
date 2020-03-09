@@ -10,7 +10,7 @@ id: node.utprof_profile.field_utprof_contact_form_link
 field_name: field_utprof_contact_form_link
 entity_type: node
 bundle: utprof_profile
-label: 'Contact Form Link'
+label: 'Contact Form Link:'
 description: 'Provide website a contact form URL or email address.'
 required: false
 translatable: false

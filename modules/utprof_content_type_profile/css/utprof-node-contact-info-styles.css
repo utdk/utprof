@@ -1,10 +1,6 @@
 /* Styling for Contact Information part of profiles nodes. */
 
-.utprof__wrapper-code-rm .utprof__bldg-code {
-  display: inline-block;
-  margin-right: .5rem;
-}
-.utprof__wrapper-code-rm .utprof__rm-number {
+.utprof__wrapper-code-rm .utprof__bldg-code, .utprof__wrapper-code-rm .utprof__rm-number {
   display: inline-block;
   margin-right: .5rem;
 }
@@ -44,11 +40,7 @@
   margin-bottom: 0;
 }
 
-.utprof__contact-wrapper h5.field__label:after {
-  content: ':';
-}
-
-.field--label-above, .field--name-field-utprof-add-contact-info {
+.field__label, .field--label-above, .field--name-field-utprof-add-contact-info {
   margin-top: 1rem;
 }
 

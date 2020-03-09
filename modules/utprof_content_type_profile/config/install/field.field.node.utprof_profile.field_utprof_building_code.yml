@@ -8,7 +8,7 @@ id: node.utprof_profile.field_utprof_building_code
 field_name: field_utprof_building_code
 entity_type: node
 bundle: utprof_profile
-label: 'Building Code'
+label: 'Building Code:'
 description: ''
 required: false
 translatable: false

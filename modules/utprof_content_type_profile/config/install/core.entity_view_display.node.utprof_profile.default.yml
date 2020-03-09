@@ -55,7 +55,7 @@ content:
     region: content
   field_utprof_building_code:
     weight: 7
-    label: hidden
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -107,14 +107,14 @@ content:
     region: content
   field_utprof_email_address:
     weight: 1
-    label: hidden
+    label: above
     settings: {  }
     third_party_settings: {  }
     type: email_mailto
     region: content
   field_utprof_fax_number:
     weight: 11
-    label: hidden
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -130,7 +130,7 @@ content:
     region: content
   field_utprof_phone_number:
     weight: 13
-    label: hidden
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -162,7 +162,7 @@ content:
     region: content
   field_utprof_website_link:
     weight: 3
-    label: hidden
+    label: above
     settings:
       trim_length: 80
       url_only: false
