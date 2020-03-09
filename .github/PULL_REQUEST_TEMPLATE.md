@@ -34,7 +34,7 @@ Fixes #
 0. `composer require utexas/utdk_profile:dev-<BRANCH-NAME>`
 0. `composer run-script dev-scaffold`
 0. `fin init && fin init-site --wcs`
-0. `composer require utexas/utexas_profile:dev-<BRANCH-NAME>`
+0. `composer require utexas/utprof:dev-<BRANCH-NAME>`
 0. `fin drush en utprof -y`
 
 ## Reference: running tests locally
