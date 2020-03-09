@@ -26,17 +26,6 @@
 .utprof__contact-wrapper {
   flex: 0 1 100%;
 }
-.utprof__wrapper-code-rm .utprof__bldg-code {
-  display: inline-block;
-  margin-right: .5rem;
-}
-.utprof__wrapper-code-rm .utprof__rm-number {
-  display: inline-block;
-  margin-right: .5rem;
-}
-.utprof__contact-wrapper .utprof__additional-contact-info {
-  margin-top: 1rem;
-}
 .utprof__wrapper--no-contact-info {
   flex-basis: auto;
 }
@@ -47,9 +36,6 @@
   display: block;
   margin: auto;
 }
-/* .utprof-profile p {
-  max-width: 65ch;
-} */
 
 /* Styles for anything above mobile */
 /* Un-stack the image & basic info;
