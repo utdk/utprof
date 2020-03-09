@@ -47,9 +47,9 @@
   display: block;
   margin: auto;
 }
-.utprof-profile p {
+/* .utprof-profile p {
   max-width: 65ch;
-}
+} */
 
 /* Styles for anything above mobile */
 /* Un-stack the image & basic info;
@@ -60,6 +60,7 @@ Keep the contact info stacked */
     justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: baseline;
   }
   .utprof__img {
     float: left;
@@ -81,3 +82,9 @@ Keep the contact info stacked */
     flex: 0 1 25%;
   }
 }
+
+/* Layout with no contact information */
+.utprof__wrapper.utprof__wrapper--no-contact-info {
+  flex: 1 1 100%;
+}
+
