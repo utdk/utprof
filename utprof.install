@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Profile base module installation file.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function utprof_requirements() {
+  $active_profile = \Drupal::installProfile();
+  $profile_information = system_get_info('module', $active_profile);
+  if ($profile_information['distribution']['name'] !== 'UTexas') {
+    $requirements['install_profile']['severity'] = REQUIREMENT_ERROR;
+    $requirements['install_profile']['description'] = t('The UT Drupal Kit Profile add-on could not be installed because it requires the UT Drupal Kit installation profile.');
+  }
+  return $requirements;
+}
