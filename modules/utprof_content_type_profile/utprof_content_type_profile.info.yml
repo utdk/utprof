@@ -1,6 +1,6 @@
-name: Content Type - Profile
-description: Provides a content type component for the 'Profile' module.
-package: UT Drupal Kit Profile Add-on
+name: 'Content Type - Profile'
+description: 'Provides a content type component for the ''Profile'' module.'
+package: 'UT Drupal Kit Profile Add-on'
 type: module
 core: 8.x
 dependencies:
@@ -21,3 +21,4 @@ dependencies:
   - utprof:utprof
   - utprof:utprof_vocabulary_groups
   - utprof:utprof_vocabulary_tags
+

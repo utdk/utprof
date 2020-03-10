@@ -10,7 +10,7 @@ id: node.utprof_profile.field_utprof_add_basic_info
 field_name: field_utprof_add_basic_info
 entity_type: node
 bundle: utprof_profile
-label: 'Additional Basic Information'
+label: 'Additional Basic Information:'
 description: 'Optionally add additional basic information that is not satisfied by the fields above.'
 required: false
 translatable: false

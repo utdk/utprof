@@ -26,17 +26,6 @@
 .utprof__contact-wrapper {
   flex: 0 1 100%;
 }
-.utprof__wrapper-code-rm .utprof__bldg-code {
-  display: inline-block;
-  margin-right: .5rem;
-}
-.utprof__wrapper-code-rm .utprof__rm-number {
-  display: inline-block;
-  margin-right: .5rem;
-}
-.utprof__contact-wrapper .utprof__additional-contact-info {
-  margin-top: 1rem;
-}
 .utprof__wrapper--no-contact-info {
   flex-basis: auto;
 }
@@ -46,9 +35,6 @@
 .utprof__img img {
   display: block;
   margin: auto;
-}
-.utprof-profile p {
-  max-width: 65ch;
 }
 
 /* Styles for anything above mobile */
@@ -60,6 +46,7 @@ Keep the contact info stacked */
     justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: baseline;
   }
   .utprof__img {
     float: left;
@@ -80,9 +67,9 @@ Keep the contact info stacked */
   .utprof__contact-wrapper {
     flex: 0 1 25%;
   }
-  .utprof__email-address a {
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-all;
-  }
+}
+
+/* Layout with no contact information */
+.utprof__wrapper.utprof__wrapper--no-contact-info {
+  flex: 1 1 100%;
 }
