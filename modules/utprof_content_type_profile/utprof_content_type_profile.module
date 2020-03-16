@@ -33,10 +33,10 @@ function utprof_content_type_profile_theme() {
  * Implements hook_preprocess_node().
  */
 function utprof_content_type_profile_preprocess_node(&$variables) {
-  $variables['#attached']['library'][] = 'utprof_content_type_profile/utprof';
   $node = $variables['elements']['#node'];
   $type = $node->getType();
   if ($type === 'utprof_profile') {
+    $variables['#attached']['library'][] = 'utprof_content_type_profile/utprof';
 
     // Build EID link.
     if ($node->hasField('field_utprof_eid') && !$node->get('field_utprof_eid')->isEmpty()) {
