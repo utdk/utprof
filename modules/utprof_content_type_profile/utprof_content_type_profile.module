@@ -38,8 +38,9 @@ function utprof_content_type_profile_preprocess_node(&$variables) {
   $type = $node->getType();
   if ($type === 'utprof_profile') {
 
-    $eid = $node->get('field_utprof_eid');
-    if (!$eid->isEmpty()) {
+    // Build EID link.
+    if ($node->hasField('field_utprof_eid') && !$node->get('field_utprof_eid')->isEmpty()) {
+      $eid = $node->get('field_utprof_eid');
       $url = Url::fromUri('https://directory.utexas.edu/index.php?q=' . $eid->getString());
       $link_options = [
         'attributes' => [
@@ -52,8 +53,9 @@ function utprof_content_type_profile_preprocess_node(&$variables) {
       $variables['directory_link'] = Link::fromTextAndUrl(t('View in Directory'), $url);
     }
 
-    $contact_link = $node->get('field_utprof_contact_form_link');
-    if (!$contact_link->isEmpty()) {
+    // Build contact form link.
+    if ($node->hasField('field_utprof_contact_form_link') && !$node->get('field_utprof_contact_form_link')->isEmpty()) {
+      $contact_link = $node->get('field_utprof_contact_form_link');
       $contact_values = $contact_link->getValue();
       $url = Url::fromUri($contact_values[0]['uri']);
       $link_options = [
@@ -67,9 +69,15 @@ function utprof_content_type_profile_preprocess_node(&$variables) {
       $variables['contact_form_link'] = Link::fromTextAndUrl(t($contact_values[0]['title']), $url);
     }
 
-    $headshot = $node->get('field_utprof_basic_media');
-    if (!$headshot->isEmpty()) {
-      $user_defined_image_style = $node->get('field_utprof_image_ratio_opt')->getString() == 1 ? 'utexas_image_style_500w_500h' : 'utexas_image_style_500w';
+    // Build basic media (headshot).
+    if ($node->hasField('field_utprof_basic_media') && !$node->get('field_utprof_basic_media')->isEmpty()) {
+      $headshot = $node->get('field_utprof_basic_media');
+
+      if ($node->hasField('field_utprof_image_ratio_opt') && !$node->get('field_utprof_image_ratio_opt')->isEmpty()) {
+        $use_primary_image_style = $node->get('field_utprof_image_ratio_opt');
+      }
+
+      $user_defined_image_style = $use_primary_image_style ? 'utexas_image_style_500w_500h' : 'utexas_image_style_500w';
       if ($media = \Drupal::entityTypeManager()->getStorage('media')->load($headshot->getString())) {
         $image_render_array = $media->field_utexas_media_image->view([
           'type' => 'image',
@@ -83,31 +91,34 @@ function utprof_content_type_profile_preprocess_node(&$variables) {
       }
     }
 
-    $building_code = $node->get('field_utprof_building_code');
+    // Build Building Information link.
     $building_code_value = NULL;
     $building_code_link = NULL;
-    if (!$building_code->isEmpty()) {
+    if ($node->hasField('field_utprof_building_code') && !$node->get('field_utprof_building_code')->isEmpty()) {
+      $building_code = $node->get('field_utprof_building_code');
       $url = Url::fromUri('https://utdirect.utexas.edu/apps/campus/buildings/nlogon/maps/UTM/' . $building_code->getString());
       $building_code = Link::fromTextAndUrl($building_code, $url);
       $building_code_value = $building_code->getText()->getValue()[0]['value'];
       $building_code_link = $building_code->getUrl()->getUri();
     }
-    $building_room = $node->get('field_utprof_building_room_numb');
+
     $building_room_value = NULL;
-    if (!$building_room->isEmpty()) {
+    if ($node->hasField('field_utprof_building_room_numb') && !$node->get('field_utprof_building_room_numb')->isEmpty()) {
       $building_room_value = $node->get('field_utprof_building_room_numb')->getString();
     }
     $variables['building_information']['code_value'] = $building_code_value ?? NULL;
     $variables['building_information']['code_link'] = $building_code_link ?? NULL;
     $variables['building_information']['room_number'] = $building_room_value ?? NULL;
 
-    $phone_number = $node->get('field_utprof_phone_number');
-    if (!$phone_number->isEmpty()) {
+    // Build phone number link.
+    if ($node->hasField('field_utprof_phone_number') && !$node->get('field_utprof_phone_number')->isEmpty()) {
+      $phone_number = $node->get('field_utprof_phone_number');
       $phone_number_text = $phone_number->getString();
       $phone_link = Url::fromUri('tel:' . rawurlencode($phone_number_text));
       $variables['phone_link'] = Link::fromTextAndUrl($phone_number_text, $phone_link);
     }
 
+    // Discover if contact information is present.
     $contact_info_fields = [
       'field_utprof_email_address',
       'field_utprof_website_link',
