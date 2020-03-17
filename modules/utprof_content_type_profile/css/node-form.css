@@ -1,0 +1,6 @@
+.field--name-field-utprof-surname,
+.field--name-field-utprof-given-name,
+.field--name-field-utprof-eid {
+  display: inline-block;
+  padding-right: 1rem;
+}

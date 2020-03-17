@@ -1,6 +1,11 @@
-utprof:
+node-display:
   version: 1.x
   css:
     theme:
-      css/utprof-node-styles.css: {}
-      css/utprof-node-contact-info-styles.css: {}
+      css/node-display.css: {}
+      css/contact-info.css: {}
+node-form:
+  version: 1.x
+  css:
+    theme:
+      css/node-form.css: {}

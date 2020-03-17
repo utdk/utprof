@@ -40,3 +40,13 @@ function utprof_content_type_profile_requirements($phase) {
   }
   return $requirements;
 }
+
+/**
+ * Enable the field_group module & update form config.
+ */
+function utprof_content_type_profile_update_8101() {
+  \Drupal::service('module_installer')->install(['field_group']);
+  \Drupal::service('features.manager')->import([
+    'utprof_content_type_profile',
+  ], TRUE);
+}
