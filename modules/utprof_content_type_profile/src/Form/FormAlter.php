@@ -50,8 +50,6 @@ class FormAlter {
     $form['tabs'] = [
       '#type' => 'horizontal_tabs',
       '#tree' => TRUE,
-      '#prefix' => '<div id="unique-wrapper">',
-      '#suffix' => '</div>',
       '#weight' => 100,
     ];
     $form['standard_fields'] = [
