@@ -13,6 +13,9 @@
 .utprof__designation-add-basic {
   padding-top: 1.5rem;
 }
+.utprof__designation .field__item {
+  margin-bottom: 10px;
+}
 .utprof__add-basic-info p:last-child {
   margin-bottom: 0;
 }
