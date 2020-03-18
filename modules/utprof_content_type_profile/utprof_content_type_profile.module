@@ -37,7 +37,7 @@ function utprof_content_type_profile_theme() {
 function utprof_content_type_profile_preprocess_node(&$variables) {
   $node = $variables['elements']['#node'];
   $type = $node->getType();
-  if ($type === 'utprof_profile') {
+  if ($type === 'utprof_profile' && $variables['view_mode'] == 'full') {
     $variables['#attached']['library'][] = 'utprof_content_type_profile/node-display';
 
     // Build EID link.
