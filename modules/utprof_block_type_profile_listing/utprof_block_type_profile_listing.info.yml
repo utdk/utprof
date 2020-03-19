@@ -1,0 +1,15 @@
+name: 'Block Type - Profile Listing'
+description: 'Provides a block type that displays a View, passing filter values for tags and groups.'
+type: module
+core: 8.x
+dependencies:
+  - drupal:block_content
+  - drupal:field
+  - drupal:taxonomy
+  - drupal:text
+  - utprof:utprof
+  - utprof:utprof_view_profiles
+  - utprof:utprof_vocabulary_groups
+  - utprof:utprof_vocabulary_tags
+package: 'UT Drupal Kit Profile Add-on'
+core_incompatible: false

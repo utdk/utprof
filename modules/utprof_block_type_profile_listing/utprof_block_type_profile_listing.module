@@ -1,0 +1,64 @@
+<?php
+
+/**
+ * @file
+ * Contains utprof block type .module file.
+ */
+
+use Drupal\block_content\Entity\BlockContent;
+use Drupal\block_content\BlockContentInterface;
+use Drupal\Core\Cache\Cache;
+use Drupal\utprof_block_type_profile_listing\ProfileListingHelper;
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function utprof_block_type_profile_listing_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  // Add a template suggestion for the utprof_profile_listing bundle.
+  if (isset($variables['elements']['content']['#block_content'])) {
+    $bundle = $variables['elements']['content']['#block_content']->bundle();
+    if ($bundle === 'utprof_profile_listing') {
+      // Add a bundle-specific theme suggestion.
+      array_splice($suggestions, 1, 0, 'block__bundle__' . $bundle);
+    }
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function utprof_block_type_profile_listing_theme($existing, $type, $theme, $path) {
+  // Register the templates defined in /templates.
+  return [
+    'block__bundle__utprof_profile_listing' => [
+      'render element' => 'elements',
+      'base hook' => 'block',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function utprof_block_type_profile_listing_preprocess_block(&$variables) {
+  // Add a rendered View of the Profile listings matching criteria specified
+  // from the block's fields.
+  $content = $variables['elements']['content'];
+  if (isset($content['#block_content']) && $content['#block_content'] instanceof BlockContentInterface) {
+    if ($content['#block_content']->bundle() == 'utprof_profile_listing') {
+      if ($listing = ProfileListingHelper::buildContextualView($content['#block_content'])) {
+        $variables['listing'] = $listing;
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function utprof_block_type_profile_listing_block_content_presave(BlockContent $block) {
+  // Clear the Profile View cache when a Profile block is saved.
+  if ($block->bundle() === 'utprof_profile_listing') {
+    Cache::invalidateTags(['config:views.view.utprof_profiles']);
+  }
+}

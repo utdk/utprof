@@ -24,6 +24,18 @@ function utprof_content_type_profile_theme() {
       'template' => 'node--utprof-profile',
       'base hook' => 'node',
     ],
+    'node__utprof_profile__utexas_basic' => [
+      'template' => 'node--utprof-profile--utexas-basic',
+      'base hook' => 'node',
+    ],
+    'node__utprof_profile__utexas_prominent' => [
+      'template' => 'node--utprof-profile--utexas-prominent',
+      'base hook' => 'node',
+    ],
+    'node__utprof_profile__utexas_name_only' => [
+      'template' => 'node--utprof-profile--utexas-name-only',
+      'base hook' => 'node',
+    ],
     'field__node__utprof_profile' => [
       'template' => 'field--node--utprof-profile',
       'base hook' => 'field',
