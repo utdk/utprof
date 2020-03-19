@@ -9,3 +9,21 @@ node-form:
   css:
     theme:
       css/node-form.css: {}
+view-mode-utexas-basic:
+  version: 1.x
+  css:
+    theme:
+      css/view-mode-base.css: {}
+      css/view-mode-utexas-basic.css: {}
+view-mode-utexas-name-only:
+  version: 1.x
+  css:
+    theme:
+      css/view-mode-base.css: {}
+      css/view-mode-utexas-name-only.css: {}
+view-mode-utexas-prominent:
+  version: 1.x
+  css:
+    theme:
+      css/view-mode-base.css: {}
+      css/view-mode-utexas-prominent.css: {}

@@ -8,12 +8,11 @@
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Language\Language;
-use Drupal\Core\Link;
-use Drupal\Core\Url;
 use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\utprof_content_type_profile\Form\FormAlter;
+use Drupal\utprof_content_type_profile\ProfileContentTypeHelper;
 
 /**
  * Implements hook_theme().
@@ -49,97 +48,39 @@ function utprof_content_type_profile_theme() {
 function utprof_content_type_profile_preprocess_node(&$variables) {
   $node = $variables['elements']['#node'];
   $type = $node->getType();
-  if ($type === 'utprof_profile' && $variables['view_mode'] == 'full') {
-    $variables['#attached']['library'][] = 'utprof_content_type_profile/node-display';
+  $view_mode = $variables['view_mode'];
 
-    // Build EID link.
-    if ($node->hasField('field_utprof_eid') && !$node->get('field_utprof_eid')->isEmpty()) {
-      $eid = $node->get('field_utprof_eid');
-      $url = Url::fromUri('https://directory.utexas.edu/index.php?q=' . $eid->getString());
-      $link_options = [
-        'attributes' => [
-          'class' => [
-            'ut-btn',
-          ],
-        ],
-      ];
-      $url->setOptions($link_options);
-      $variables['directory_link'] = Link::fromTextAndUrl(t('View in Directory'), $url);
-    }
+  if ($type !== 'utprof_profile') {
+    return;
+  }
 
-    // Build contact form link.
-    if ($node->hasField('field_utprof_contact_form_link') && !$node->get('field_utprof_contact_form_link')->isEmpty()) {
-      $contact_link = $node->get('field_utprof_contact_form_link');
-      $contact_values = $contact_link->getValue();
-      $url = Url::fromUri($contact_values[0]['uri']);
-      $link_options = [
-        'attributes' => [
-          'class' => [
-            'ut-btn',
-          ],
-        ],
-      ];
-      $url->setOptions($link_options);
-      $variables['contact_form_link'] = Link::fromTextAndUrl(t($contact_values[0]['title']), $url);
-    }
+  $variables['prepared_title'] = ProfileContentTypeHelper::getPreparedTitle($node);
+  switch ($view_mode) {
+    case 'full':
+      $variables['#attached']['library'][] = 'utprof_content_type_profile/node-display';
+      $variables['building_information'] = ProfileContentTypeHelper::getBuildingInformation($node);
+      $variables['phone_link'] = ProfileContentTypeHelper::getPhone($node);
+      $variables['basic_media'] = ProfileContentTypeHelper::getBasicMedia($node);
+      $variables['contact_form_link'] = ProfileContentTypeHelper::getContactLink($node);
+      $variables['has_contact_info'] = ProfileContentTypeHelper::hasContactInfoFields($node);
+      break;
 
-    // Build basic media (headshot).
-    if ($node->hasField('field_utprof_basic_media') && !$node->get('field_utprof_basic_media')->isEmpty()) {
-      $headshot = $node->get('field_utprof_basic_media');
+    case 'utexas_basic':
+      $variables['#attached']['library'][] = 'utprof_content_type_profile/view-mode-utexas-basic';
+      $variables['directory_link'] = ProfileContentTypeHelper::getDirectoryLink($node);
+      // Add additional fields here.
+      break;
 
-      if ($node->hasField('field_utprof_image_ratio_opt') && !$node->get('field_utprof_image_ratio_opt')->isEmpty()) {
-        $use_primary_image_style = $node->get('field_utprof_image_ratio_opt');
-      }
+    case 'utexas_name_only':
+      $variables['#attached']['library'][] = 'utprof_content_type_profile/view-mode-utexas-name-only';
+      // Add additional fields here.
+      break;
 
-      $user_defined_image_style = $use_primary_image_style ? 'utexas_image_style_500w_500h' : 'utexas_image_style_500w';
-      if ($media = \Drupal::entityTypeManager()->getStorage('media')->load($headshot->getString())) {
-        $image_render_array = $media->field_utexas_media_image->view([
-          'type' => 'image',
-          'label' => 'hidden',
-          'settings' => [
-            'image_style' => $user_defined_image_style,
-            'image_link' => '',
-          ],
-        ]);
-        $variables['basic_media'] = $image_render_array;
-      }
-    }
-
-    // Build Building Information link.
-    $building_code_value = NULL;
-    $building_code_link = NULL;
-    if ($node->hasField('field_utprof_building_code') && !$node->get('field_utprof_building_code')->isEmpty()) {
-      $building_code = $node->get('field_utprof_building_code');
-      $url = Url::fromUri('https://utdirect.utexas.edu/apps/campus/buildings/nlogon/maps/UTM/' . $building_code->getString());
-      $building_code = Link::fromTextAndUrl($building_code, $url);
-      $building_code_value = $building_code->getText()->getValue()[0]['value'];
-      $building_code_link = $building_code->getUrl()->getUri();
-    }
-
-    $building_room_value = NULL;
-    if ($node->hasField('field_utprof_building_room_numb') && !$node->get('field_utprof_building_room_numb')->isEmpty()) {
-      $building_room_value = $node->get('field_utprof_building_room_numb')->getString();
-    }
-    $variables['building_information']['code_value'] = $building_code_value ?? NULL;
-    $variables['building_information']['code_link'] = $building_code_link ?? NULL;
-    $variables['building_information']['room_number'] = $building_room_value ?? NULL;
-
-    // Build phone number link.
-    if ($node->hasField('field_utprof_phone_number') && !$node->get('field_utprof_phone_number')->isEmpty()) {
-      $phone_number = $node->get('field_utprof_phone_number');
-      $phone_number_text = $phone_number->getString();
-      $phone_link = Url::fromUri('tel:' . rawurlencode($phone_number_text));
-      $variables['phone_link'] = Link::fromTextAndUrl($phone_number_text, $phone_link);
-    }
-
-    $has_contact_info = FALSE;
-    foreach (FormAlter::UTPROF_CONTENT_TYPE_PROFILE_CONTACT_INFO_FIELDS as $contact_info_field) {
-      if ($node->hasField($contact_info_field) && !$node->$contact_info_field->isEmpty()) {
-        $has_contact_info = TRUE;
-        break;
-      }
-    }
-    $variables['has_contact_info'] = $has_contact_info;
+    case 'utexas_prominent':
+      $variables['#attached']['library'][] = 'utprof_content_type_profile/view-mode-utexas-prominent';
+      $variables['prepared_basic_media'] = ProfileContentTypeHelper::getListingBasicMedia($node);
+      // Add additional fields here.
+      break;
   }
 }
 
