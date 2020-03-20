@@ -290,10 +290,10 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  block_1:
+  block_utprof_profile_listing:
     display_plugin: block
-    id: block_1
-    display_title: Block
+    id: block_utprof_profile_listing
+    display_title: Profile Listing
     position: 2
     display_options:
       display_extenders: {  }
