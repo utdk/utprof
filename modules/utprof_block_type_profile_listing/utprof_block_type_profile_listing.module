@@ -58,13 +58,3 @@ function utprof_block_type_profile_listing_preprocess_block(&$variables) {
     }
   }
 }
-
-/**
- * Implements hook_ENTITY_TYPE_presave().
- */
-function utprof_block_type_profile_listing_block_content_presave(BlockContent $block) {
-  // Clear the Profile View cache when a Profile block is saved.
-  if ($block->bundle() === 'utprof_profile_listing') {
-    Cache::invalidateTags(['config:views.view.utprof_profiles']);
-  }
-}
