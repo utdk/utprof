@@ -67,12 +67,13 @@ class ProfileListingHelper {
    *   A render array.
    */
   public static function buildContextualView(BlockContent $block_content) {
+    $utprof_profile_listing_view_display = 'block_utprof_profile_listing';
     $user_defined_filters = self::generateFilters($block_content);
     $view_mode = self::getViewMode($block_content);
     $view = Views::getView('utprof_profiles');
     if (is_object($view)) {
       // Specify which Views display to use.
-      $view->setDisplay('block_1');
+      $view->setDisplay($utprof_profile_listing_view_display);
       // Set view mode based on user-provided value.
       $row = $view->display_handler->getOption('row');
       $row['options']['view_mode'] = $view_mode;
@@ -93,7 +94,7 @@ class ProfileListingHelper {
       $view->display_handler->overrideOption('filters', $filters);
       $view->preExecute();
       $view->execute();
-      return $view->preview('block_1');
+      return $view->preview($utprof_profile_listing_view_display);
     }
     return FALSE;
   }
