@@ -35,7 +35,6 @@ function utprof_block_type_profile_listing_theme($existing, $type, $theme, $path
   // Register the templates defined in /templates.
   return [
     'block__block_content__utprof_profile_listing' => [
-      'render element' => 'elements',
       'base hook' => 'block',
     ],
   ];
