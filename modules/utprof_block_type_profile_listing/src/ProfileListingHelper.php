@@ -93,7 +93,7 @@ class ProfileListingHelper {
       $view->display_handler->overrideOption('filters', $filters);
       $view->preExecute();
       $view->execute();
-      return $view->buildRenderable('block_1');
+      return $view->preview('block_1');
     }
     return FALSE;
   }
