@@ -85,8 +85,10 @@
 
 <div class="utprof__list {{ view_mode }}">
   <div class="utprof__list-img">{{ prepared_basic_media }}</div>
-  <h3  class="utprof__title">{{ prepared_title }}</h3>
-  <div class="utprof__designation">{{ content.field_utprof_designation }}</div>
-  <div>{{ content.field_utprof_add_basic_info }}</div>
-  <div class="utprof__directory-link">{{ directory_link }}</div>
+  <div class="utprof__list-wrapper">
+    <h3  class="utprof__title">{{ prepared_title }}</h3>
+    <div class="utprof__designation">{{ content.field_utprof_designation }}</div>
+    <div>{{ content.field_utprof_add_basic_info }}</div>
+    <div class="utprof__directory-link">{{ directory_link }}</div>
+  </div>
 </div>
