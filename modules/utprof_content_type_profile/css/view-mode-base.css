@@ -5,38 +5,6 @@
   margin-bottom: 20px;
 }
 .utprof__list-img {
-  float: none;
-  width: auto;
-  max-width: 450px;
-}
-.utprof__list-wrapper {
-  padding-left: 0;
-  margin-top: 1rem;
+  float: left;
 }
 
-@media screen and (min-width: 450px) {
-  .utprof__list {
-    margin-bottom: 20px;
-    overflow: auto;
-    padding: 20px;
-    background-color: #f8f8f8;
-    border: 1px solid #f3f0e8;
-  }
-  .utprof__list-img {
-    width: 140px;
-    float: left;
-  }
-  .utprof__list-wrapper {
-    padding-left: 160px;
-  }
-  h3.utprof__title {
-    font-size: 1.25rem;
-    line-height: 1.375rem;
-    margin-bottom: 0;
-  }
-  .utprof__designation {
-    font-size: 1rem;
-    margin-top: 0;
-    font-style: italic;
-  }
-}
