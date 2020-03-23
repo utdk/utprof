@@ -1,7 +1,7 @@
 /* Styling for utprof profiles listing with prominent view mode*/
 
 /* Mobile styling */
-.utprof__list {
+.utprof__list.utexas_prominent {
   overflow: auto;
   padding: 10px;
   background-color: #f8f8f8;
@@ -29,7 +29,7 @@ h3.utprof__title {
 
 /* Tablet styling */
 @media screen and (min-width: 600px) {
-  .utprof__list {
+  .utprof__list.utexas_prominent {
     padding: 15px;
   }
   .utprof__list-img {
@@ -55,7 +55,7 @@ h3.utprof__title {
 }
 
 @media screen and (min-width: 900px) {
-  .utprof__list {
+  .utprof__list.utexas_prominent {
     padding: 20px;
   }
   .utprof__list-img {
