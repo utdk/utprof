@@ -1,0 +1,28 @@
+/* Styling for utprof profiles listing */
+
+.utprof__list {
+  margin-bottom: 20px;
+  overflow: auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border: 1px solid #f3f0e8;
+}
+.utprof__list-img {
+  width: 140px;
+  float: left;
+}
+h3.utprof__title {
+  padding-left: 160px;
+  font-size: 1.25rem;
+  line-height: 1.375rem;
+  margin-bottom: 0;
+}
+.utprof__designation {
+  padding-left: 160px;
+  font-size: 1rem;
+  margin-top: 0;
+  font-style: italic;
+}
+.utprof__directory-link {
+  padding-left: 160px;
+}
