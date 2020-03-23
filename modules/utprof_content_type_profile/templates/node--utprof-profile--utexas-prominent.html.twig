@@ -82,9 +82,33 @@
 %}
 
 <div class="utprof__list {{ view_mode }}">
-  <div class="utprof__list-img">{{ prepared_basic_media }}</div>
-  <h3  class="utprof__title">{{ prepared_title }}</h3>
-  <div class="utprof__designation">{{ content.field_utprof_designation }}</div>
-  <div>{{ content.field_utprof_add_basic_info }}</div>
-  <div class="utprof__directory-link">{{ directory_link }}</div>
+
+  {% if prepared_basic_media %}
+    <div class="utprof__list-img">
+      {{ prepared_basic_media }}
+    </div>
+  {% endif %}
+
+  {% if prepared_title %}
+    <h3  class="utprof__title">
+      {{ prepared_title }}
+    </h3>
+  {% endif %}
+
+  {% if content.field_utprof_designation %}
+    <div class="utprof__designation">
+      {{ content.field_utprof_designation }}
+    </div>
+  {% endif %}
+
+  {% if content.field_utprof_add_basic_info %}
+    {{ content.field_utprof_add_basic_info }}
+  {% endif %}
+
+  {% if directory_link %}
+    <div class="utprof__directory-link">
+      {{ directory_link }}
+    </div>
+  {% endif %}
+
 </div>
