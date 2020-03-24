@@ -33,8 +33,6 @@ third_party_settings:
   layout_builder:
     allow_custom: false
     enabled: false
-_core:
-  default_config_hash: mjv0actIMGbDtFxEvkixPZqifQcfkEAxnsoMjBup0E0
 id: node.utprof_profile.utexas_basic
 targetEntityType: node
 bundle: utprof_profile
