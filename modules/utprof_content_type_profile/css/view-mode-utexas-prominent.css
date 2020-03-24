@@ -1,9 +1,6 @@
 /* Styling for utprof profiles listing with prominent view mode*/
 
 /* Mobile styling */
-/* .utprof__block-list-header {
-  margin-bottom: .5rem;
-} */
 .utprof__list.utexas_prominent {
   overflow: auto;
   padding: 10px;
