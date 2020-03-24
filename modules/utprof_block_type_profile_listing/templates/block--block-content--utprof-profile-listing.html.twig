@@ -30,12 +30,12 @@
 <div{{ attributes }}>
   {{ title_prefix }}
   {% if label %}
-    <h2{{ title_attributes }}>{{ label }}</h2>
+    <h2{{ title_attributes.addClass('utprof__block-list-title') }}>{{ label }}</h2>
   {% endif %}
   {{ title_suffix }}
   {% block content %}
-    {{ content.field_utprof_header }}
+    <div{{ attributes.addClass('utprof__block-list-header') }}>{{ content.field_utprof_header }}</div>
     {{ listing }}
-    {{ content.field_utprof_footer }}
+    <div{{ attributes.addClass('utprof__block-list-footer') }}>{{ content.field_utprof_footer }}</div>
   {% endblock %}
 </div>

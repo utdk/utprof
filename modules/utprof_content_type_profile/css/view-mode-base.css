@@ -4,6 +4,17 @@
 .utprof__list {
   margin-bottom: 20px;
 }
-.utprof__list-img {
-  float: left;
+
+/* Style block titles, header, footer. */
+.utprof__block-list-title {
+  font-size: 1.25rem;
+  line-height: 2.5rem;
+  border-bottom: 2px solid;
+  font-weight: 600;
 }
+.utprof__block-list-header {
+  margin-bottom: .75rem;
+}
+ .utprof__block-list-header p:last-child {
+   margin-bottom: 0;
+ }
