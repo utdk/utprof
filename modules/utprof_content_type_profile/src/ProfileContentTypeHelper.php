@@ -235,7 +235,7 @@ class ProfileContentTypeHelper {
       $link_options = [
         'attributes' => [
           'class' => [
-            'ut-btn',
+            'ut-link--darker',
           ],
         ],
       ];

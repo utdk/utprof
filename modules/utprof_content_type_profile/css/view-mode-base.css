@@ -11,6 +11,9 @@
 .utprof__profile-item {
   list-style-type: none;
 }
+.utprof__directory-link {
+  line-height: 1.125rem;
+}
 .utprof__directory-link a {
   margin-bottom: 0;
 }
