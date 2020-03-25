@@ -2,12 +2,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.utexas_basic
-    - core.entity_view_mode.node.utexas_name_only
-    - core.entity_view_mode.node.utexas_prominent
+    - core.entity_view_mode.node.teaser
     - node.type.utprof_profile
     - taxonomy.vocabulary.utprof_groups
     - taxonomy.vocabulary.utprof_tags
+  content:
+    - 'taxonomy_term:utprof_groups:dc464b3b-7b91-480d-9cf2-487f3b53b801'
   module:
     - node
     - taxonomy
@@ -70,7 +70,14 @@ display:
             previous: ‹‹
             next: ››
       style:
-        type: default
+        type: html_list
+        options:
+          row_class: utprof__profile-item
+          default_row_class: true
+          uses_fields: false
+          type: ul
+          wrapper_class: utprof__list-wrapper
+          class: utprof__views-list
       row:
         type: 'entity:node'
         options:
@@ -174,7 +181,8 @@ display:
           group_type: group
           admin_label: ''
           operator: or
-          value: { }
+          value:
+            1: 1
           group: 1
           exposed: false
           expose:
@@ -218,8 +226,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: or
-          value: { }
+          operator: empty
+          value: {  }
           group: 1
           exposed: false
           expose:
@@ -293,7 +301,7 @@ display:
   block_utprof_profile_listing:
     display_plugin: block
     id: block_utprof_profile_listing
-    display_title: Profile Listing
+    display_title: 'Profile Listing'
     position: 2
     display_options:
       display_extenders: {  }
