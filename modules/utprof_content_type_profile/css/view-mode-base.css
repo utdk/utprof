@@ -14,6 +14,9 @@
 .utprof__directory-link a {
   margin-bottom: 0;
 }
+.utprof__profile-item {
+  margin-bottom: 1rem;
+}
 
 /* Style block titles, header, footer. */
 .utprof__block-list-header {
