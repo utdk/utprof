@@ -2,14 +2,12 @@
 
 /* Mobile styling */
 .utprof__list.utexas_prominent {
-  overflow: auto;
   padding: 10px;
   background-color: #f8f8f8;
   border: 1px solid #f3f0e8;
   display: flex;
 }
 .utprof__list-img {
-  width: 62px;
   margin: 0 10px 5px 0;
   flex: 0 0 67px;
 }
@@ -17,18 +15,20 @@ h3.utprof__title {
   font-size: 0.9375rem;
   line-height: 1.375rem;
   font-weight: 600;
+  margin-bottom: 0;
+}
+.utprof__designation {
+  font-style: italic;
+  margin: 10px 0;
+  font-size: 0.9375rem;
+  line-height: 1.375rem;
 }
 .field--name-field-utprof-add-basic-info {
   font-size: 0.9375rem;
   line-height: 1.375rem;
-  margin: 0 0 10px;
+  margin: 0 0 1rem;
 }
-.utprof__designation {
-  margin: 10px 0;
-  font-size: 0.9375rem;
-  line-height: 1.375rem;
-  margin-top: 10px;
-}
+
 
 /* Tablet styling */
 @media screen and (min-width: 600px) {
@@ -36,21 +36,17 @@ h3.utprof__title {
     padding: 15px;
   }
   .utprof__list-img {
-    width: 112px;
     margin: 0 15px 0 0;
     flex: 0 0 112px;
   }
-
   h3.utprof__title {
     font-size: 1.25rem;
     line-height: 1.625rem;
-    margin-bottom: 0;
   }
   .utprof__designation {
     font-size: 1rem;
     line-height: 1.5rem;
     margin-top: 0;
-    font-style: italic;
   }
   .field--name-field-utprof-add-basic-info {
     font-size: 1rem;
@@ -61,24 +57,16 @@ h3.utprof__title {
    }
 }
 
+/* Desktop styling */
 @media screen and (min-width: 900px) {
   .utprof__list.utexas_prominent {
     padding: 20px;
   }
   .utprof__list-img {
-    width: 140px;
     margin: 0 20px 0 0;
     flex: 0 0 140px;
   }
   h3.utprof__title {
-    font-size: 1.25rem;
     line-height: 1.25rem;
-    margin-bottom: 0;
-  }
-  .utprof__designation {
-    font-size: 1rem;
-    line-height: 1.5rem;
-    margin-top: 0;
-    font-style: italic;
   }
 }

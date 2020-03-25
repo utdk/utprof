@@ -1,20 +1,27 @@
-/* Styling for utprof profiles listing */
-
-/* Mobile styling */
-.utprof__list {
-  margin-bottom: 20px;
-}
-
-/* Style block titles, header, footer. */
+/* Base styling for utprof profiles listing */
 .utprof__block-list-title {
   font-size: 1.25rem;
   line-height: 2.5rem;
   border-bottom: 2px solid;
   font-weight: 600;
 }
+.utprof__views-list {
+  padding-left: 0;
+}
+.utprof__profile-item {
+  list-style-type: none;
+}
+.utprof__directory-link a {
+  margin-bottom: 0;
+}
+
+/* Style block titles, header, footer. */
 .utprof__block-list-header {
-  margin-bottom: .75rem;
+  margin-bottom: 1rem;
 }
  .utprof__block-list-header p:last-child {
    margin-bottom: 0;
  }
+.utprof__block-list-footer {
+  margin-top: 1rem;
+}
