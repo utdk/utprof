@@ -31,3 +31,11 @@
 .utprof__block-list-footer {
   margin-top: 1rem;
 }
+
+/* Style block titles. */
+.utprof__block-list-title {
+  font-size: 1.25rem;
+  line-height: 2.5rem;
+  border-bottom: 2px solid;
+  font-weight: 600;
+}

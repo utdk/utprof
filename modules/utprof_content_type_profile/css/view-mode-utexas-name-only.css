@@ -1,0 +1,27 @@
+/* Name Only view mode styles. */
+.utprof__title {
+  font-size: 1rem;
+  line-height: 1rem;
+  font-weight: 700;
+}
+.utprof__profile-item {
+  margin-bottom: 1rem;
+}
+.utprof__block-list-footer {
+  margin-top: 0;
+}
+
+/* Larger Desktop styling. */
+@media screen and (min-width: 900px) {
+  .utprof__views-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+  }
+  .utprof__profile-item {
+    flex: 0 0 50%;
+  }
+  .utprof__title {
+    margin-bottom: 0;
+  }
+}
