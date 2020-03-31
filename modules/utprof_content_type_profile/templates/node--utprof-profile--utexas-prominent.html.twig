@@ -89,18 +89,18 @@
 
   <div class="data-wrapper">
     {% if prepared_title %}
-      <h3  class="utprof__title">
+      <h3 class="utprof__title">
         {{ prepared_title }}
       </h3>
     {% endif %}
 
-    {% if content.field_utprof_designation %}
+    {% if content.field_utprof_designation|render is not empty %}
       <div class="utprof__designation">
         {{ content.field_utprof_designation }}
       </div>
     {% endif %}
 
-    {% if content.field_utprof_add_basic_info %}
+    {% if content.field_utprof_add_basic_info|render is not empty %}
       {{ content.field_utprof_add_basic_info }}
     {% endif %}
 

@@ -29,6 +29,46 @@ h3.utprof__title {
   margin: 0 0 1rem;
 }
 
+/* Tablet styling */
+@media screen and (min-width: 600px) {
+  .utprof__list.utexas_prominent {
+    padding: 15px;
+  }
+  .utprof__list-img {
+    margin: 0 15px 0 0;
+    flex: 0 0 112px;
+  }
+  h3.utprof__title {
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+  }
+  .utprof__designation {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-top: 0;
+  }
+  .field--name-field-utprof-add-basic-info {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+   .field--name-field-utprof-add-basic-info p:last-child {
+     margin-bottom: 0;
+   }
+}
+
+/* Desktop styling */
+@media screen and (min-width: 900px) {
+  .utprof__list.utexas_prominent {
+    padding: 20px;
+  }
+  .utprof__list-img {
+    margin: 0 20px 0 0;
+    flex: 0 0 140px;
+  }
+  h3.utprof__title {
+    line-height: 1.25rem;
+  }
+}
 
 /* Tablet styling */
 @media screen and (min-width: 600px) {

@@ -72,6 +72,7 @@
  *
  */
 #}
+
 {%
   set classes = [
     view_mode ? view_mode|clean_class,
@@ -80,6 +81,31 @@
     'clearfix',
   ]
 %}
-{{ prepared_title }}
-This is a placeholder template that renders the {{ view_mode }} view mode.
-{{ directory_link }}
+
+<div class="utprof__list {{ view_mode }}">
+
+  <div class="utprof__list-img">
+    {{ prepared_basic_media }}
+  </div>
+
+  <div class="utprof__text-wrapper">
+    {% if prepared_title %}
+      <h3 class="utprof__title">
+        {{ prepared_title }}
+      </h3>
+    {% endif %}
+
+    {% if content.field_utprof_designation|render is not empty %}
+      <div class="utprof__designation">
+        {{ content.field_utprof_designation }}
+      </div>
+    {% endif %}
+
+    {% if directory_link %}
+      <div class="utprof__directory-link">
+        {{ directory_link }}
+      </div>
+    {% endif %}
+  </div>
+
+</div>
