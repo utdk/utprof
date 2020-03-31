@@ -3,24 +3,13 @@ status: true
 dependencies:
   module:
     - block_content
-    - options
 id: block_content.field_utprof_view_mode
 field_name: field_utprof_view_mode
 entity_type: block_content
-type: list_string
+type: entity_reference
 settings:
-  allowed_values:
-    -
-      value: utexas_prominent
-      label: Prominent
-    -
-      value: utexas_basic
-      label: Basic
-    -
-      value: utexas_name_only
-      label: 'Name Only'
-  allowed_values_function: ''
-module: options
+  target_type: entity_view_mode
+module: core
 locked: true
 cardinality: 1
 translatable: true

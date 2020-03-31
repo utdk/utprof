@@ -4,8 +4,6 @@ dependencies:
   config:
     - block_content.type.utprof_profile_listing
     - field.storage.block_content.field_utprof_view_mode
-  module:
-    - options
 id: block_content.utprof_profile_listing.field_utprof_view_mode
 field_name: field_utprof_view_mode
 entity_type: block_content
@@ -14,9 +12,10 @@ label: 'Display profiles using the following format'
 description: 'See <a href="https://drupalkit.its.utexas.edu/docs/addon_profile/index.html" target="blank">documentation on the default display types</a>.'
 required: true
 translatable: false
-default_value:
-  -
-    value: utexas_prominent
-default_value_callback: ''
-settings: {  }
-field_type: list_string
+default_value_callback: 'utprof_block_type_profile_listing_view_mode_default_value'
+settings:
+  handler: 'default:entity_view_mode'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

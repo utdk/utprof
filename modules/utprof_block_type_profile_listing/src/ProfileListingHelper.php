@@ -21,8 +21,11 @@ class ProfileListingHelper {
    */
   public static function getViewMode(BlockContent $block_content) {
     $view_mode = 'utexas_basic';
-    if ($block_content->hasField('field_utprof_view_mode')) {
-      $view_mode = $block_content->get('field_utprof_view_mode')->getString();
+    if ($block_content->hasField('field_utprof_view_mode') && !$block_content->get('field_utprof_view_mode')->isEmpty()) {
+      $raw_view_mode = $block_content->get('field_utprof_view_mode')->first()->getValue();
+      $prefixed_view_mode_id = $raw_view_mode['target_id'];
+      // Remove entity_type_id prefix ('node.' in this case).
+      $view_mode = substr($prefixed_view_mode_id, strpos($prefixed_view_mode_id, '.') + 1);
     }
     return $view_mode;
   }

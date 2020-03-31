@@ -5,10 +5,11 @@
  * Contains utprof block type .module file.
  */
 
-use Drupal\block_content\Entity\BlockContent;
 use Drupal\block_content\BlockContentInterface;
-use Drupal\Core\Cache\Cache;
+use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\utprof_block_type_profile_listing\ProfileListingHelper;
+use Drupal\utprof_block_type_profile_listing\Plugin\EntityReferenceSelection\ViewModeSelection;
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
@@ -57,4 +58,23 @@ function utprof_block_type_profile_listing_preprocess_block(&$variables) {
       }
     }
   }
+}
+
+/**
+ * Sets the default value for field_utprof_view_mode.
+ *
+ * @param \Drupal\Core\Entity\ContentEntityInterface $entity
+ *   The entity being created.
+ * @param \Drupal\Core\Field\FieldDefinitionInterface $definition
+ *   The field definition.
+ *
+ * @return array
+ *   An array of default value keys with each entry keyed with the “value” key.
+ *
+ * @see \Drupal\Core\Field\FieldConfigBase::getDefaultValue()
+ */
+function utprof_block_type_profile_listing_view_mode_default_value(ContentEntityInterface $entity, FieldDefinitionInterface $definition) {
+  // Use the first allowed value as the default value.
+  $allowed_values = array_keys(ViewModeSelection::getAllowedViewModes());
+  return reset($allowed_values);
 }

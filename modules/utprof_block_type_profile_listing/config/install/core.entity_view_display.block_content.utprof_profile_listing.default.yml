@@ -9,7 +9,6 @@ dependencies:
     - field.field.block_content.utprof_profile_listing.field_utprof_profile_tags
     - field.field.block_content.utprof_profile_listing.field_utprof_view_mode
   module:
-    - options
     - text
 id: block_content.utprof_profile_listing.default
 targetEntityType: block_content
@@ -51,6 +50,6 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    type: entity_reference_label
     region: content
 hidden: {  }
