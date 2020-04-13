@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Contains install and update functions for Profile listings.
+ */
+
+/**
+ * Repurpose field as 'Internal Profile tags'.
+ */
+function utprof_block_type_profile_listing_update_8101() {
+  \Drupal::service('features.manager')->import([
+    'utprof_block_type_profile_listing',
+  ], TRUE);
+}

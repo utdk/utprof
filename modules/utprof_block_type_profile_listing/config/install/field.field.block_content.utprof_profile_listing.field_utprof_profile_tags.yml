@@ -9,8 +9,8 @@ id: block_content.utprof_profile_listing.field_utprof_profile_tags
 field_name: field_utprof_profile_tags
 entity_type: block_content
 bundle: utprof_profile_listing
-label: 'Limit to profiles with the following tag(s)'
-description: ''
+label: 'Limit to profiles with the following tag(s):'
+description: 'These tags do not display to end-users. Select one or more to further limit which Profiles are displayed.'
 required: false
 translatable: false
 default_value: {  }

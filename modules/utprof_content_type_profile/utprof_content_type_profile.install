@@ -116,3 +116,12 @@ function utprof_content_type_profile_update_8101() {
 function utprof_content_type_profile_update_8102() {
   _utprof_add_pathauto_pattern();
 }
+
+/**
+ * Change label to 'Internal Profile tags' & change widget.
+ */
+function utprof_content_type_profile_update_8103() {
+  \Drupal::service('features.manager')->import([
+    'utprof_content_type_profile',
+  ], TRUE);
+}
