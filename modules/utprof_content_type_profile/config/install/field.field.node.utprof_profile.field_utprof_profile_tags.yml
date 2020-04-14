@@ -9,8 +9,8 @@ id: node.utprof_profile.field_utprof_profile_tags
 field_name: field_utprof_profile_tags
 entity_type: node
 bundle: utprof_profile
-label: 'Profile tags'
-description: 'Add one or more tags, separated by a comma.'
+label: 'Internal profile tags'
+description: 'These tags do not display to end-users. They are used when creating Profile listings to show more targeted results.'
 required: false
 translatable: false
 default_value: {  }
