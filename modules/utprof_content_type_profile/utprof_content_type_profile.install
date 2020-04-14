@@ -116,3 +116,13 @@ function utprof_content_type_profile_update_8101() {
 function utprof_content_type_profile_update_8102() {
   _utprof_add_pathauto_pattern();
 }
+
+/**
+ * Revert Profile content type feature to standardize fields.
+ */
+function utprof_content_type_profile_update_8103()
+{
+  \Drupal::service('features.manager')->import([
+    'utprof_content_type_profile',
+  ], TRUE);
+}
