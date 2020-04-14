@@ -8,7 +8,7 @@ id: node.utprof_profile.field_utprof_building_room_numb
 field_name: field_utprof_building_room_numb
 entity_type: node
 bundle: utprof_profile
-label: 'Building Room Number:'
+label: 'Building room number'
 description: ''
 required: false
 translatable: false

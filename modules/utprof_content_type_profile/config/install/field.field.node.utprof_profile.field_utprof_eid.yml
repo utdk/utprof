@@ -8,7 +8,7 @@ id: node.utprof_profile.field_utprof_eid
 field_name: field_utprof_eid
 entity_type: node
 bundle: utprof_profile
-label: 'EID:'
+label: 'EID'
 description: ''
 required: false
 translatable: false
