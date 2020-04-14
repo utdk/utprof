@@ -120,8 +120,7 @@ function utprof_content_type_profile_update_8102() {
 /**
  * Revert Profile content type feature to standardize fields.
  */
-function utprof_content_type_profile_update_8103()
-{
+function utprof_content_type_profile_update_8103() {
   \Drupal::service('features.manager')->import([
     'utprof_content_type_profile',
   ], TRUE);
