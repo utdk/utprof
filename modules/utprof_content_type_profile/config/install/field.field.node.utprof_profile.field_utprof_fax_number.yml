@@ -8,7 +8,7 @@ id: node.utprof_profile.field_utprof_fax_number
 field_name: field_utprof_fax_number
 entity_type: node
 bundle: utprof_profile
-label: 'Fax Number:'
+label: 'Fax number'
 description: ''
 required: false
 translatable: false

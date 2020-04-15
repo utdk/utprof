@@ -8,7 +8,7 @@ id: node.utprof_profile.field_utprof_listing_link
 field_name: field_utprof_listing_link
 entity_type: node
 bundle: utprof_profile
-label: 'Link to Profile page:'
+label: 'Link to profile page'
 description: 'Set the behavior for this content when viewed in listings. Should that listing link to a full profile page?'
 required: true
 translatable: false

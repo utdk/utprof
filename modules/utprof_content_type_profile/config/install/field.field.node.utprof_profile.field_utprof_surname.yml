@@ -8,7 +8,7 @@ id: node.utprof_profile.field_utprof_surname
 field_name: field_utprof_surname
 entity_type: node
 bundle: utprof_profile
-label: 'Surname:'
+label: 'Surname'
 description: ''
 required: false
 translatable: false
