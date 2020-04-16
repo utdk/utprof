@@ -134,12 +134,3 @@ function utprof_content_type_profile_update_8104() {
     'utprof_content_type_profile',
   ], TRUE);
 }
-
-/**
- * Update title, given name and surname labels.
- */
-function utprof_content_type_profile_update_8105() {
-  \Drupal::service('features.manager')->import([
-    'utprof_content_type_profile',
-  ], TRUE);
-}
