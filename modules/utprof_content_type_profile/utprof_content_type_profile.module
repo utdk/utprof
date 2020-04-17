@@ -20,7 +20,7 @@ use Drupal\utprof_content_type_profile\ProfileContentTypeHelper;
 function utprof_content_type_profile_theme() {
   return [
     'node__utprof_profile' => [
-      'template' => 'node--utprof-profile',
+      'template' => 'node--utprof-profile--full',
       'base hook' => 'node',
     ],
     'node__utprof_profile__utexas_basic' => [
