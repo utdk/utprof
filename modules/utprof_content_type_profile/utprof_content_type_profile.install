@@ -153,3 +153,12 @@ function utprof_content_type_profile_update_8106() {
     'utprof_content_type_profile',
   ], TRUE);
 }
+
+/**
+ * Add teaser view display configuration.
+ */
+function utprof_content_type_profile_update_8107() {
+  \Drupal::service('features.manager')->import([
+    'utprof_content_type_profile',
+  ], TRUE);
+}
