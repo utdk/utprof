@@ -4,4 +4,4 @@ utprof.configuration:
     _form: '\Drupal\utprof\Form\UtprofConfigurationForm'
     _title: 'Profile Feature'
   requirements:
-    _permission: 'manage utprof general configuration'
+    _permission: 'administer utprof'
