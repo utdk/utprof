@@ -146,6 +146,7 @@ function utprof_content_type_profile_update_8105() {
 
 /**
  * Update field label & description of UT EID.
+ * Update description on Profile Groups field (#124).
  */
 function utprof_content_type_profile_update_8106() {
   \Drupal::service('features.manager')->import([
@@ -154,9 +155,9 @@ function utprof_content_type_profile_update_8106() {
 }
 
 /**
- * Update description on Profile Groups field (#124).
+ * Add teaser view display configuration.
  */
-function utprof_content_type_profile_update_8106() {
+function utprof_content_type_profile_update_8107() {
   \Drupal::service('features.manager')->import([
     'utprof_content_type_profile',
   ], TRUE);
