@@ -138,8 +138,16 @@ function utprof_content_type_profile_update_8104() {
 /**
  * Allow link options in Contact form and Website links.
  */
-function utprof_content_type_profile_update_8105()
-{
+function utprof_content_type_profile_update_8105() {
+  \Drupal::service('features.manager')->import([
+    'utprof_content_type_profile',
+  ], TRUE);
+}
+
+/**
+ * Update field label & description of UT EID.
+ */
+function utprof_content_type_profile_update_8106() {
   \Drupal::service('features.manager')->import([
     'utprof_content_type_profile',
   ], TRUE);
