@@ -10,7 +10,7 @@ id: node.utprof_profile.field_utprof_content
 field_name: field_utprof_content
 entity_type: node
 bundle: utprof_profile
-label: 'Content'
+label: Content
 description: ''
 required: false
 translatable: false
