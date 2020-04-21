@@ -31,7 +31,6 @@ class FormAlter {
   ];
 
   const UTPROF_CONTENT_TYPE_PROFILE_STANDARD_FIELDS = [
-    'field_utprof_eid',
     'field_utprof_given_name',
     'field_utprof_surname',
   ];
@@ -47,12 +46,16 @@ class FormAlter {
    */
   public function alterProfileNodeForm(array &$form, FormStateInterface $form_state) {
     $form['#attached']['library'][] = 'utprof_content_type_profile/node-form';
+    $form['#attached']['library'][] = 'utprof_content_type_profile/admin-ui-utility';
     $form['tabs'] = [
       '#type' => 'horizontal_tabs',
       '#tree' => TRUE,
       '#weight' => 100,
     ];
     $form['standard_fields'] = [
+      '#type' => 'fieldset',
+    ];
+    $form['eid_field'] = [
       '#type' => 'fieldset',
     ];
     $form['tabs']['display_configuration'] = [
@@ -79,6 +82,10 @@ class FormAlter {
     foreach (self::UTPROF_CONTENT_TYPE_PROFILE_STANDARD_FIELDS as $field) {
       $form['standard_fields'][$field] = $form[$field];
       unset($form[$field]);
+    }
+    if (isset($form['field_utprof_eid'])) {
+      $form['eid_field']['field_utprof_eid'] = $form['field_utprof_eid'];
+      unset($form['field_utprof_eid']);
     }
     foreach (self::UTPROF_CONTENT_TYPE_PROFILE_BASIC_INFO_FIELDS as $field) {
       $form['tabs']['basic_information'][$field] = $form[$field];
