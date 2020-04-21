@@ -152,3 +152,12 @@ function utprof_content_type_profile_update_8106() {
     'utprof_content_type_profile',
   ], TRUE);
 }
+
+/**
+ * Update description on Profile Groups field (#124).
+ */
+function utprof_content_type_profile_update_8106() {
+  \Drupal::service('features.manager')->import([
+    'utprof_content_type_profile',
+  ], TRUE);
+}
