@@ -46,7 +46,7 @@ class FormAlter {
    */
   public function alterProfileNodeForm(array &$form, FormStateInterface $form_state) {
     $form['#attached']['library'][] = 'utprof_content_type_profile/node-form';
-    $form['#attached']['library'][] = 'utprof_content_type_profile/admin-ui-utility';
+    $form['#attached']['library'][] = 'utexas_form_elements/link-options';
     $form['tabs'] = [
       '#type' => 'horizontal_tabs',
       '#tree' => TRUE,
