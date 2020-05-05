@@ -43,6 +43,7 @@ class ViewModeSelection extends DefaultSelection {
     // Unset unwanted view_mode_options.
     unset($view_mode_options['default']);
     unset($view_mode_options['full']);
+    unset($view_mode_options['teaser']);
 
     // Prefix view_mode_options array keys with the entity_type_id.
     foreach ($view_mode_options as $key => $value) {
