@@ -13,15 +13,15 @@
 
 /* Larger Desktop styling. */
 @media screen and (min-width: 900px) {
-  .utprof__views-list {
+  .utexas_name_only__wrapper .utprof__views-list {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 0;
   }
-  .utprof__profile-item {
+  .utexas_name_only__wrapper .utprof__profile-item {
     flex: 0 0 50%;
   }
-  .utprof__title {
+  .utexas_name_only__wrapper .utprof__title {
     margin-bottom: 0;
   }
 }

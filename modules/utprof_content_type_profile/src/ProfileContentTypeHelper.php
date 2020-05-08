@@ -121,15 +121,27 @@ class ProfileContentTypeHelper {
    *
    * @param Drupal\node\Entity\Node $node
    *   The node object.
+   * @param string $view_mode
+   *   Optional view mode, setting which link class to use.
    *
    * @return array
    *   A renderable Drupal link.
    */
-  public static function getPreparedTitle(Node $node) {
+  public static function getPreparedTitle(Node $node, $link_class = '') {
     // Build a title field, linked conditionally.
     $title = $node->getTitle();
     if (self::doLinkToNode($node)) {
       $url = Url::fromRoute('entity.node.canonical', ['node' => $node->id()]);
+      if (isset($link_class)) {
+        $link_options = [
+          'attributes' => [
+            'class' => [
+              $link_class,
+            ],
+          ],
+        ];
+        $url->setOptions($link_options);
+      }
       return Link::fromTextAndUrl($title, $url);
     }
     return $title;

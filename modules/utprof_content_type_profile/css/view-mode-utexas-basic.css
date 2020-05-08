@@ -66,11 +66,12 @@ h3.utprof__title {
 
 /* Larger Desktop styling. */
 @media screen and (min-width: 1200px) {
-  .utprof__views-list {
+  .utexas_basic__wrapper .utprof__views-list {
     display: flex;
     flex-wrap: wrap;
   }
-  .utprof__profile-item {
+  .utexas_basic__wrapper .utprof__profile-item {
     flex: 0 0 50%;
   }
 }
+
