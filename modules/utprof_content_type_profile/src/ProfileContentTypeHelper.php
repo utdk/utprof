@@ -6,6 +6,7 @@ use Drupal\Core\Link;
 use Drupal\Core\Url;
 use Drupal\node\Entity\Node;
 use Drupal\utprof_content_type_profile\Form\FormAlter;
+use Drupal\utexas_form_elements\UtexasLinkOptionsHelper;
 
 /**
  * Business logic for rendering the content type.
@@ -195,16 +196,10 @@ class ProfileContentTypeHelper {
     if ($node->hasField('field_utprof_contact_form_link') && !$node->get('field_utprof_contact_form_link')->isEmpty()) {
       $contact_link = $node->get('field_utprof_contact_form_link');
       $contact_values = $contact_link->getValue();
-      $url = Url::fromUri($contact_values[0]['uri']);
-      $link_options = [
-        'attributes' => [
-          'class' => [
-            'ut-btn',
-          ],
-        ],
+      $contact_link = [
+        'link' => $contact_values[0],
       ];
-      $url->setOptions($link_options);
-      $link = Link::fromTextAndUrl($contact_values[0]['title'], $url);
+      $link = UtexasLinkOptionsHelper::buildLink($contact_link, ['ut-btn']);
     }
     return $link;
   }
