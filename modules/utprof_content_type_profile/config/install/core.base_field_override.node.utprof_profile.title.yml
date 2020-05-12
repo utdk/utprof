@@ -7,7 +7,7 @@ id: node.utprof_profile.title
 field_name: title
 entity_type: node
 bundle: utprof_profile
-label: 'Display name (page title)'
+label: 'Preferred full name (shown as the title for this profile on pages and listings)'
 description: ''
 required: true
 translatable: true

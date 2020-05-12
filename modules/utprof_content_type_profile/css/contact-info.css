@@ -26,7 +26,7 @@
   font-size: .875rem;
 }
 
-.contact-wrapper-title {
+.utprof__contact-wrapper-title {
   font-style: italic;
   border-bottom: 1px solid #ddd;
   padding: .75rem 0;
@@ -40,7 +40,9 @@
   margin-bottom: 0;
 }
 
-.field__label, .field--label-above, .field--name-field-utprof-add-contact-info {
+.utprof-profile .field__label,
+.utprof-profile .field--label-above,
+.field--name-field-utprof-add-contact-info {
   margin-top: 1rem;
 }
 

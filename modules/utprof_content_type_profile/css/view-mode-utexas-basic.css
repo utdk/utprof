@@ -1,0 +1,77 @@
+/* Styling for utprof profiles listing with Basic view mode*/
+
+/* Mobile styling */
+.utprof__list.utexas_basic {
+  overflow: auto;
+  padding: 0 0 10px 5px;
+  display: flex;
+}
+.utprof__block-list-header,
+.utprof__block-list-footer {
+  padding: 0 5px;
+}
+.utprof__block-list-footer {
+    margin-top: 0px;
+}
+.utprof__views-list {
+  margin-bottom: .5rem;
+}
+.utprof__views-list li:last-child {
+  margin-bottom: 0;
+}
+.utprof__list-img {
+  width: 66px;
+  margin: 0 10px 5px 0;
+  flex: 0 0 66px;
+}
+h3.utprof__title {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.utprof__designation {
+  font-size: 1rem;
+  line-height: 1.375rem;
+  font-style: italic;
+}
+.utprof__directory-link {
+  margin-top: .5rem;
+}
+
+/* Tablet styling */
+@media screen and (min-width: 600px) {
+  .utprof__list.utexas_basic {
+    padding: 0 0 10px 20px;
+  }
+  .utprof__block-list-header,
+  .utprof__block-list-footer {
+    padding: 0 20px;
+  }
+  .utprof__designation {
+    margin-top: 2px;
+  }
+}
+
+/* Smaller Desktop styling */
+@media screen and (min-width: 900px) {
+  .utprof__list.utexas_basic {
+    padding: 0 0 10px 20px;
+  }
+  .utprof__list-img {
+    margin: 0 12px 0 0;
+    flex: 0 0 85px;
+  }
+}
+
+/* Larger Desktop styling. */
+@media screen and (min-width: 1200px) {
+  .utexas_basic__wrapper .utprof__views-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .utexas_basic__wrapper .utprof__profile-item {
+    flex: 0 0 50%;
+  }
+}
+

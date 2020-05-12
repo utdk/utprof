@@ -6,3 +6,4 @@ required:
   - field.field.node.utprof_profile.field_utprof_image_ratio_opt
   - field.field.node.utprof_profile.field_utprof_listing_link
   - field.storage.node.field_utprof_listing_link
+  - core.entity_view_display.node.utprof_profile.teaser

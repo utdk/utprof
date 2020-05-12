@@ -9,8 +9,8 @@ id: node.utprof_profile.field_utprof_profile_groups
 field_name: field_utprof_profile_groups
 entity_type: node
 bundle: utprof_profile
-label: 'Profile Groups:'
-description: ''
+label: 'Profile groups'
+description: 'These Group names do not display on profile pages. They are used when creating Profile listings to show more targeted results.'
 required: false
 translatable: false
 default_value: {  }

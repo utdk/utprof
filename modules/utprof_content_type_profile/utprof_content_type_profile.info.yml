@@ -7,6 +7,7 @@ dependencies:
   - bootstrap_horizontal_tabs:bootstrap_horizontal_tabs
   - breadcrumbs_visibility:breadcrumbs_visibility
   - drupal:field
+  - drupal:field_group
   - drupal:link
   - drupal:media
   - drupal:media_library

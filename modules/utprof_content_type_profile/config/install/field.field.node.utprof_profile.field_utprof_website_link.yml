@@ -10,7 +10,7 @@ id: node.utprof_profile.field_utprof_website_link
 field_name: field_utprof_website_link
 entity_type: node
 bundle: utprof_profile
-label: 'Website:'
+label: Website
 description: ''
 required: false
 translatable: false

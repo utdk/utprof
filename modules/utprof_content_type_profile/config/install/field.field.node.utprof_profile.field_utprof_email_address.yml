@@ -8,7 +8,7 @@ id: node.utprof_profile.field_utprof_email_address
 field_name: field_utprof_email_address
 entity_type: node
 bundle: utprof_profile
-label: 'Email Address:'
+label: 'Email address'
 description: ''
 required: false
 translatable: false
