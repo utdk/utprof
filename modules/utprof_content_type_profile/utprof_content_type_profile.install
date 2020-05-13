@@ -6,6 +6,7 @@
  */
 
 use Drupal\pathauto\Entity\PathautoPattern;
+use Drupal\Core\Config\FileStorage;
 
 /**
  * Implements hook_install().
