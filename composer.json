@@ -12,10 +12,10 @@
   },
   "require": {
     "composer/installers": "~1.0",
-    "drupal/bootstrap_horizontal_tabs": "1.0-alpha2",
+    "drupal/bootstrap_horizontal_tabs": "1.0",
     "drupal/breadcrumbs_visibility": "^1.0",
     "drupal/page_title_visibility": "^1.1",
-    "drupal/field_group": "3.0",
+    "drupal/field_group": "3.1",
     "utexas/utdk_profile": "^3.0.0-beta.5 || dev-develop"
   },
   "config": {
