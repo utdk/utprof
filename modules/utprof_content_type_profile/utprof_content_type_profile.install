@@ -32,7 +32,7 @@ function utprof_content_type_profile_requirements($phase) {
   $requirements = [];
   if ($phase === 'install') {
     $active_profile = \Drupal::installProfile();
-    $profile_information = system_get_info('module', $active_profile);
+    $profile_information = \Drupal::service('extension.list.profile')->getExtensionInfo($active_profile);
     $has_alpha = strpos($profile_information['version'], '3.0.0-alpha');
     $early_beta = in_array($profile_information['version'], [
       '3.0.0-beta.1',
