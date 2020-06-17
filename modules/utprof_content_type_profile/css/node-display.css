@@ -23,6 +23,9 @@
   clear: both;
   padding-top: 1.5rem;
 }
+.utprof__content-bottom .nav-tabs {
+  margin-bottom: 16px;
+}
 .utprof__content-bottom .utprof__content ul li {
   display: inline-block;
 }
