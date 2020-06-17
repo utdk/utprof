@@ -2,6 +2,7 @@ name: 'View - Profiles'
 description: 'Provides the default listing view for profiles, filterable by tag and group, using view modes for display'
 type: module
 core: 8.x
+core_version_requirement: ^8 || ^9
 package: 'UT Drupal Kit Profile Add-on'
 dependencies:
   - drupal:node
