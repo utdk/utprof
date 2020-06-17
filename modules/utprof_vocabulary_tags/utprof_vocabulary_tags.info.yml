@@ -1,10 +1,9 @@
 name: Vocabulary - Tags
 description: Provides the 'Tags' vocabulary component for the 'Profile' module.
 package: UT Drupal Kit Profile Add-on
-
 type: module
 core: 8.x
-
+core_version_requirement: ^8 || ^9
 dependencies:
   - taxonomy
   - utprof:utprof

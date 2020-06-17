@@ -3,6 +3,7 @@ description: 'Provides a content type component for the ''Profile'' module.'
 package: 'UT Drupal Kit Profile Add-on'
 type: module
 core: 8.x
+core_version_requirement: ^8 || ^9
 dependencies:
   - bootstrap_horizontal_tabs:bootstrap_horizontal_tabs
   - breadcrumbs_visibility:breadcrumbs_visibility
