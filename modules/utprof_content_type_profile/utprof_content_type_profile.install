@@ -108,13 +108,13 @@ function _utprof_add_pathauto_pattern() {
  * @return string The weight of the custom pathauto pattern.
  */
 function _setPatternWeightBeforeGeneric() {
-  // Default to -10.
-  $weight = '-10';
+  // Default to -10 in case there is a generic pattern.
+  $weight = -10;
   // If generic pattern present, place it 1 level above.
   if ($generic = PathautoPattern::load('pathauto_node')) {
-    $weight = intval($generic->get('weight')) -1;
+    $weight = (int) $generic->get('weight') -1;
   }
-  return strval($weight);
+  return (string) $weight;
 }
 
 /**
