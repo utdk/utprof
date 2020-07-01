@@ -13,3 +13,12 @@ function utprof_block_type_profile_listing_update_8101() {
     'utprof_block_type_profile_listing',
   ], TRUE);
 }
+
+/**
+ * Update documentation link for default display types.
+ */
+function utprof_block_type_profile_listing_update_8102() {
+  \Drupal::service('features.manager')->import([
+    'utprof_block_type_profile_listing',
+  ], TRUE);
+}
