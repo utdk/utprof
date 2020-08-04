@@ -247,7 +247,7 @@ class ProfileContentTypeHelper {
         ],
       ];
       $url->setOptions($link_options);
-      $directory_link = Link::fromTextAndUrl(t('View in Directory'), $url);
+      $directory_link = Link::fromTextAndUrl(t('View in UT Directory'), $url);
     }
     return $directory_link;
   }
