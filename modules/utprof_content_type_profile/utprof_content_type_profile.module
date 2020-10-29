@@ -68,7 +68,6 @@ function utprof_content_type_profile_preprocess_node(&$variables) {
   $variables['directory_link'] = ProfileContentTypeHelper::getDirectoryLink($node);
   $variables['has_contact_info'] = ProfileContentTypeHelper::hasContactInfoFields($node);
   $variables['phone_link'] = ProfileContentTypeHelper::getPhone($node);
-  $variables['prepared_basic_media'] = ProfileContentTypeHelper::getListingBasicMedia($node);
   $variables['prepared_title'] = ProfileContentTypeHelper::getPreparedTitle($node, 'ut-link');
   $variables['prepared_title_prominent'] = ProfileContentTypeHelper::getPreparedTitle($node, 'ut-link--darker');
 

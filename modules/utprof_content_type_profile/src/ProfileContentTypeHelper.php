@@ -149,39 +149,6 @@ class ProfileContentTypeHelper {
   }
 
   /**
-   * The media item, linked depending on user selection.
-   *
-   * @param Drupal\node\Entity\Node $node
-   *   The node object.
-   *
-   * @return array
-   *   A renderable Drupal link.
-   */
-  public static function getListingBasicMedia(Node $node) {
-    // Build basic media (headshot).
-    if ($node->hasField('field_utprof_basic_media') && !$node->get('field_utprof_basic_media')->isEmpty()) {
-      $headshot = $node->get('field_utprof_basic_media');
-      if ($media = \Drupal::entityTypeManager()->getStorage('media')->load($headshot->getString())) {
-        $image_render_array = [
-          'type' => 'image',
-          'label' => 'hidden',
-          'settings' => [
-            'image_style' => 'utexas_image_style_500w_500h',
-            'image_link' => '',
-          ],
-        ];
-        $image = $media->field_utexas_media_image->view($image_render_array);
-        if (self::doLinkToNode($node)) {
-          $url = Url::fromRoute('entity.node.canonical', ['node' => $node->id()]);
-          return Link::fromTextAndUrl($image, $url);
-        }
-        return $image;
-      }
-    }
-    return [];
-  }
-
-  /**
    * Link to user-provided site or form.
    *
    * @param Drupal\node\Entity\Node $node
