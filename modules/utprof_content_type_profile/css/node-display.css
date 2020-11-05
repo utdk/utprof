@@ -26,7 +26,7 @@
 .utprof__content-bottom .nav-tabs {
   margin-bottom: 16px;
 }
-.utprof__content-bottom .utprof__content ul li {
+.utprof__content-bottom .utprof__content ul.nav li {
   display: inline-block;
 }
 .utprof__contact-wrapper {
