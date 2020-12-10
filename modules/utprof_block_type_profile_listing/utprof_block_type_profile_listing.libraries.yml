@@ -1,0 +1,5 @@
+block-profile-listing:
+  version: 1.x
+  css:
+    theme:
+      css/block-profile-listing.css: {}

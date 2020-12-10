@@ -2,6 +2,7 @@
 
 namespace Drupal\utprof_block_type_profile_listing;
 
+use Drupal\Core\Database\Database;
 use Drupal\block_content\Entity\BlockContent;
 use Drupal\views\Views;
 
@@ -100,6 +101,106 @@ class ProfileListingHelper {
       return $view->preview($utprof_profile_listing_view_display);
     }
     return FALSE;
+  }
+
+  /**
+   * Given a block type and a view_mode/style map, add appropriate style.
+   *
+   * IMPORTANT: This function is intended to affect *all* node revisions.
+   * The use case is limited to when a Layout Builder Style needs to be added
+   * retroactively to *preserve* behavior on existing sites.
+   *
+   * @param string $block_type
+   *   The machine name of a block type.
+   * @param array $style_map
+   *   An array with the view mode machine name as keys and the Layout Builder
+   *   Style machine name as values.
+   */
+  public static function mapViewModeToStyle($block_type, array $style_map) {
+    /** @var \Drupal\Core\Database\Connection $connection */
+    $connection = Database::getConnection();
+    /** @var \Drupal\Core\Logger\LoggerChannelInterface $logger */
+    $logger = \Drupal::logger('utexas_layout_builder_styles');
+    /** @var \Drupal\Core\Entity\EntityStorageInterface $block_content_storage */
+    $block_content_storage = \Drupal::entityTypeManager()->getStorage('block_content');
+    /** @var \Drupal\Core\Entity\EntityRepository $entity_repository*/
+    $entity_repository = \Drupal::service('entity.repository');
+
+    $tables = [
+      'node__layout_builder__layout',
+      'node_revision__layout_builder__layout',
+    ];
+    foreach ($tables as $table) {
+      $query = $connection->query("SELECT * FROM {" . $table . "}");
+      $result = $query->fetchAll();
+      foreach (array_values($result) as $row) {
+        $affected = FALSE;
+        /** @var \Drupal\layout_builder\Section $section */
+        $section = unserialize($row->layout_builder__layout_section);
+        $components = $section->getComponents();
+        /** @var \Drupal\layout_builder\SectionComponent $component */
+        foreach (array_values($components) as $component) {
+          $config = $component->get('configuration');
+          $config_provider = $config['provider'];
+
+          switch ($config_provider) {
+            // Reusable block.
+            case 'block_content':
+              // Load the block entity using uuid in configuration array.
+              $uuid = str_replace('block_content:', '', $config['id']);
+              $block_content = $entity_repository->loadEntityByUuid('block_content', $uuid);
+              // If block bundle does not match specified block type, skip.
+              if ($block_content->bundle() !== $block_type) {
+                continue 2;
+              }
+              break;
+
+            // Inline block.
+            case 'layout_builder':
+              // If the component is not of the specified block type, skip.
+              if (strpos($component->getPluginId(), $block_type) === FALSE) {
+                continue 2;
+              }
+              // Load the block entity using revision_id in configuration array.
+              $revision_id = $config['block_revision_id'];
+              $block_content = $block_content_storage->loadRevision($revision_id);
+              break;
+
+            // If it's neither provider, skip.
+            default:
+              continue 2;
+          }
+
+          // Get view mode value for key in mapping.
+          $view_mode = self::getViewMode($block_content);
+
+          // If key does not exist in our mapping, skip.
+          if (!array_key_exists($view_mode, $style_map)) {
+            continue;
+          }
+
+          $affected = TRUE;
+          $style = $style_map[$view_mode];
+          $additional = $component->get('additional');
+          $additional['layout_builder_styles_style'][$style] = $style;
+          $component->set('additional', $additional);
+        }
+        // If any components have been updated, update their db record.
+        if ($affected) {
+          $connection->update($table)
+            ->fields([
+              'layout_builder__layout_section' => serialize($section),
+            ])
+            ->condition('entity_id', $row->entity_id, '=')
+            ->condition('revision_id', $row->revision_id, '=')
+            ->condition('delta', $row->delta, '=')
+            ->execute();
+          if ($table === 'node__layout_builder__layout') {
+            $logger->notice('Updated Layout Builder Styles using view modes in node/' . $row->entity_id . ' ' . $block_type . ' block instances.');
+          }
+        }
+      }
+    }
   }
 
 }
