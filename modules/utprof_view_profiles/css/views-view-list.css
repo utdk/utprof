@@ -1,0 +1,52 @@
+/* Items Per Row Styles */
+.utprof__views-list {
+  --ipr-grid-gap: 2vw;
+  --ipr-grid-min-min-size: 300px;
+  --ipr-grid-min-max-size: 300px;
+
+  display: grid;
+  grid-gap: var(--ipr-grid-gap);
+  grid-template-columns: repeat(auto-fit, minmax(max(var(--ipr-grid-min-min-size), var(--ipr-grid-min-max-size)), 1fr));
+}
+
+.utexas-onecol .utprof__views-list,
+.utexas-twocol .utprof__views-list,
+.utexas-threecol .utprof__views-list,
+.utexas-fourcol .utprof__views-list {
+  /* Maximum total width of all grid gaps (gutters) possible at --ipr-grid-num-columns. */
+  --ipr-grid-gap-total: calc((var(--ipr-grid-num-columns) - 1) * var(--ipr-grid-gap));
+  /* Total width of the container minus the width of maximum total possible grid gaps. */
+  --ipr-grid-available-space: calc(100% - var(--ipr-grid-gap-total));
+  /* Total available space divided by the maximum number of columns. */
+  /* Subract 1px from total to prevent odd rounding behavior in Firefox. */
+  --ipr-grid-min-max-size: calc(var(--ipr-grid-available-space) / var(--ipr-grid-num-columns) - 1px);
+}
+
+.utexas-onecol .utprof__views-list {
+  --ipr-grid-num-columns: 1;
+}
+.utexas-twocol .utprof__views-list {
+  --ipr-grid-num-columns: 2;
+}
+.utexas-threecol .utprof__views-list {
+  --ipr-grid-num-columns: 3;
+}
+.utexas-fourcol .utprof__views-list {
+  --ipr-grid-num-columns: 4;
+}
+/* ****************************** */
+
+.utprof__views-list {
+  margin-bottom: .5rem;
+  padding-left: 0;
+}
+
+.utprof__profile-item {
+  /* Make child div fill height. */
+  display: flex;
+  list-style-type: none;
+}
+/* Put margin at top of each item. */
+.utexas_basic__wrapper .utprof__profile-item {
+  margin-top: 1rem;
+}

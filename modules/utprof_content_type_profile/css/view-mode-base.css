@@ -1,27 +1,12 @@
 /* Base styling for utprof profiles listing */
-.utprof__views-list {
-  padding-left: 0;
+.utprof__list {
+  width: 100%;;
+  padding: 0 12px;
 }
-.utprof__profile-item {
-  list-style-type: none;
-}
+
 .utprof__directory-link {
   line-height: 1.125rem;
 }
 .utprof__directory-link a {
   margin-bottom: 0;
-}
-.utprof__profile-item {
-  margin-bottom: 1rem;
-}
-
-/* Style block titles, header, footer. */
-.utprof__block-list-header {
-  margin-bottom: 1rem;
-}
- .utprof__block-list-header p:last-child {
-   margin-bottom: 0;
- }
-.utprof__block-list-footer {
-  margin-top: 1rem;
 }

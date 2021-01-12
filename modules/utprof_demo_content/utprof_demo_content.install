@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function utprof_demo_content_install() {
+  /** @var \Drupal\node\NodeInterface $default_profile_nodes */
+  $default_profile_nodes = [];
+  // The $default_profile_nodes content is defined in an array in
+  // utprof_demo_content.default_content.inc.
+  require_once 'utprof_demo_content.default_content.inc';
+  foreach ($default_profile_nodes as $data) {
+    _utprof_demo_content_create_node($data);
+  }
+}

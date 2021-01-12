@@ -5,6 +5,8 @@
  * Content for creating default content.
  */
 
+$module_path = \Drupal::service('extension.list.module')->getPath('utprof_demo_content');
+
 $default_profile_nodes[] = [
   'title' => t('Sample Profile (minimal content)'),
   'profile_groups' => [
@@ -17,7 +19,7 @@ $default_profile_nodes[] = [
   ],
 ];
 
-$filepath_1 = drupal_get_path('module', 'utprof_content_type_profile') . '/assets/rodin-young-girl.jpg';
+$filepath_1 = $module_path . '/assets/rodin-young-girl.jpg';
 $default_profile_nodes[] = [
   'title' => t('Sample Profile (maximal content)'),
   'profile_groups' => [
@@ -73,7 +75,7 @@ $default_profile_nodes[] = [
   ],
 ];
 
-$filepath_2 = drupal_get_path('module', 'utprof_content_type_profile') . '/assets/general-2.jpg';
+$filepath_2 = $module_path . '/assets/general-2.jpg';
 $default_profile_nodes[] = [
   'title' => t('Gnaeus Scipio Calvus'),
   'profile_groups' => [
@@ -99,7 +101,7 @@ $default_profile_nodes[] = [
   ],
 ];
 
-$filepath_3 = drupal_get_path('module', 'utprof_content_type_profile') . '/assets/jupiter.jpg';
+$filepath_3 = $module_path . '/assets/jupiter.jpg';
 $default_profile_nodes[] = [
   'title' => t('Cornelia Africana'),
   'profile_groups' => [
@@ -124,7 +126,7 @@ $default_profile_nodes[] = [
   ],
 ];
 
-$filepath_4 = drupal_get_path('module', 'utprof_content_type_profile') . '/assets/kouros.jpg';
+$filepath_4 = $module_path . '/assets/kouros.jpg';
 $default_profile_nodes[] = [
   'title' => t('Portia Catonis'),
   'profile_groups' => [
@@ -150,7 +152,7 @@ $default_profile_nodes[] = [
   ],
 ];
 
-$filepath_5 = drupal_get_path('module', 'utprof_content_type_profile') . '/assets/general-1.jpg';
+$filepath_5 = $module_path . '/assets/general-1.jpg';
 $default_profile_nodes[] = [
   'title' => t('Marcus Tullius Cicero'),
   'profile_groups' => [

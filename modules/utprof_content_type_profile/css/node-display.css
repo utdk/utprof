@@ -19,6 +19,12 @@
 .utprof__add-basic-info p:last-child {
   margin-bottom: 0;
 }
+/* Make ordered and unordered lists layout correctly. */
+.utprof__add-basic-info ul,
+.utprof__add-basic-info ol,
+.utprof__add-basic-info dl {
+  display: flow-root;
+}
 .utprof__content-bottom {
   clear: both;
   padding-top: 1.5rem;

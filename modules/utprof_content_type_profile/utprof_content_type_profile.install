@@ -14,15 +14,6 @@ use Drupal\Core\Config\FileStorage;
 function utprof_content_type_profile_install() {
   // Add default Pathauto setting for content type.
   _utprof_add_pathauto_pattern();
-
-  /** @var \Drupal\node\NodeInterface $default_profile_nodes */
-  $default_profile_nodes = [];
-  // The $default_profile_nodes content is defined in an array in
-  // utprof_content_type_profile.default_content.inc.
-  require_once 'utprof_content_type_profile.default_content.inc';
-  foreach ($default_profile_nodes as $data) {
-    _utprof_content_type_profile_create_node($data);
-  }
 }
 
 /**
