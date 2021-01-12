@@ -149,6 +149,10 @@ class ProfileListingHelper {
               // Load the block entity using uuid in configuration array.
               $uuid = str_replace('block_content:', '', $config['id']);
               $block_content = $entity_repository->loadEntityByUuid('block_content', $uuid);
+              if (!$block_content) {
+                // The block cannot be loaded (likely deleted). Skip.
+                continue 2;
+              }
               // If block bundle does not match specified block type, skip.
               if ($block_content->bundle() !== $block_type) {
                 continue 2;
