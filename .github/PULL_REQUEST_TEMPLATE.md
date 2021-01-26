@@ -35,7 +35,7 @@ Fixes #
 0. `composer run-script dev-scaffold`
 0. `fin init && fin init-site --wcs`
 0. `composer require utexas/utprof:dev-<BRANCH-NAME>`
-0. `fin drush en utprof -y`
+0. `fin drush en utprof_block_type_profile utprof_view_profiles -y`
 
 ## Reference: running tests locally
 0. `fin test web/modules/contrib/utprof/tests/src/Functional`
