@@ -5,8 +5,9 @@
  * Profile content type installation file.
  */
 
-use Drupal\pathauto\Entity\PathautoPattern;
 use Drupal\Core\Config\FileStorage;
+use Drupal\pathauto\Entity\PathautoPattern;
+use Drupal\utprof\Permissions;
 
 /**
  * Implements hook_install().
@@ -14,6 +15,11 @@ use Drupal\Core\Config\FileStorage;
 function utprof_content_type_profile_install() {
   // Add default Pathauto setting for content type.
   _utprof_add_pathauto_pattern();
+
+  // Add standard permissions to "utexas_site_manager" & "utexas_content_editor"
+  // if those roles exist.
+  Permissions::assignPermissions('editor', 'utexas_content_editor');
+  Permissions::assignPermissions('manager', 'utexas_site_manager');
 }
 
 /**
