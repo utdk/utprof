@@ -83,7 +83,7 @@ class BlockCreationTest extends WebDriverTestBase {
   public function testCreateProfileListingBlock() {
     $session = $this->getSession();
     // Enlarge the viewport so that all is clickable.
-    $session->resizeWindow(1200, 5000);
+    $session->resizeWindow(1200, 3000);
     $this->drupalGet('block/add/utprof_profile_listing');
 
     $page = $session->getPage();
