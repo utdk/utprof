@@ -83,7 +83,7 @@ class BlockCreationTest extends WebDriverTestBase {
   public function testCreateProfileListingBlock() {
     $session = $this->getSession();
     // Enlarge the viewport so that all is clickable.
-    $session->resizeWindow(1200, 3000);
+    $session->resizeWindow(1200, 5000);
     $this->drupalGet('block/add/utprof_profile_listing');
 
     $page = $session->getPage();
@@ -109,7 +109,7 @@ class BlockCreationTest extends WebDriverTestBase {
     $assert->waitForText('The block configuration has been saved.');
     // Verify page output.
     $this->drupalGet('<front>');
-    $assert->elementExists('css', '.utexas_basic');
+    $assert->elementExists('css', '.utexas-basic');
 
     // Load block by title to get the id.
     $block = $this->drupalGetBlockByInfo('Test Profile Listing Block Description');
@@ -132,7 +132,7 @@ class BlockCreationTest extends WebDriverTestBase {
     $assert->waitForText('The block configuration has been saved.');
     // Verify page output.
     $this->drupalGet('<front>');
-    $assert->elementExists('css', '.utexas_prominent');
+    $assert->elementExists('css', '.utexas-prominent');
   }
 
 }
