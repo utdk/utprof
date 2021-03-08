@@ -41,11 +41,11 @@ trait ProfileViewModeBasicTrait {
     ];
 
     foreach ($fields_contains as $value) {
-      $this->assertContains($value, $output);
+      $this->assertStringContainsString($value, $output);
     }
 
     foreach ($fields_not_contains as $value) {
-      $this->assertNotContains($value, $output);
+      $this->assertStringNotContainsString($value, $output);
     }
   }
 

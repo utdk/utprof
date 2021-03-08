@@ -3,7 +3,7 @@
   "type": "drupal-module",
   "description": "UTexas-focused feature to provide a generalized 'Profile' content type and supporting components",
   "keywords": ["Drupal"],
-  "license": "GPL-2.0-or-later",
+  "license": ["GPL-2.0-or-later"],
   "homepage": "https://github.austin.utexas.edu/eis1-wcs/utprof",
   "minimum-stability": "dev",
   "support": {
@@ -19,5 +19,12 @@
   },
   "config": {
     "sort-packages": true
+  },
+  "extra": {
+    "drush": {
+      "services": {
+        "drush.services.yml": "^9"
+      }
+    }
   }
 }

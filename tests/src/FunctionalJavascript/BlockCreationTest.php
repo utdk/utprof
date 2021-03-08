@@ -109,7 +109,7 @@ class BlockCreationTest extends WebDriverTestBase {
     $assert->waitForText('The block configuration has been saved.');
     // Verify page output.
     $this->drupalGet('<front>');
-    $assert->elementExists('css', '.utexas_basic');
+    $assert->elementExists('css', '.utexas-basic');
 
     // Load block by title to get the id.
     $block = $this->drupalGetBlockByInfo('Test Profile Listing Block Description');
@@ -132,7 +132,7 @@ class BlockCreationTest extends WebDriverTestBase {
     $assert->waitForText('The block configuration has been saved.');
     // Verify page output.
     $this->drupalGet('<front>');
-    $assert->elementExists('css', '.utexas_prominent');
+    $assert->elementExists('css', '.utexas-prominent');
   }
 
 }
