@@ -3,7 +3,7 @@ type: module
 description: Provides the generalized 'Profile' content type and supporting components.
 core: 8.x
 core_version_requirement: ^8 || ^9
-version: '1.0.0-alpha.6.1'
+version: '1.0.0-alpha.7'
 package: UT Drupal Kit Profile Add-on
 
 configure: utprof.configuration
