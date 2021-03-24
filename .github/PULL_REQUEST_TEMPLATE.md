@@ -45,7 +45,3 @@ Fixes #
 0. Perform a thorough code review.
 0.
 0.
-
-## Potential Reviewers
-
-@eis1-wcs/drupal-utdk
