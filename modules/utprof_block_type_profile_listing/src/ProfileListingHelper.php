@@ -48,14 +48,18 @@ class ProfileListingHelper {
       $groups = $block_content->get('field_utprof_profile_groups')->getValue();
       foreach ($groups as $group) {
         $target_id = $group['target_id'];
-        $user_defined_filters['field_utprof_profile_groups_target_id'][] = $target_id;
+        if (\Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($target_id)) {
+          $user_defined_filters['field_utprof_profile_groups_target_id'][] = $target_id;
+        }
       }
     }
     if ($block_content->hasField('field_utprof_profile_tags')) {
       $groups = $block_content->get('field_utprof_profile_tags')->getValue();
       foreach ($groups as $group) {
         $target_id = $group['target_id'];
-        $user_defined_filters['field_utprof_profile_tags_target_id'][] = $target_id;
+        if (\Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($target_id)) {
+          $user_defined_filters['field_utprof_profile_tags_target_id'][] = $target_id;
+        }
       }
     }
     return $user_defined_filters;
