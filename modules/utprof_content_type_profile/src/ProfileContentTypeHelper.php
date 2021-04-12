@@ -210,6 +210,7 @@ class ProfileContentTypeHelper {
         'attributes' => [
           'class' => [
             'ut-link--darker',
+            'ut-cta-link--external',
           ],
         ],
       ];
