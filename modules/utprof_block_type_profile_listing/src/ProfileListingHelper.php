@@ -66,6 +66,48 @@ class ProfileListingHelper {
   }
 
   /**
+   * Generate a renderable list based on editor-chosen profiles.
+   *
+   * @param \Drupal\block_content\Entity\BlockContent $block
+   *   The block object.
+   *
+   * @return array
+   *   A render array.
+   */
+  public static function buildList(BlockContent $block) {
+    $view_mode = self::getViewMode($block);
+    if (!$block->hasField('field_utprof_specific_profiles')) {
+      return FALSE;
+    }
+    $profiles = $block->get('field_utprof_specific_profiles')->getValue();
+    if (empty($profiles)) {
+      return FALSE;
+    }
+    $output = [];
+    $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
+    $storage = \Drupal::entityTypeManager()->getStorage('node');
+    foreach ($profiles as $profile) {
+      $node = $storage->load($profile['target_id']);
+      if (!$node->isPublished()) {
+        continue;
+      }
+      $build = $view_builder->view($node, $view_mode);
+      $output[] = [
+        '#wrapper_attributes' => ['class' => 'utprof__profile-item'],
+        '#markup' => \Drupal::service('renderer')->render($build),
+      ];
+    }
+    $content = [
+      '#theme' => 'item_list',
+      '#type' => 'ul',
+      '#items' => $output,
+      '#attributes' => ['class' => 'utprof__views-list'],
+      '#wrapper_attributes' => ['class' => 'container'],
+    ];
+    return $content;
+  }
+
+  /**
    * Generate a renderable View based on user input.
    *
    * @param \Drupal\block_content\Entity\BlockContent $block_content
