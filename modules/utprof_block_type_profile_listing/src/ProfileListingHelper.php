@@ -48,17 +48,63 @@ class ProfileListingHelper {
       $groups = $block_content->get('field_utprof_profile_groups')->getValue();
       foreach ($groups as $group) {
         $target_id = $group['target_id'];
-        $user_defined_filters['field_utprof_profile_groups_target_id'][] = $target_id;
+        if (\Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($target_id)) {
+          $user_defined_filters['field_utprof_profile_groups_target_id'][] = $target_id;
+        }
       }
     }
     if ($block_content->hasField('field_utprof_profile_tags')) {
       $groups = $block_content->get('field_utprof_profile_tags')->getValue();
       foreach ($groups as $group) {
         $target_id = $group['target_id'];
-        $user_defined_filters['field_utprof_profile_tags_target_id'][] = $target_id;
+        if (\Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($target_id)) {
+          $user_defined_filters['field_utprof_profile_tags_target_id'][] = $target_id;
+        }
       }
     }
     return $user_defined_filters;
+  }
+
+  /**
+   * Generate a renderable list based on editor-chosen profiles.
+   *
+   * @param \Drupal\block_content\Entity\BlockContent $block
+   *   The block object.
+   *
+   * @return array
+   *   A render array.
+   */
+  public static function buildList(BlockContent $block) {
+    $view_mode = self::getViewMode($block);
+    if (!$block->hasField('field_utprof_specific_profiles')) {
+      return FALSE;
+    }
+    $profiles = $block->get('field_utprof_specific_profiles')->getValue();
+    if (empty($profiles)) {
+      return FALSE;
+    }
+    $output = [];
+    $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
+    $storage = \Drupal::entityTypeManager()->getStorage('node');
+    foreach ($profiles as $profile) {
+      $node = $storage->load($profile['target_id']);
+      if (!$node->isPublished()) {
+        continue;
+      }
+      $build = $view_builder->view($node, $view_mode);
+      $output[] = [
+        '#wrapper_attributes' => ['class' => 'utprof__profile-item'],
+        '#markup' => \Drupal::service('renderer')->render($build),
+      ];
+    }
+    $content = [
+      '#theme' => 'item_list',
+      '#type' => 'ul',
+      '#items' => $output,
+      '#attributes' => ['class' => 'utprof__views-list'],
+      '#wrapper_attributes' => ['class' => 'container'],
+    ];
+    return $content;
   }
 
   /**

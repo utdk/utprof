@@ -76,22 +76,23 @@ class ProfileContentTypeHelper {
   public static function getBuildingInformation(Node $node) {
     // Build Building Information link.
     $building_information = [];
-    $building_code_value = NULL;
-    $building_code_link = NULL;
     if ($node->hasField('field_utprof_building_code') && !$node->get('field_utprof_building_code')->isEmpty()) {
-      $building_code = $node->get('field_utprof_building_code');
-      $url = Url::fromUri('https://utdirect.utexas.edu/apps/campus/buildings/nlogon/maps/UTM/' . $building_code->getString());
-      $building_code = Link::fromTextAndUrl($building_code, $url);
-      $building_code_value = $building_code->getText()->getValue()[0]['value'];
-      $building_code_link = $building_code->getUrl()->getUri();
+      $building_code = $node->get('field_utprof_building_code')->getString();
+      $url = Url::fromUri('https://utdirect.utexas.edu/apps/campus/buildings/nlogon/maps/UTM/' . $building_code);
+      $link_options = [
+        'attributes' => [
+          'class' => [
+            'ut-cta-link--external',
+          ],
+        ],
+      ];
+      $url->setOptions($link_options);
+      $building_code_link = Link::fromTextAndUrl($building_code, $url);
     }
-
-    $building_room_value = NULL;
     if ($node->hasField('field_utprof_building_room_numb') && !$node->get('field_utprof_building_room_numb')->isEmpty()) {
       $building_room_value = $node->get('field_utprof_building_room_numb')->getString();
     }
-    $building_information['code_value'] = $building_code_value ?? NULL;
-    $building_information['code_link'] = $building_code_link ?? NULL;
+    $building_information['building_code'] = $building_code_link ?? NULL;
     $building_information['room_number'] = $building_room_value ?? NULL;
     return $building_information;
   }
@@ -210,6 +211,7 @@ class ProfileContentTypeHelper {
         'attributes' => [
           'class' => [
             'ut-link--darker',
+            'ut-cta-link--external',
           ],
         ],
       ];
