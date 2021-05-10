@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.utprof_profile.field_utprof_given_name
     - field.field.node.utprof_profile.field_utprof_image_ratio_opt
     - field.field.node.utprof_profile.field_utprof_listing_link
+    - field.field.node.utprof_profile.field_utprof_metatags
     - field.field.node.utprof_profile.field_utprof_phone_number
     - field.field.node.utprof_profile.field_utprof_profile_groups
     - field.field.node.utprof_profile.field_utprof_profile_tags
@@ -25,6 +26,7 @@ dependencies:
   module:
     - bootstrap_horizontal_tabs
     - media_library
+    - metatag
     - path
     - text
     - utexas_form_elements
@@ -158,6 +160,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
+    region: content
+  field_utprof_metatags:
+    weight: 29
+    settings:
+      sidebar: true
+    third_party_settings: {  }
+    type: metatag_firehose
     region: content
   field_utprof_phone_number:
     weight: 19

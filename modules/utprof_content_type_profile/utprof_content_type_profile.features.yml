@@ -5,5 +5,6 @@ required:
   - core.base_field_override.node.utprof_profile.title
   - field.field.node.utprof_profile.field_utprof_image_ratio_opt
   - field.field.node.utprof_profile.field_utprof_listing_link
+  - field.field.node.utprof_profile.field_utprof_metatags
   - field.storage.node.field_utprof_listing_link
   - core.entity_view_display.node.utprof_profile.teaser

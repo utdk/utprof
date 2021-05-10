@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.utprof_profile.field_utprof_given_name
     - field.field.node.utprof_profile.field_utprof_image_ratio_opt
     - field.field.node.utprof_profile.field_utprof_listing_link
+    - field.field.node.utprof_profile.field_utprof_metatags
     - field.field.node.utprof_profile.field_utprof_phone_number
     - field.field.node.utprof_profile.field_utprof_profile_groups
     - field.field.node.utprof_profile.field_utprof_profile_tags
@@ -182,3 +183,4 @@ hidden:
   display_page_title: true
   field_utprof_image_ratio_opt: true
   field_utprof_listing_link: true
+  field_utprof_metatags: true

@@ -203,3 +203,12 @@ function utprof_content_type_profile_update_8108() {
   $pattern = PathautoPattern::load('utprof_profile');
   $pattern->set('weight', _setPatternWeightBeforeGeneric())->save();
 }
+
+/**
+ * Make metatag values overrideable on a per-node basis #134
+ */
+function utprof_content_type_profile_update_8109() {
+  \Drupal::service('features.manager')->import([
+    'utprof_content_type_profile',
+  ], TRUE);
+}
