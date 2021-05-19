@@ -3,7 +3,6 @@
 namespace Drupal\utprof_block_type_profile_listing\Plugin\EntityReferenceSelection;
 
 use Drupal\Core\Entity\Plugin\EntityReferenceSelection\DefaultSelection;
-use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Provides specific content type control for the entity_view_mode entity type.
@@ -50,7 +49,7 @@ class ViewModeSelection extends DefaultSelection {
       $view_mode_options[$view_mode_entity_type_id . '.' . $key] = $value;
       unset($view_mode_options[$key]);
     }
-
+    \Drupal::moduleHandler()->invokeAll('utprof_block_type_profile_listing_alter_view_modes', [&$view_mode_options]);
     return $view_mode_options;
   }
 
