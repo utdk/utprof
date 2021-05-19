@@ -106,6 +106,12 @@
         {{ directory_link }}
       </div>
     {% endif %}
+
+    {% if email_link|render is not empty %}
+      <div class="utprof__email">
+        {{ email_link }}
+      </div>
+    {% endif %}
   </div>
 
 </div>

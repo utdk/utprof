@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.utprof_profile.field_utprof_contact_form_link
     - field.field.node.utprof_profile.field_utprof_content
     - field.field.node.utprof_profile.field_utprof_designation
+    - field.field.node.utprof_profile.field_utprof_display_email
     - field.field.node.utprof_profile.field_utprof_eid
     - field.field.node.utprof_profile.field_utprof_email_address
     - field.field.node.utprof_profile.field_utprof_fax_number
@@ -187,6 +188,7 @@ content:
 hidden:
   display_breadcrumbs: true
   display_page_title: true
+  field_utprof_display_email: true
   field_utprof_image_ratio_opt: true
   field_utprof_listing_link: true
   field_utprof_metatags: true

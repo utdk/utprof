@@ -21,6 +21,18 @@
   line-height: 1.375rem;
   font-style: italic;
 }
+.utprof__list.utexas-basic .utprof__email {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  line-height: 1.5rem;
+  margin-top: 10px;
+}
+.utprof__list.utexas-basic .utprof__email a{
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
 .utprof__list.utexas-basic .utprof__directory-link {
   margin-top: .5rem;
   font-size: 1rem;

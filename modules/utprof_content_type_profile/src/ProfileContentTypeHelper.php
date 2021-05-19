@@ -119,6 +119,29 @@ class ProfileContentTypeHelper {
   }
 
   /**
+   * Link to user-provided email.
+   *
+   * @param Drupal\node\Entity\Node $node
+   *   The node object.
+   *
+   * @return array
+   *   A renderable Drupal link.
+   */
+  public static function getEmail(Node $node) {
+    // Build email link.
+    $email = [];
+    if ($node->hasField('field_utprof_display_email') && $node->get('field_utprof_display_email')->getValue()[0]['value'] !== '0') {
+      if ($node->hasField('field_utprof_email_address') && !$node->get('field_utprof_email_address')->isEmpty()) {
+        $email = $node->get('field_utprof_email_address');
+        $email_text = $email->getString();
+        $email_link = Url::fromUri('mailto:' . rawurlencode($email_text));
+        $email = Link::fromTextAndUrl($email_text, $email_link);
+      }
+    }
+    return $email;
+  }
+
+  /**
    * The node title, linked depending on user selection.
    *
    * @param Drupal\node\Entity\Node $node
@@ -211,7 +234,7 @@ class ProfileContentTypeHelper {
         'attributes' => [
           'class' => [
             'ut-link--darker',
-            'ut-cta-link--external',
+            'ut-cta-link--lock',
           ],
         ],
       ];

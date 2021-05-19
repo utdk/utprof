@@ -53,6 +53,18 @@
     line-height: 1.5rem;
     margin-top: 0;
   }
+  .utprof__list.utexas-prominent .utprof__email {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+    line-height: 1.5rem;
+    margin-top: 10px;
+  }
+  .utprof__list.utexas-prominent .utprof__email a{
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
   .utprof__list.utexas-prominent .field--name-field-utprof-add-basic-info {
     font-size: 1rem;
     line-height: 1.5rem;

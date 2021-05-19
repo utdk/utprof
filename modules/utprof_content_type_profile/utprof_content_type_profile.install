@@ -8,6 +8,7 @@
 use Drupal\Core\Config\FileStorage;
 use Drupal\pathauto\Entity\PathautoPattern;
 use Drupal\utprof\Permissions;
+use Drupal\node\Entity\Node;
 
 /**
  * Implements hook_install().
@@ -211,4 +212,24 @@ function utprof_content_type_profile_update_8109() {
   \Drupal::service('features.manager')->import([
     'utprof_content_type_profile',
   ], TRUE);
+}
+
+/**
+ * Import display_email field #206.
+ */
+function utprof_content_type_profile_update_8110() {
+  \Drupal::service('features.manager')->import([
+    'utprof_content_type_profile',
+  ], TRUE);
+}
+
+/**
+ * Load all nodes and set value to FALSE for new field #206.
+ */
+function utprof_content_type_profile_update_8111() {
+  $nodes = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties(['type' => 'utprof_profile']);
+  foreach ($nodes as $node) {
+    $node->set('field_utprof_display_email', FALSE);
+    $node->save();
+  }
 }

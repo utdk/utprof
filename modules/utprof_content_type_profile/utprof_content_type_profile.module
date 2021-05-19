@@ -65,6 +65,7 @@ function utprof_content_type_profile_preprocess_node(&$variables) {
   $variables['phone_link'] = ProfileContentTypeHelper::getPhone($node);
   $variables['prepared_title'] = ProfileContentTypeHelper::getPreparedTitle($node, 'ut-link');
   $variables['prepared_title_prominent'] = ProfileContentTypeHelper::getPreparedTitle($node, 'ut-link--darker');
+  $variables['email_link'] = ProfileContentTypeHelper::getEmail($node);
 
   switch ($view_mode) {
     case 'full':
@@ -96,5 +97,17 @@ function utprof_content_type_profile_form_alter(&$form, FormStateInterface $form
   if (in_array($form_id, ['node_utprof_profile_edit_form', 'node_utprof_profile_form'])) {
     $alter = \Drupal::classResolver(FormAlter::class);
     $alter->alterProfileNodeForm($form, $form_state, $form_id);
+    // Validate email address.
+    $form['#validate'][] = '_utprof_content_type_profile_validate_email';
+  }
+}
+
+/**
+ * Form validation handler for email_address field.
+ */
+function _utprof_content_type_profile_validate_email($form, FormStateInterface $form_state) {
+  $email = $form_state->getValue('field_utprof_email_address')[0]['value'];
+  if ($email !== '' && !\Drupal::service('email.validator')->isValid($email)) {
+    $form_state->setErrorByName('field_utprof_email_address', t('%email is an invalid email address', ['%email' => $email]));
   }
 }

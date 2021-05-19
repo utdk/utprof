@@ -9,7 +9,7 @@ field_name: field_utprof_email_address
 entity_type: node
 bundle: utprof_profile
 label: 'Email address'
-description: ''
+description: Displays on individual profile's contact information.
 required: false
 translatable: false
 default_value: {  }

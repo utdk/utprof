@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.utprof_profile.field_utprof_contact_form_link
     - field.field.node.utprof_profile.field_utprof_content
     - field.field.node.utprof_profile.field_utprof_designation
+    - field.field.node.utprof_profile.field_utprof_display_email
     - field.field.node.utprof_profile.field_utprof_eid
     - field.field.node.utprof_profile.field_utprof_email_address
     - field.field.node.utprof_profile.field_utprof_fax_number
@@ -104,6 +105,16 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_utprof_display_email:
+    type: boolean
+    weight: 18
+    region: content
+    label: hidden
+    settings:
+      format: true-false
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings: {  }
   field_utprof_eid:
     weight: 10
     label: hidden
@@ -114,7 +125,7 @@ content:
     region: content
   field_utprof_email_address:
     weight: 1
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: email_mailto
