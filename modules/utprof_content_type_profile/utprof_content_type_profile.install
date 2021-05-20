@@ -9,6 +9,7 @@ use Drupal\Core\Config\FileStorage;
 use Drupal\pathauto\Entity\PathautoPattern;
 use Drupal\utprof\Permissions;
 use Drupal\node\Entity\Node;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * Implements hook_install().
@@ -16,6 +17,7 @@ use Drupal\node\Entity\Node;
 function utprof_content_type_profile_install() {
   // Add default Pathauto setting for content type.
   _utprof_add_pathauto_pattern();
+  _utprof_add_metatags();
 
   // Add standard permissions to "utexas_site_manager" & "utexas_content_editor"
   // if those roles exist.
@@ -68,6 +70,33 @@ function _utprof_no_existing_pathauto_pattern() {
     }
   }
   return $no_profile_pathauto_defined;
+}
+
+/**
+ * Helper function to create default metatag configuration.
+ *
+ * @return void
+ */
+function _utprof_add_metatags() {
+  $modules_to_install = [
+    'metatag_twitter_cards',
+    'metatag_open_graph',
+  ];
+  foreach ($modules_to_install as $module) {
+    if (\Drupal::moduleHandler()->moduleExists($module) === FALSE) {
+      \Drupal::service('module_installer')->install([$module]);
+    }
+  }
+  // Import default configuration that can subsequently be managed by sites.
+  // For SaaS-type sites to inherit changes to this configuration, an update
+  // hook needs to be added that will programmatically load the configuration
+  // entity and update it.
+  $module_handler = \Drupal::service('module_handler');
+  $module_path = $module_handler->getModule('utprof_content_type_profile')->getPath();
+  $config = 'metatag.metatag_defaults.node__utprof_profile';
+  $config_path = $module_path . '/config/default/' . $config . '.yml';
+  $data = Yaml::parse(file_get_contents($config_path));
+  \Drupal::configFactory()->getEditable($config)->setData($data)->save(TRUE);
 }
 
 /**
@@ -231,5 +260,16 @@ function utprof_content_type_profile_update_8111() {
   foreach ($nodes as $node) {
     $node->set('field_utprof_display_email', FALSE);
     $node->save();
+  }
+}
+
+/**
+ * Add default metatags if none exist (#77).
+ */
+function utprof_content_type_profile_update_8112() {
+  $key = 'metatag.metatag_defaults.node__utprof_profile';
+  $config = \Drupal::config($key)->get('id');
+  if (!$config) {
+    _utprof_add_metatags();
   }
 }
