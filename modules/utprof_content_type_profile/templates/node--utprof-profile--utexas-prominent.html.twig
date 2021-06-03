@@ -74,15 +74,14 @@
 #}
 {%
   set classes = [
+    'utprof__list',
+    'utexas-prominent-based',
     view_mode ? view_mode|clean_class,
-    not node.isPublished() ? 'is-unpublished',
-    node.bundle|clean_class,
-    'clearfix',
   ]
 %}
 
 {% block content %}
-  <div class="utprof__list utexas-prominent">
+  <div{{ attributes.addClass(classes) }}>
 
     <div class="utprof__list-img">
       {{ basic_media }}
