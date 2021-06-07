@@ -1,8 +1,8 @@
 /* Items Per Row Styles */
 .utprof__views-list {
-  --ipr-grid-gap: 2vw;
+  --ipr-grid-gap: 2.5vw;
   --ipr-grid-min-min-size: 300px;
-  --ipr-grid-min-max-size: 300px;
+  --ipr-grid-min-max-size: 325px;
 
   display: grid;
   grid-gap: var(--ipr-grid-gap);
@@ -39,6 +39,10 @@
 .utprof__views-list {
   margin-bottom: .5rem;
   padding-left: 0;
+}
+.utprof__views-list .utprof__profile-item .utprof__directory-link,
+.utprof__views-list .utprof__profile-item .utprof__email {
+  font-size: 1rem;
 }
 
 .utprof__profile-item {
