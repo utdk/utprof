@@ -75,6 +75,7 @@
 
 {%
   set classes = [
+    'utprof__list',
     view_mode ? view_mode|clean_class,
     not node.isPublished() ? 'is-unpublished',
     node.bundle|clean_class,
@@ -82,7 +83,7 @@
   ]
 %}
 
-<div class="utprof__list {{ view_mode|clean_class }}">
+<div{{ attributes.addClass(classes) }}>
 
   <div class="utprof__list-img">
     {{ basic_media }}

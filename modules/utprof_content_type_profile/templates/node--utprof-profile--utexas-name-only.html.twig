@@ -74,6 +74,7 @@
 #}
 {%
   set classes = [
+    'utprof__list',
     view_mode ? view_mode|clean_class,
     not node.isPublished() ? 'is-unpublished',
     node.bundle|clean_class,
@@ -81,6 +82,6 @@
   ]
 %}
 
-<div class="utprof__list {{ view_mode|clean_class }}">
+<div{{ attributes.addClass(classes) }}>
   <h3 class="utprof__title">{{ prepared_title }}</h3>
 </div>
