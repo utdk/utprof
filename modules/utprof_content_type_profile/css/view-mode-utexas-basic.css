@@ -5,6 +5,9 @@
   overflow: auto;
   display: flex;
 }
+.utprof__list.utexas-basic  .utprof__text-wrapper {
+  word-break: break-word;
+}
 .utprof__list.utexas-basic .utprof__list-img {
   width: 66px;
   margin: 0 10px 5px 0;

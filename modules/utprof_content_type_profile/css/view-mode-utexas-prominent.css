@@ -8,6 +8,9 @@
   border: 1px solid #f3f0e8;
   display: flex;
 }
+.utprof__list.utexas-prominent-based  .data-wrapper {
+  word-break: break-word;
+}
 .utprof__list.utexas-prominent-based .utprof__list-img {
   margin: 0 10px 5px 0;
   flex: 0 0 67px;
