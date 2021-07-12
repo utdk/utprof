@@ -13,7 +13,6 @@ class FormAlter {
   use StringTranslationTrait;
 
   const UTPROF_CONTENT_TYPE_PROFILE_CONTACT_INFO_FIELDS = [
-    'field_utprof_email_address',
     'field_utprof_website_link',
     'field_utprof_phone_number',
     'field_utprof_fax_number',
@@ -55,6 +54,9 @@ class FormAlter {
     $form['standard_fields'] = [
       '#type' => 'fieldset',
     ];
+    $form['email_field'] = [
+      '#type' => 'fieldset',
+    ];
     $form['eid_field'] = [
       '#type' => 'fieldset',
     ];
@@ -82,6 +84,14 @@ class FormAlter {
     foreach (self::UTPROF_CONTENT_TYPE_PROFILE_STANDARD_FIELDS as $field) {
       $form['standard_fields'][$field] = $form[$field];
       unset($form[$field]);
+    }
+    if (isset($form['field_utprof_display_email']) && isset($form['field_utprof_email_address'])) {
+      $form['email_field']['field_utprof_display_email'] = $form['field_utprof_display_email'];
+      $form['email_field']['field_utprof_display_email']['#weight'] = 1;
+      unset($form['field_utprof_display_email']);
+      $form['email_field']['field_utprof_email_address'] = $form['field_utprof_email_address'];
+      $form['email_field']['field_utprof_email_address']['#weight'] = 0;
+      unset($form['field_utprof_email_address']);
     }
     if (isset($form['field_utprof_eid'])) {
       $form['eid_field']['field_utprof_eid'] = $form['field_utprof_eid'];

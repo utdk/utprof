@@ -10,12 +10,14 @@ dependencies:
     - field.field.node.utprof_profile.field_utprof_contact_form_link
     - field.field.node.utprof_profile.field_utprof_content
     - field.field.node.utprof_profile.field_utprof_designation
+    - field.field.node.utprof_profile.field_utprof_display_email
     - field.field.node.utprof_profile.field_utprof_eid
     - field.field.node.utprof_profile.field_utprof_email_address
     - field.field.node.utprof_profile.field_utprof_fax_number
     - field.field.node.utprof_profile.field_utprof_given_name
     - field.field.node.utprof_profile.field_utprof_image_ratio_opt
     - field.field.node.utprof_profile.field_utprof_listing_link
+    - field.field.node.utprof_profile.field_utprof_metatags
     - field.field.node.utprof_profile.field_utprof_phone_number
     - field.field.node.utprof_profile.field_utprof_profile_groups
     - field.field.node.utprof_profile.field_utprof_profile_tags
@@ -96,6 +98,16 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_utprof_display_email:
+    weight: 18
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_utprof_eid:
     weight: 10
@@ -182,3 +194,4 @@ hidden:
   display_page_title: true
   field_utprof_image_ratio_opt: true
   field_utprof_listing_link: true
+  field_utprof_metatags: true
