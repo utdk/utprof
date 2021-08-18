@@ -188,6 +188,7 @@ content:
 hidden:
   display_breadcrumbs: true
   display_page_title: true
+  display_updated: true
   field_utprof_display_email: true
   field_utprof_image_ratio_opt: true
   field_utprof_listing_link: true
