@@ -2,8 +2,12 @@
   "name": "utexas/utprof",
   "type": "drupal-custom-module",
   "description": "Drupal module that provides a profile content type and supporting components for use with the UT Drupal Kit.",
-  "keywords": ["Drupal"],
-  "license": ["GPL-2.0-or-later"],
+  "keywords": [
+    "Drupal"
+  ],
+  "license": [
+    "GPL-2.0-or-later"
+  ],
   "homepage": "https://github.austin.utexas.edu/eis1-wcs/utprof",
   "minimum-stability": "dev",
   "support": {
@@ -13,9 +17,9 @@
   "require": {
     "drupal/bootstrap_horizontal_tabs": "1.3.0",
     "drupal/breadcrumbs_visibility": "^1.0",
-    "drupal/field_group": "3.1.0",
+    "drupal/field_group": "3.2.0",
     "drupal/page_title_visibility": "^1.1",
-    "utexas/utdk_profile": "^3.2.0 || dev-develop"
+    "utexas/utdk_profile": "^3.3.0 || dev-develop"
   },
   "config": {
     "sort-packages": true
@@ -26,5 +30,6 @@
         "drush.services.yml": "^9"
       }
     }
-  }
+  },
+  "prefer-stable": true
 }
