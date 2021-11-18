@@ -196,7 +196,7 @@ class ProfileContentTypeHelper {
   }
 
   /**
-   * Whether or not there are contact info fields.
+   * Evaluate Contact field values needed for the display of contact info block.
    *
    * @param Drupal\node\Entity\Node $node
    *   The node object.
