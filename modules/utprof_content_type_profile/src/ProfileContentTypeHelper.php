@@ -146,7 +146,7 @@ class ProfileContentTypeHelper {
    *
    * @param Drupal\node\Entity\Node $node
    *   The node object.
-   * @param string $view_mode
+   * @param string $link_class
    *   Optional view mode, setting which link class to use.
    *
    * @return array
