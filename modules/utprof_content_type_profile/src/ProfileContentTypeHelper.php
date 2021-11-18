@@ -146,7 +146,7 @@ class ProfileContentTypeHelper {
    *
    * @param Drupal\node\Entity\Node $node
    *   The node object.
-   * @param string $view_mode
+   * @param string $link_class
    *   Optional view mode, setting which link class to use.
    *
    * @return array
@@ -196,7 +196,7 @@ class ProfileContentTypeHelper {
   }
 
   /**
-   * Whether or not there are contact info fields.
+   * Evaluate Contact field values needed for the display of contact info block.
    *
    * @param Drupal\node\Entity\Node $node
    *   The node object.
@@ -212,6 +212,16 @@ class ProfileContentTypeHelper {
         break;
       }
     }
+
+    // The email address field is not grouped with the other contact info fields
+    // when rendering the node form. However, it is grouped with the other
+    // contact info fields when rendering the node. Therefore, we check for it
+    // separately here. See FormAlter::alterProfileNodeForm() for form usage of
+    // FormAlter::UTPROF_CONTENT_TYPE_PROFILE_CONTACT_INFO_FIELDS.
+    if ($node->hasField('field_utprof_email_address') && !$node->get('field_utprof_email_address')->isEmpty()) {
+      $has_contact_info = TRUE;
+    }
+
     return $has_contact_info;
   }
 
