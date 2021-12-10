@@ -88,6 +88,10 @@ class ProfileListingHelper {
     $storage = \Drupal::entityTypeManager()->getStorage('node');
     foreach ($profiles as $profile) {
       $node = $storage->load($profile['target_id']);
+      if (!$node instanceof \Drupal\node\NodeInterface) {
+        // The referenced node was likely deleted (#295).
+        continue;
+      }
       if (!$node->isPublished()) {
         continue;
       }
