@@ -3,7 +3,7 @@ Resolves #
 
 ## Acceptance criteria
 
-## Pull Request Creator Checklist
+## Pull request creator checklist
 In order to be reviewed, all items must be checked by the pull request creator.
 - [ ] I reviewed the original issue title & description and updated it, if necessary, to reflect the final state of these changes
 - [ ] I checked the changed files for syntax compliance & [naming conventions](https://github.austin.utexas.edu/eis1-wcs/d8-standards/blob/master/Naming_Conventions.md) adherence
