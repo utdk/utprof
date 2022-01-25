@@ -15,11 +15,11 @@
     "source": "https://github.austin.utexas.edu/eis1-wcs/utprof"
   },
   "require": {
-    "drupal/bootstrap_horizontal_tabs": "1.3.0",
+    "drupal/bootstrap_horizontal_tabs": "1.4.0",
     "drupal/breadcrumbs_visibility": "^1.0",
     "drupal/field_group": "3.2.0",
     "drupal/page_title_visibility": "^1.1",
-    "utexas/utdk_profile": "^3.3.0 || dev-develop"
+    "utexas/utdk_profile": "^3.4.0 || dev-develop"
   },
   "config": {
     "sort-packages": true
