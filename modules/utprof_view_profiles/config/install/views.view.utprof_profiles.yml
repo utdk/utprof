@@ -2,9 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.utexas_basic
-    - core.entity_view_mode.node.utexas_name_only
-    - core.entity_view_mode.node.utexas_prominent
+    - core.entity_view_mode.node.teaser
     - node.type.utprof_profile
     - taxonomy.vocabulary.utprof_groups
     - taxonomy.vocabulary.utprof_tags
@@ -181,7 +179,7 @@ display:
           group_type: group
           admin_label: ''
           operator: or
-          value: { }
+          value: {  }
           group: 1
           exposed: false
           expose:
@@ -226,7 +224,7 @@ display:
           group_type: group
           admin_label: ''
           operator: or
-          value: { }
+          value: {  }
           group: 1
           exposed: false
           expose:
@@ -275,6 +273,7 @@ display:
           exposed: false
           expose:
             label: ''
+            field_identifier: field_utprof_surname_value
           plugin_id: standard
       title: Profiles
       header: {  }
