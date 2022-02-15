@@ -163,6 +163,7 @@ display:
           exposed: false
           expose:
             label: ''
+            field_identifier: field_utprof_surname_value
           plugin_id: standard
       header: {  }
       footer: {  }
