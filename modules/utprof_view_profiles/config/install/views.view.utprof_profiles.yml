@@ -179,8 +179,7 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value:
-            1: 1
+          value: { }
           group: 1
           exposed: false
           expose:
@@ -225,8 +224,7 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: and
-          value:
-            5: 5
+          value: { }
           group: 1
           exposed: false
           expose:
