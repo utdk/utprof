@@ -13,3 +13,12 @@ function utprof_view_profiles_update_8101() {
     'utprof_view_profiles',
   ], TRUE);
 }
+
+/**
+ * Unpublished profile nodes appear in listing blocks (#302).
+ */
+function utprof_view_profiles_update_8102() {
+  \Drupal::service('features.manager')->import([
+    'utprof_view_profiles',
+  ], TRUE);
+}
