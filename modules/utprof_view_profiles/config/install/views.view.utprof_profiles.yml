@@ -6,9 +6,6 @@ dependencies:
     - node.type.utprof_profile
     - taxonomy.vocabulary.utprof_groups
     - taxonomy.vocabulary.utprof_tags
-  content:
-    - 'taxonomy_term:utprof_groups:45924897-2c77-499f-8895-e0b7e2d8e449'
-    - 'taxonomy_term:utprof_tags:1e165f0f-1ebd-44d4-8353-97c7bb3d8247'
   module:
     - node
     - taxonomy
