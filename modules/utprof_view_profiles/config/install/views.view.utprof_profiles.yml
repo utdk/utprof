@@ -2,7 +2,9 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.utexas_basic
+    - core.entity_view_mode.node.utexas_name_only
+    - core.entity_view_mode.node.utexas_prominent
     - node.type.utprof_profile
     - taxonomy.vocabulary.utprof_groups
     - taxonomy.vocabulary.utprof_tags
