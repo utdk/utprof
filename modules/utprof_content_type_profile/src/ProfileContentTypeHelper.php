@@ -42,26 +42,45 @@ class ProfileContentTypeHelper {
    *   An image render array
    */
   public static function getBasicMedia(Node $node) {
-    $image_render_array = [];
-    // Build basic media (headshot).
-    if ($node->hasField('field_utprof_basic_media') && !$node->get('field_utprof_basic_media')->isEmpty()) {
-      $headshot = $node->get('field_utprof_basic_media');
-      if ($node->hasField('field_utprof_image_ratio_opt') && !$node->get('field_utprof_image_ratio_opt')->isEmpty()) {
-        $use_primary_image_style = $node->get('field_utprof_image_ratio_opt');
-      }
-      $user_defined_image_style = $use_primary_image_style ? 'utexas_image_style_500w_500h' : 'utexas_image_style_500w';
-      if ($media = \Drupal::entityTypeManager()->getStorage('media')->load($headshot->getString())) {
-        $image_render_array = $media->field_utexas_media_image->view([
-          'type' => 'image',
-          'label' => 'hidden',
-          'settings' => [
-            'image_style' => $user_defined_image_style,
-            'image_link' => '',
-          ],
-        ]);
-      }
+    // Check for media field.
+    $media_field = 'field_utprof_basic_media';
+    if (!$node->hasField($media_field) || $node->$media_field->isEmpty()) {
+      return FALSE;
     }
-    return $image_render_array;
+
+    // Get media item id.
+    /** @var \Drupal\Core\Field\EntityReferenceFieldItemList $field_items_list */
+    $field_items_list = $node->get($media_field);
+    $media_id = $field_items_list->getString();
+
+    // Determine image style.
+    if ($node->hasField('field_utprof_image_ratio_opt') && !$node->get('field_utprof_image_ratio_opt')->isEmpty()) {
+      $use_primary_image_style = $node->get('field_utprof_image_ratio_opt');
+    }
+    $user_defined_image_style = $use_primary_image_style ? 'utexas_image_style_500w_500h' : 'utexas_image_style_500w';
+
+    // Create render array.
+    /** @var \Drupal\media\MediaStorage $media_storage */
+    $media_storage = \Drupal::entityTypeManager()->getStorage('media');
+    /** @var \Drupal\media\MediaInterface $media */
+    if ($media = $media_storage->load($media_id)) {
+      /** @var  \Drupal\media\MediaSourceInterface $media_source */
+      $media_source = $media->getSource();
+      $media_source_field = $media_source->getConfiguration()['source_field'];
+      if ($media->get($media_source_field)->isEmpty()) {
+        return FALSE;
+      }
+      $image_render_array = $media->get($media_source_field)->view([
+        'type' => 'image',
+        'label' => 'hidden',
+        'settings' => [
+          'image_style' => $user_defined_image_style,
+          'image_link' => '',
+        ],
+      ]);
+    }
+
+    return $image_render_array ?? FALSE;
   }
 
   /**
