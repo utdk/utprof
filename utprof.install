@@ -51,7 +51,7 @@ function utprof_update_8101() {
 /**
  * Issue #308: HOTFIX: Allow field_utprof_basic_media node field to...
  */
-function utevent_update_8102() {
+function utprof_update_8102() {
   // Enable this add-on's dynamic overrides module.
   if (\Drupal::moduleHandler()->moduleExists('utprof_overrides') === FALSE) {
     \Drupal::service('module_installer')->install(['utprof_overrides']);
