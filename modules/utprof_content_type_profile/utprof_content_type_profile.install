@@ -148,6 +148,9 @@ function _setPatternWeightBeforeGeneric() {
  * Enable the field_group module & update form config.
  */
 function utprof_content_type_profile_update_8101() {
+  /** @var \Drupal\Core\Extension\ExtensionPathResolver $extension_path_resolver */
+  $extension_path_resolver = \Drupal::service('extension.path.resolver');
+
   // Clear the cache so that the utexas_link_widget will be registered.
   drupal_flush_all_caches();
 
@@ -160,7 +163,7 @@ function utprof_content_type_profile_update_8101() {
   foreach ($required_view_modes as $view_mode) {
     $existing_config = \Drupal::config($view_mode)->get('id');
     if (is_null($existing_config)) {
-      $config_path = drupal_get_path('profile', 'utexas') . '/config/optional';
+      $config_path = $extension_path_resolver->getPath('profile', 'utexas') . '/config/optional';
       $config_source = new FileStorage($config_path);
       \Drupal::service('config.installer')->installOptionalConfig($config_source);
       break;
