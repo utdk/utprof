@@ -21,6 +21,7 @@ trait ProfileViewModeProminentTrait {
       'field_utprof_designation-1' => 'Designation 2',
       'field_utprof_eid' => 'https://directory.utexas.edu/index.php?q=myeid',
       'field_utprof_basic_media' => 'image-test.png',
+      'field_utprof_email_address' => 'email@address.com',
     ];
     $fields_not_contains = [
       'field_utprof_add_contact_info' => 'Contact info text',
@@ -31,7 +32,6 @@ trait ProfileViewModeProminentTrait {
       'field_utprof_content-0-body' => 'Test Profile Page content tab 1 body text',
       'field_utprof_content-1-header' => 'Test Profile Page content tab 2 header text',
       'field_utprof_content-1-body' => 'Test Profile Page content tab 2 body text',
-      'field_utprof_email_address' => 'email@address.com',
       'field_utprof_fax_number' => '512-123-4567',
       'field_utprof_phone_number' => '512-234-5678',
       'field_utprof_profile_tags-0' => 'Internal Tag 1',

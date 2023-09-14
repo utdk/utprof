@@ -46,6 +46,7 @@ class BlockCreationTest extends WebDriverTestBase {
    */
   protected static $modules = [
     'utprof',
+    'utprof_demo_content',
     'utprof_content_type_profile',
     // 'utprof_role_profile_editor',
     'utprof_block_type_profile_listing',
@@ -57,7 +58,7 @@ class BlockCreationTest extends WebDriverTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     $this->strictConfigSchema = NULL;
     parent::setUp();
 
@@ -94,11 +95,11 @@ class BlockCreationTest extends WebDriverTestBase {
     // Set "Profiles Display Format" (node view mode) radio button.
     $page->selectFieldOption('edit-field-utprof-view-mode-nodeutexas-basic', 'node.utexas_basic');
     // Assign value using CKEditor enabled field.
-    $this->setCkeditorField('field_utprof_header[0][value]', 'Header text');
+    $this->fillCkeditorField('.form-item--field-utprof-header-0-value', 'Header text');
     // Set "Limit Profiles to the following group(s)" (taxonomy terms).
     $page->findField('field_utprof_profile_groups[1]')->click();
     // Assign value using CKEditor enabled field.
-    $this->setCkeditorField('field_utprof_footer[0][value]', 'Footer text');
+    $this->fillCkeditorField('.form-item--field-utprof-footer-0-value', 'Footer text');
     // Save block content.
     $page->pressButton('Save');
     $assert->waitForText('Profile Listing Test Profile Listing Block Description has been created.');
