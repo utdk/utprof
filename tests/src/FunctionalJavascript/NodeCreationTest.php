@@ -4,17 +4,16 @@ namespace Drupal\Tests\utprof\FunctionalJavascript;
 
 use Drupal\FunctionalJavascriptTests\WebDriverTestBase;
 
-use Drupal\Tests\TestFileCreationTrait;
 use Drupal\Tests\node\Traits\NodeCreationTrait;
 use Drupal\Tests\utprof\Traits\EntityTestTrait;
 use Drupal\Tests\utprof\Traits\UserTestTrait;
-
 use Drupal\Tests\utprof\Traits\ViewModeTests\ProfileViewModeBasicTrait;
 use Drupal\Tests\utprof\Traits\ViewModeTests\ProfileViewModeDefaultTrait;
 use Drupal\Tests\utprof\Traits\ViewModeTests\ProfileViewModeFullTrait;
 use Drupal\Tests\utprof\Traits\ViewModeTests\ProfileViewModeNameOnlyTrait;
 use Drupal\Tests\utprof\Traits\ViewModeTests\ProfileViewModeProminentTrait;
 use Drupal\Tests\utprof\Traits\ViewModeTests\ProfileViewModeTeaserTrait;
+use Drupal\Tests\TestFileCreationTrait;
 
 /**
  * Test all aspects of Profile Node creation functionality.
@@ -67,7 +66,7 @@ class NodeCreationTest extends WebDriverTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     $this->strictConfigSchema = NULL;
     parent::setUp();
 
@@ -118,7 +117,7 @@ class NodeCreationTest extends WebDriverTestBase {
     $assert->elementExists('css', '.ui-dialog-buttonset')->pressButton('Insert selected');
     $assert->assertWaitOnAjaxRequest();
     // Assign value using CKEditor enabled field.
-    $this->setCkeditorField('field_utprof_add_basic_info[0][value]', 'Basic info text');
+    $this->fillCkeditorField('.form-item--field-utprof-add-basic-info-0-value', 'Basic info text');
 
     // Add field values for third tab.
     // Click on third horizontal tab ("Main Content").
@@ -127,13 +126,13 @@ class NodeCreationTest extends WebDriverTestBase {
     // Add first content tab values.
     $page->fillField('field_utprof_content[0][header]', 'Test Profile Page content tab 1 header text');
     // Assign value using CKEditor enabled field.
-    $this->setCkeditorField('field_utprof_content[0][body][value]', 'Test Profile Page content tab 1 body text');
+    $this->fillCkeditorField('.form-item--field-utprof-content-0-body-value', 'Test Profile Page content tab 1 body text');
     // Add additional content tab values.
     $page->pressButton('edit-field-utprof-content-add-more');
     $assert->assertWaitOnAjaxRequest();
     $page->fillField('field_utprof_content[1][header]', 'Test Profile Page content tab 2 header text');
     // Assign value using CKEditor enabled field.
-    $this->setCkeditorField('field_utprof_content[1][body][value]', 'Test Profile Page content tab 2 body text');
+    $this->fillCkeditorField('.form-item--field-utprof-content-1-body-value', 'Test Profile Page content tab 2 body text');
 
     // Add field values for fourth tab.
     // Click on fourth horizontal tab ("Contact Information").
@@ -150,7 +149,7 @@ class NodeCreationTest extends WebDriverTestBase {
     $page->fillField('field_utprof_contact_form_link[0][uri]', 'https://www.google.com');
     $page->fillField('field_utprof_contact_form_link[0][title]', 'Contact me here');
     // Assign value using CKEditor enabled field.
-    $this->setCkeditorField('field_utprof_add_contact_info[0][value]', 'Contact info text');
+    $this->fillCkeditorField('.form-item--field-utprof-add-contact-info-0-value', 'Contact info text');
 
     // Submit form.
     $page->pressButton('edit-submit');

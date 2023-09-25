@@ -2,10 +2,11 @@
 
 namespace Drupal\Tests\utprof\Traits;
 
-use Drupal\file\Entity\File;
-use Drupal\node\Entity\Node;
-use Drupal\media\Entity\Media;
 use Drupal\Core\Language\Language;
+use Drupal\file\Entity\File;
+use Drupal\file\FileInterface;
+use Drupal\media\Entity\Media;
+use Drupal\node\Entity\Node;
 
 /**
  * General-purpose methods for interacting with Profile nodes.
@@ -52,7 +53,7 @@ trait EntityTestTrait {
     $file = File::create([
       'uri' => $images[0]->uri,
       'uid' => 0,
-      'status' => FILE_STATUS_PERMANENT,
+      'status' => FileInterface::STATUS_PERMANENT,
     ]);
     $file->save();
     return $images[0]->uri;
@@ -70,7 +71,7 @@ trait EntityTestTrait {
     $file = File::create([
       'uri' => $images[0]->uri,
       'uid' => 1,
-      'status' => FILE_STATUS_PERMANENT,
+      'status' => FileInterface::STATUS_PERMANENT,
     ]);
     $file->save();
     $image_media = Media::create([
@@ -149,22 +150,29 @@ trait EntityTestTrait {
   /**
    * Set the value of a complex CKEditor enabled field.
    *
-   * @param string $field
+   * @param string $target
    *   The html name of the field that implements the editor.
    * @param string $value
    *   The value to enter into the field.
    */
-  protected function setCkeditorField($field, $value) {
+  protected function fillCkeditorField($target, $value) {
+    $assert_session = $this->assertSession();
+    $this->assertNotEmpty($assert_session->waitForElement('css', '.ck-editor'));
+    $editor = "$target .ck-editor__editable";
     $session = $this->getSession();
-    $page = $this->getSession()->getPage();
-    $assert = $this->assertSession();
-
-    // Get the id of the ckeditor element.
-    $ckeditor_id = $page->findField($field)->getAttribute('id');
-    $assert->waitForElementVisible('css', $ckeditor_id);
     $ckeditor_javascript = "
     (function (){
-      CKEDITOR.instances['$ckeditor_id'].setData('$value');
+        var domEditableElement = document.querySelector(\"$editor\");
+        if (domEditableElement.ckeditorInstance) {
+          const editorInstance = domEditableElement.ckeditorInstance;
+          if (editorInstance) {
+            editorInstance.setData(\"$value\");
+          } else {
+            throw new Exception('Could not get the editor instance!');
+          }
+        } else {
+          throw new Exception('Could not find the element!');
+        }
       }());";
     $session->executeScript($ckeditor_javascript);
   }
