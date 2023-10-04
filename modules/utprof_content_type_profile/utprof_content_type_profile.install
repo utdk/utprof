@@ -321,22 +321,6 @@ function utprof_content_type_profile_update_8113() {
 }
 
 /**
- * Helper function to add utprof_profile to workflow config (#361).
- */
-function _utprof_content_type_profile_update_workflow() {
-  $config_id = 'workflows.workflow.standard_workflow';
-  $config = \Drupal::config($config_id);
-  if (!empty($config)) {
-    $config_edit = \Drupal::configFactory()->getEditable($config_id);
-    $nodes = $config->get('type_settings.entity_types.node');
-    array_push($nodes, 'utprof_profile');
-    $config_edit->set('type_settings.entity_types.node', $nodes);
-    $config_edit->save();
-    drupal_flush_all_caches();
-  }
-}
-
-/**
  * Add utprof_profile to workflow config (#361).
  */
 function utprof_content_type_profile_update_8114() {
