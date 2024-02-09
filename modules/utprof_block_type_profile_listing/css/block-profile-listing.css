@@ -25,6 +25,11 @@
 .utexas_prominent__wrapper .utprof__block-list-footer {
   padding: 0;
 }
+/* Designation h3s need to be smaller than standard to preserve the visual
+hierarchy in Profile listings, which have smaller titles */
+.utprof__list-wrapper .utprof__designation h3 {
+  font-size: 1rem;
+}
 /* Styling for Basic headers. */
 .utexas_basic__wrapper .utprof__block-list-header {
   margin-bottom: 0;
