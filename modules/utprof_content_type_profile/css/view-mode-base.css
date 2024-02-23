@@ -10,3 +10,9 @@
 .utprof__directory-link a {
   margin-bottom: 0;
 }
+/* Designation h3s need to be smaller than standard to preserve the visual
+hierarchy in lists, which have smaller titles */
+.utexas-prominent-based .utprof__designation h3,
+.utexas-basic .utprof__designation h3 {
+  font-size: 1rem;
+}
