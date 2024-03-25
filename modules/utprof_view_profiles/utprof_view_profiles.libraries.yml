@@ -1,5 +1,4 @@
 views-view-list:
-  version: 1.x
   css:
     theme:
       css/views-view-list.css: {}
