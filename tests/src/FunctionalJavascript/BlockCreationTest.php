@@ -84,7 +84,7 @@ class BlockCreationTest extends WebDriverTestBase {
   public function testCreateProfileListingBlock() {
     $session = $this->getSession();
     // Enlarge the viewport so that all is clickable.
-    $session->resizeWindow(1200, 3000);
+    $session->resizeWindow(1200, 4000);
     $this->drupalGet('block/add/utprof_profile_listing');
 
     $page = $session->getPage();
@@ -101,12 +101,12 @@ class BlockCreationTest extends WebDriverTestBase {
     // Assign value using CKEditor enabled field.
     $this->fillCkeditorField('.form-item--field-utprof-footer-0-value', 'Footer text');
     // Save block content.
-    $page->pressButton('Save');
+    $page->pressButton('Save and configure');
     $assert->waitForText('Profile Listing Test Profile Listing Block Description has been created.');
     // Place block in "Content" region on all pages.
     $this->submitForm([
       'region' => 'content',
-    ], 'Save block');
+    ], 'Save');
     $assert->waitForText('The block configuration has been saved.');
     // Verify page output.
     $this->drupalGet('<front>');
