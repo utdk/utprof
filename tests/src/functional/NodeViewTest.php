@@ -67,7 +67,7 @@ class NodeViewTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     $this->strictConfigSchema = NULL;
     parent::setUp();
     $this->testImageId = $this->createTestMediaImage();

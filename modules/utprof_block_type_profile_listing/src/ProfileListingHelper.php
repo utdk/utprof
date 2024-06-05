@@ -2,8 +2,9 @@
 
 namespace Drupal\utprof_block_type_profile_listing;
 
-use Drupal\Core\Database\Database;
 use Drupal\block_content\Entity\BlockContent;
+use Drupal\Core\Database\Database;
+use Drupal\node\NodeInterface;
 use Drupal\views\Views;
 
 /**
@@ -88,7 +89,7 @@ class ProfileListingHelper {
     $storage = \Drupal::entityTypeManager()->getStorage('node');
     foreach ($profiles as $profile) {
       $node = $storage->load($profile['target_id']);
-      if (!$node instanceof \Drupal\node\NodeInterface) {
+      if (!$node instanceof NodeInterface) {
         // The referenced node was likely deleted (#295).
         continue;
       }

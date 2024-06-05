@@ -1,0 +1,114 @@
+diff --git a/modules/utprof_block_type_profile_listing/utprof_block_type_profile_listing.info.yml b/modules/utprof_block_type_profile_listing/utprof_block_type_profile_listing.info.yml
+index a24330c..5451290 100644
+--- a/modules/utprof_block_type_profile_listing/utprof_block_type_profile_listing.info.yml
++++ b/modules/utprof_block_type_profile_listing/utprof_block_type_profile_listing.info.yml
+@@ -1,7 +1,7 @@
+ name: 'Block Type - Profile Listing'
+ description: 'Provides a block type that displays a View, passing filter values for tags and groups.'
+ type: module
+-core_version_requirement: ^8.9 || ^9 || ^10
++core_version_requirement: ^10 || ^11
+ dependencies:
+   - 'drupal:block_content'
+   - 'drupal:field'
+diff --git a/modules/utprof_content_type_profile/utprof_content_type_profile.info.yml b/modules/utprof_content_type_profile/utprof_content_type_profile.info.yml
+index c7ea66d..95f2c84 100644
+--- a/modules/utprof_content_type_profile/utprof_content_type_profile.info.yml
++++ b/modules/utprof_content_type_profile/utprof_content_type_profile.info.yml
+@@ -2,7 +2,7 @@ name: 'Content Type - Profile'
+ description: 'Provides a content type component for the ''Profile'' module.'
+ package: 'UT Drupal Kit Profile Add-on'
+ type: module
+-core_version_requirement: ^8.9 || ^9 || ^10
++core_version_requirement: ^10 || ^11
+ dependencies:
+   - 'bootstrap_horizontal_tabs:bootstrap_horizontal_tabs'
+   - 'breadcrumbs_visibility:breadcrumbs_visibility'
+diff --git a/modules/utprof_demo_content/utprof_demo_content.info.yml b/modules/utprof_demo_content/utprof_demo_content.info.yml
+index 50e79c5..a55500c 100644
+--- a/modules/utprof_demo_content/utprof_demo_content.info.yml
++++ b/modules/utprof_demo_content/utprof_demo_content.info.yml
+@@ -1,7 +1,7 @@
+ name: 'Demo Content - Profiles'
+ description: 'Install demonstration profiles for evaluation purposes.'
+ type: module
+-core_version_requirement: ^8 || ^9 || ^10
++core_version_requirement: ^10 || ^11
+ package: 'UT Drupal Kit Profile Add-on'
+ dependencies:
+   - utprof:utprof_content_type_profile
+diff --git a/modules/utprof_overrides/utprof_overrides.info.yml b/modules/utprof_overrides/utprof_overrides.info.yml
+index 5200d0e..2d1c2ae 100644
+--- a/modules/utprof_overrides/utprof_overrides.info.yml
++++ b/modules/utprof_overrides/utprof_overrides.info.yml
+@@ -1,5 +1,5 @@
+ name: 'Configuration - Overrides'
+ description: 'Provides dynamic configuration overrides for the Profile add-on.'
+-core_version_requirement: ^8.9 || ^9 || ^10
++core_version_requirement: ^10 || ^11
+ type: module
+ package: 'UT Drupal Kit Profile Add-on'
+diff --git a/modules/utprof_readonly/utprof_readonly.info.yml b/modules/utprof_readonly/utprof_readonly.info.yml
+index a024c45..088bab3 100644
+--- a/modules/utprof_readonly/utprof_readonly.info.yml
++++ b/modules/utprof_readonly/utprof_readonly.info.yml
+@@ -1,7 +1,7 @@
+ name: Profile Read Only
+ type: module
+ description: DO NOT UNINSTALL THIS MODULE UNLESS YOU UNDERSTAND THE CONSEQUENCES. THIS MODULE IS ENABLED BY DEFAULT TO PREVENT UNINTENDED CHANGES TO CONFIGURATION IN THIS ADD-ON. IF YOU WISH TO MODIFY THIS ADD-ON, START BY READING https://drupalkit.its.utexas.edu/docs/addons/#special-cases-add-ons-as-starter-code.
+-core_version_requirement: ^8 || ^9 || ^10
++core_version_requirement: ^10 || ^11
+ package: UT Drupal Kit Profile Add-on
+ dependencies:
+   - utprof:utprof
+diff --git a/modules/utprof_view_profiles/utprof_view_profiles.info.yml b/modules/utprof_view_profiles/utprof_view_profiles.info.yml
+index 13af7c6..ffb7c83 100644
+--- a/modules/utprof_view_profiles/utprof_view_profiles.info.yml
++++ b/modules/utprof_view_profiles/utprof_view_profiles.info.yml
+@@ -1,7 +1,7 @@
+ name: 'View - Profiles'
+ description: 'Provides the default listing view for profiles, filterable by tag and group, using view modes for display'
+ type: module
+-core_version_requirement: ^8.9 || ^9 || ^10
++core_version_requirement: ^10 || ^11
+ package: 'UT Drupal Kit Profile Add-on'
+ dependencies:
+   - 'drupal:node'
+diff --git a/modules/utprof_vocabulary_groups/utprof_vocabulary_groups.info.yml b/modules/utprof_vocabulary_groups/utprof_vocabulary_groups.info.yml
+index 9bd6692..e61cd8a 100644
+--- a/modules/utprof_vocabulary_groups/utprof_vocabulary_groups.info.yml
++++ b/modules/utprof_vocabulary_groups/utprof_vocabulary_groups.info.yml
+@@ -2,7 +2,7 @@ name: Vocabulary - Groups
+ description: Provides the 'Groups' vocabulary component for the 'Profile' module.
+ package: UT Drupal Kit Profile Add-on
+ type: module
+-core_version_requirement: ^8 || ^9 || ^10
++core_version_requirement: ^10 || ^11
+ dependencies:
+   - taxonomy
+   - utprof:utprof
+diff --git a/modules/utprof_vocabulary_tags/utprof_vocabulary_tags.info.yml b/modules/utprof_vocabulary_tags/utprof_vocabulary_tags.info.yml
+index 43c2664..0b13a47 100644
+--- a/modules/utprof_vocabulary_tags/utprof_vocabulary_tags.info.yml
++++ b/modules/utprof_vocabulary_tags/utprof_vocabulary_tags.info.yml
+@@ -2,7 +2,7 @@ name: Vocabulary - Tags
+ description: Provides the 'Tags' vocabulary component for the 'Profile' module.
+ package: UT Drupal Kit Profile Add-on
+ type: module
+-core_version_requirement: ^8 || ^9 || ^10
++core_version_requirement: ^10 || ^11
+ dependencies:
+   - taxonomy
+   - utprof:utprof
+diff --git a/utprof.info.yml b/utprof.info.yml
+index 73bbad3..5c2d29c 100644
+--- a/utprof.info.yml
++++ b/utprof.info.yml
+@@ -1,7 +1,7 @@
+ name: Profile
+ type: module
+ description: Provides the generalized 'Profile' content type and supporting components.
+-core_version_requirement: ^8 || ^9 || ^10
++core_version_requirement: ^10 || ^11
+ version: '3.18.0'
+ package: UT Drupal Kit Profile Add-on
