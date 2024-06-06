@@ -187,7 +187,7 @@ class ProfileListingHelper {
       foreach (array_values($result) as $row) {
         $affected = FALSE;
         /** @var \Drupal\layout_builder\Section $section */
-        $section = unserialize($row->layout_builder__layout_section);
+        $section = unserialize($row->layout_builder__layout_section, ['allowed_classes' => FALSE]);
         $components = $section->getComponents();
         /** @var \Drupal\layout_builder\SectionComponent $component */
         foreach (array_values($components) as $component) {
