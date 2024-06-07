@@ -24,7 +24,7 @@ trait EntityTestTrait {
   protected function assertEntityExists($entity_type, $id) {
     $this->assertContainsAll(
       (array) $id,
-      \Drupal::entityQuery($entity_type)->execute()
+      \Drupal::entityQuery($entity_type)->accessCheck(FALSE)->execute()
     );
   }
 

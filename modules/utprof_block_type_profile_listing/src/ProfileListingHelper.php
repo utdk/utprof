@@ -2,8 +2,9 @@
 
 namespace Drupal\utprof_block_type_profile_listing;
 
-use Drupal\Core\Database\Database;
 use Drupal\block_content\Entity\BlockContent;
+use Drupal\Core\Database\Database;
+use Drupal\node\NodeInterface;
 use Drupal\views\Views;
 
 /**
@@ -88,7 +89,7 @@ class ProfileListingHelper {
     $storage = \Drupal::entityTypeManager()->getStorage('node');
     foreach ($profiles as $profile) {
       $node = $storage->load($profile['target_id']);
-      if (!$node instanceof \Drupal\node\NodeInterface) {
+      if (!$node instanceof NodeInterface) {
         // The referenced node was likely deleted (#295).
         continue;
       }
@@ -186,6 +187,9 @@ class ProfileListingHelper {
       foreach (array_values($result) as $row) {
         $affected = FALSE;
         /** @var \Drupal\layout_builder\Section $section */
+        // This serialized data is trusted from Layout Builder,
+        // so we do not restrict object types in unserialize().
+        // phpcs:ignore
         $section = unserialize($row->layout_builder__layout_section);
         $components = $section->getComponents();
         /** @var \Drupal\layout_builder\SectionComponent $component */

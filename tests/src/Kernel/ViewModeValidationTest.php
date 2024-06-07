@@ -56,7 +56,7 @@ class ViewModeValidationTest extends EntityKernelTestBase {
    *
    * @see Drupal\KernelTests\Core\Entity\EntityKernelTestBase
    */
-  public static $modules = [
+  protected static $modules = [
     // Core modules.
     'file',
     'image',
@@ -87,7 +87,7 @@ class ViewModeValidationTest extends EntityKernelTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     $this->strictConfigSchema = NULL;
     parent::setUp();
 
@@ -114,7 +114,6 @@ class ViewModeValidationTest extends EntityKernelTestBase {
     $this->installConfig('utexas_form_elements');
     $this->installConfig('utprof_content_type_profile');
     // $this->installConfig('utexas_text_format_flex_html');
-
     $this->testImageId = $this->createTestMediaImage();
     $this->node = $this->createProfileNode($this->testImageId);
 
