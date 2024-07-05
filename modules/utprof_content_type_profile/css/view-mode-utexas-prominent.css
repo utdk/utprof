@@ -1,5 +1,8 @@
 /* Styling for utprof profiles listing with prominent view mode*/
 
+.utprof__profile-item {
+  container: profile-container / inline-size;
+}
 /* Mobile styling */
 .utprof__list.utexas-prominent-based {
   padding-top: 12px;
@@ -21,9 +24,9 @@
   font-weight: 600;
   margin-bottom: 0;
 }
-.utprof__list.utexas-prominent-based .utprof__designation {
+.utprof__list.utexas-prominent-based .utprof__designation h3 {
   font-style: italic;
-  margin: 10px 0;
+  margin: 5px 0;
   font-size: 0.9375rem;
   line-height: 1.375rem;
 }
@@ -51,10 +54,10 @@
     font-size: 1.25rem;
     line-height: 1.5rem;
   }
-  .utprof__list.utexas-prominent-based .utprof__designation {
+  .utprof__list.utexas-prominent-based .utprof__designation h3 {
     font-size: 1rem;
     line-height: 1.5rem;
-    margin-top: 0;
+    margin-top: 5px;
   }
   .utprof__list.utexas-prominent-based .utprof__email {
     overflow-wrap: break-word;
@@ -63,7 +66,7 @@
     line-height: 1.5rem;
     margin-top: 10px;
   }
-  .utprof__list.utexas-prominent-based .utprof__email a{
+  .utprof__list.utexas-prominent-based .utprof__email a {
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
@@ -82,5 +85,16 @@
   .utprof__list.utexas-prominent-based .utprof__list-img {
     margin: 0 20px 0 0;
     flex: 0 0 140px;
+  }
+}
+
+@container profile-container (max-width: 408px) {
+  .utprof__list.utexas-prominent-based {
+    display: block;
+    .utprof__list-img {
+      float: left;
+      margin-bottom: 15px;
+      width: 140px;
+    }
   }
 }
