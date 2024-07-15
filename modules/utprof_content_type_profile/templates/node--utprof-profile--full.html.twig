@@ -80,6 +80,9 @@
     'clearfix',
   ]
 %}
+{% set has_top_content = content.field_utprof_designation|render|trim or content.field_utprof_add_basic_info|render|trim or basic_media %}
+{% set has_bottom_content = content.field_utprof_content|render|trim %}
+
 <article{{ attributes.addClass(classes) }}>
   {% if has_contact_info %}
     <div class="utprof__wrapper">
@@ -95,7 +98,7 @@
   *  - Additional basic information
   */
   #}
-  {% if content.field_utprof_designation.0 or content.field_utprof_add_basic_info.0 or basic_media %}
+  {% if has_top_content %}
     <div class="utprof__content-top">
       {% if basic_media %}
         <div class="utprof__img">
@@ -120,7 +123,7 @@
    *  - Tabs only show if more than one tab is used.
    */
    #}
-   {% if content.field_utprof_content.0 %}
+   {% if has_bottom_content %}
     <div class="utprof__content-bottom">
         <div class="utprof__content">
           {{ content.field_utprof_content }}
