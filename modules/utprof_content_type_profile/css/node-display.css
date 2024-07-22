@@ -25,9 +25,14 @@
 .utprof__add-basic-info dl {
   display: flow-root;
 }
+.utprof__content-top {
+  margin-bottom: 1.5rem;
+  /* Make the container wrap the floated image */
+  display: table;
+  width: 100%;
+}
 .utprof__content-bottom {
   clear: both;
-  padding-top: 1.5rem;
 }
 .utprof__content-bottom .nav-tabs {
   margin-bottom: 16px;
@@ -37,6 +42,8 @@
 }
 .utprof__contact-wrapper {
   flex: 0 1 100%;
+  align-self: baseline;
+  width: 100%;
 }
 .utprof__wrapper--no-contact-info {
   flex-basis: auto;
@@ -58,7 +65,6 @@ Keep the contact info stacked */
     justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: baseline;
   }
   .utprof__img {
     float: left;

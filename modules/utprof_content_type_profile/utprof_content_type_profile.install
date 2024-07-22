@@ -25,6 +25,11 @@ function utprof_content_type_profile_install() {
 
   // Add utprof_profile to workflow config (#361).
   _utprof_content_type_profile_update_workflow();
+
+  // Set bootstrap_horizontal_tabs to Bootstrap 4 (#392).
+  $bootstrap_horizontal_tabs = \Drupal::configFactory()->getEditable('bootstrap_horizontal_tabs.settings');
+  $bootstrap_horizontal_tabs->set("version", '4');
+  $bootstrap_horizontal_tabs->save();
 }
 
 /**
@@ -124,7 +129,7 @@ function _utprof_add_pathauto_pattern() {
         'label' => 'Pathauto : Profile content type',
         'type' => 'canonical_entities:node',
         'pattern' => '/profiles/[node:title]',
-        'weight' => _setPatternWeightBeforeGeneric(),
+        'weight' => _utprof_set_pattern_weight_before_generic(),
       ]);
       $pattern->addSelectionCondition(
         [
@@ -149,7 +154,7 @@ function _utprof_add_pathauto_pattern() {
  * @return string
  *   The weight of the custom pathauto pattern.
  */
-function _setPatternWeightBeforeGeneric() {
+function _utprof_set_pattern_weight_before_generic() {
   // Default to -10 in case there is a generic pattern.
   $weight = -10;
   // If generic pattern present, place it 1 level above.
@@ -250,7 +255,7 @@ function utprof_content_type_profile_update_8107() {
  */
 function utprof_content_type_profile_update_8108() {
   $pattern = PathautoPattern::load('utprof_profile');
-  $pattern->set('weight', _setPatternWeightBeforeGeneric())->save();
+  $pattern->set('weight', _utprof_set_pattern_weight_before_generic())->save();
 }
 
 /**
@@ -325,4 +330,13 @@ function utprof_content_type_profile_update_8113() {
  */
 function utprof_content_type_profile_update_8114() {
   _utprof_content_type_profile_update_workflow();
+}
+
+/**
+ * Set bootstrap_horizontal_tabs to Bootstrap 4 (#392).
+ */
+function utprof_content_type_profile_update_8115() {
+  $bootstrap_horizontal_tabs = \Drupal::configFactory()->getEditable('bootstrap_horizontal_tabs.settings');
+  $bootstrap_horizontal_tabs->set("version", '4');
+  $bootstrap_horizontal_tabs->save();
 }
