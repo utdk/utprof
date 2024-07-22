@@ -1,7 +1,7 @@
 /* Styling for utprof profiles listing with Basic view mode*/
 
 .utprof__profile-item {
-  container: profile-container / inline-size;
+  container: basic-container / inline-size;
 }
 
 /* Mobile styling */
@@ -61,7 +61,7 @@
   }
 }
 
-@container profile-container (max-width: 408px) {
+@container basic-container (max-width: 408px) {
   .utprof__list.utexas-basic {
     display: block;
 
