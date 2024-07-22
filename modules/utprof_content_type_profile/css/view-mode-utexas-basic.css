@@ -1,5 +1,9 @@
 /* Styling for utprof profiles listing with Basic view mode*/
 
+.utprof__profile-item {
+  container: profile-container / inline-size;
+}
+
 /* Mobile styling */
 .utprof__list.utexas-basic {
   overflow: auto;
@@ -14,15 +18,16 @@
   flex: 0 0 66px;
 }
 .utprof__list.utexas-basic h3.utprof__title {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   line-height: 1.5rem;
   font-weight: 600;
   margin-bottom: 0;
 }
-.utprof__list.utexas-basic .utprof__designation {
+.utprof__list.utexas-basic .utprof__designation h3 {
   font-size: 1rem;
-  line-height: 1.375rem;
   font-style: italic;
+  line-height: 1.5rem;
+  margin-top: 5px;
 }
 .utprof__list.utexas-basic .utprof__email {
   overflow-wrap: break-word;
@@ -31,7 +36,7 @@
   line-height: 1.5rem;
   margin-top: 10px;
 }
-.utprof__list.utexas-basic .utprof__email a{
+.utprof__list.utexas-basic .utprof__email a {
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
@@ -44,14 +49,26 @@
 /* Tablet styling */
 @media screen and (min-width: 600px) {
   .utprof__list.utexas-basic .utprof__designation {
-    margin-top: 2px;
+    margin-top: 5px;
   }
 }
 
 /* Smaller Desktop styling */
 @media screen and (min-width: 900px) {
   .utprof__list.utexas-basic .utprof__list-img {
-    margin: 0 12px 0 0;
+    margin: 0 20px 0 0;
     flex: 0 0 85px;
+  }
+}
+
+@container profile-container (max-width: 408px) {
+  .utprof__list.utexas-basic {
+    display: block;
+
+    .utprof__list-img {
+      float: left;
+      margin-bottom: 15px;
+      width: 112px;
+    }
   }
 }
