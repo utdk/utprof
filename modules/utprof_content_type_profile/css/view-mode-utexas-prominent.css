@@ -15,12 +15,13 @@
   word-break: break-word;
 }
 .utprof__list.utexas-prominent-based .utprof__list-img {
+  width: 66px;
   margin: 0 10px 5px 0;
-  flex: 0 0 67px;
+  flex: 0 0 66px;
 }
 .utprof__list.utexas-prominent-based h3.utprof__title {
-  font-size: 0.9375rem;
-  line-height: 1.375rem;
+  font-size: 1rem;
+  line-height: 1.15rem;
   font-weight: 600;
   margin-bottom: 0;
 }
@@ -28,12 +29,12 @@
   font-style: italic;
   margin: 5px 0;
   font-size: 0.9375rem;
-  line-height: 1.375rem;
+  line-height: 1.25rem;
 }
 .utprof__list.utexas-prominent-based .field--name-field-utprof-add-basic-info {
   font-size: 0.9375rem;
   line-height: 1.375rem;
-  margin: 0 0 1rem;
+  margin: 0.4rem 0 1rem 0;
 }
 
 .utprof__list.utexas-prominent-based a,
@@ -54,17 +55,19 @@
     font-size: 1.25rem;
     line-height: 1.5rem;
   }
+  .utprof__list.utexas-prominent .utprof__designation {
+    margin-top: 2px;
+  }
   .utprof__list.utexas-prominent-based .utprof__designation h3 {
     font-size: 1rem;
-    line-height: 1.5rem;
-    margin-top: 5px;
+    margin: 0 0 3px;
   }
   .utprof__list.utexas-prominent-based .utprof__email {
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
     line-height: 1.5rem;
-    margin-top: 10px;
+    margin-top: 2px;
   }
   .utprof__list.utexas-prominent-based .utprof__email a {
     overflow-wrap: break-word;
