@@ -80,12 +80,25 @@
     'clearfix',
   ]
 %}
+{% set has_top_content = content.field_utprof_designation|render|trim or content.field_utprof_add_basic_info|render|trim or basic_media %}
+{% set has_bottom_content = content.field_utprof_content|render|trim %}
+
 <article{{ attributes.addClass(classes) }}>
   {% if has_contact_info %}
     <div class="utprof__wrapper">
   {% else %}
     <div class="utprof__wrapper utprof__wrapper--no-contact-info">
   {% endif %}
+
+  {#
+  /**
+  *  Top content (Basic information tab):
+  *  - Designations
+  *  - Image
+  *  - Additional basic information
+  */
+  #}
+  {% if has_top_content %}
     <div class="utprof__content-top">
       {% if basic_media %}
         <div class="utprof__img">
@@ -94,29 +107,45 @@
       {% endif %}
 
       <div class="utprof__designation-add-basic">
-        {% if content.field_utprof_designation %}
-          <div class="utprof__designation">
-            {{ content.field_utprof_designation }}
-          </div>
-        {% endif %}
-
-        {% if content.field_utprof_add_basic_info %}
-          <div class="utprof__add-basic-info">
-            {{ content.field_utprof_add_basic_info }}
-          </div>
-        {% endif %}
+        <div class="utprof__designation">
+          {{ content.field_utprof_designation }}
+        </div>
+        <div class="utprof__add-basic-info">
+          {{ content.field_utprof_add_basic_info }}
+        </div>
       </div>
     </div>
+   {% endif %}
 
+   {#
+   /**
+   *  Bottom content (Main content tab):
+   *  - Tabs only show if more than one tab is used.
+   */
+   #}
+   {% if has_bottom_content %}
     <div class="utprof__content-bottom">
-      {% if content.field_utprof_content %}
         <div class="utprof__content">
           {{ content.field_utprof_content }}
         </div>
-      {% endif %}
     </div>
+   {% endif %}
+
   </div>
 
+  {#
+  /**
+  *  Sidebar (Contact information tab):
+  *  - Email
+  *  - Contact link
+  *  - Website
+  *  - Phone
+  *  - Fax
+  *  - Building code
+  *  - Building room number
+  *  - Additional contact information
+  */
+  #}
   {% if has_contact_info %}
 
     <div class="utprof__contact-wrapper">
@@ -160,6 +189,7 @@
           {{ building_information.building_code }}
           {{ building_information.room_number }}
         </div>
+      </div>
       {% endif %}
 
       {% if content.field_utprof_add_contact_info|render is not empty %}
