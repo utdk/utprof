@@ -1,6 +1,6 @@
 /* Styling for utprof profiles listing with prominent view mode*/
 
-.utprof__profile-item {
+.utprof__profile-item-prominent {
   container: prominent-container / inline-size;
 }
 /* Mobile styling */

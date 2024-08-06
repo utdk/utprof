@@ -1,6 +1,6 @@
 /* Styling for utprof profiles listing with Basic view mode*/
 
-.utprof__profile-item {
+.utprof__profile-item-basic {
   container: basic-container / inline-size;
 }
 

@@ -77,6 +77,7 @@ class ProfileListingHelper {
    */
   public static function buildList(BlockContent $block) {
     $view_mode = self::getViewMode($block);
+    $display_format = str_replace('utexas_', '', $view_mode);
     if (!$block->hasField('field_utprof_specific_profiles')) {
       return FALSE;
     }
@@ -98,7 +99,7 @@ class ProfileListingHelper {
       }
       $build = $view_builder->view($node, $view_mode);
       $output[] = [
-        '#wrapper_attributes' => ['class' => 'utprof__profile-item'],
+        '#wrapper_attributes' => ['class' => 'utprof__profile-item utprof__profile-item-' . $display_format],
         '#markup' => \Drupal::service('renderer')->render($build),
       ];
     }
@@ -125,10 +126,13 @@ class ProfileListingHelper {
     $utprof_profile_listing_view_display = 'block_utprof_profile_listing';
     $user_defined_filters = self::generateFilters($block_content);
     $view_mode = self::getViewMode($block_content);
+    $display_format = str_replace('utexas_', '', $view_mode);
     $view = Views::getView('utprof_profiles');
     if (is_object($view)) {
       // Specify which Views display to use.
       $view->setDisplay($utprof_profile_listing_view_display);
+      $row_class = $view->display_handler->default_display->options['style']['options']['row_class'];
+      $view->display_handler->default_display->options['style']['options']['row_class'] = $row_class . ' ' . $row_class . '-' . $display_format;
       // Set view mode based on user-provided value.
       $row = $view->display_handler->getOption('row');
       $row['options']['view_mode'] = $view_mode;
