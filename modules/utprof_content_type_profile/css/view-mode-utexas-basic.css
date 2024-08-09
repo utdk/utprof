@@ -23,19 +23,21 @@
   font-weight: 600;
   margin-bottom: 0;
 }
+.utprof__list.utexas-basic .utprof__designation {
+  margin: 0.4rem 0;
+}
 .utprof__list.utexas-basic .utprof__designation h3 {
-  font-size: 1rem;
   font-style: italic;
+  font-size: 0.9375rem;
   line-height: 1.25rem;
-  margin: 0 0 3px;
+  margin-bottom: 0.2rem;
 }
 .utprof__list.utexas-basic .utprof__email {
-  clear: left;
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
   line-height: 1.25rem;
-  margin-top: 2px;
+  margin-top: 4px;
 }
 .utprof__list.utexas-basic .utprof__email a {
   overflow-wrap: break-word;
@@ -43,7 +45,6 @@
   hyphens: auto;
 }
 .utprof__list.utexas-basic .utprof__directory-link {
-  clear: left;
   margin-top: .5rem;
   font-size: 1rem;
   line-height: 1.25rem;
@@ -55,8 +56,8 @@
       margin: 0 15px 0 0;
       flex: 0 0 112px;
     }
-  .utprof__list.utexas-basic .utprof__designation {
-    margin-top: 2px;
+  .utprof__list.utexas-basic .utprof__designation h3 {
+    font-size: 1rem;
   }
 }
 
@@ -76,6 +77,14 @@
       float: left;
       margin-bottom: 15px;
       width: 112px;
+    }
+
+    .utprof__email {
+      clear: left;
+    }
+
+    .utprof__directory-link {
+      clear: left;
     }
   }
 }
