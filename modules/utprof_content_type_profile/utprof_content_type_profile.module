@@ -55,7 +55,6 @@ function utprof_content_type_profile_theme() {
 function utprof_content_type_profile_preprocess_node(&$variables) {
   $node = $variables['elements']['#node'];
   $type = $node->getType();
-  $view_mode = $variables['view_mode'];
 
   if ($type !== 'utprof_profile') {
     return;
@@ -71,27 +70,6 @@ function utprof_content_type_profile_preprocess_node(&$variables) {
   $variables['prepared_title_prominent'] = ProfileContentTypeHelper::getPreparedTitle($node, 'ut-link--darker');
   $variables['email_link'] = ProfileContentTypeHelper::getEmail($node);
 
-  switch ($view_mode) {
-    case 'full':
-      $variables['#attached']['library'][] = 'utprof_content_type_profile/node-display';
-      break;
-
-    case 'teaser':
-      $variables['#attached']['library'][] = 'utprof_content_type_profile/view-mode-utexas-prominent';
-      break;
-
-    case 'utexas_basic':
-      $variables['#attached']['library'][] = 'utprof_content_type_profile/view-mode-utexas-basic';
-      break;
-
-    case 'utexas_name_only':
-      $variables['#attached']['library'][] = 'utprof_content_type_profile/view-mode-utexas-name-only';
-      break;
-
-    case 'utexas_prominent':
-      $variables['#attached']['library'][] = 'utprof_content_type_profile/view-mode-utexas-prominent';
-      break;
-  }
 }
 
 /**
