@@ -17,9 +17,9 @@
   "require": {
     "drupal/bootstrap_horizontal_tabs": "3.0.1",
     "drupal/breadcrumbs_visibility": "2.0.0",
-    "drupal/field_group": "3.4.0",
+    "drupal/field_group": "3.6.0",
     "drupal/page_title_visibility": "2.0.0",
-    "utexas/utdk_profile": "^3.19.0 || dev-develop"
+    "utexas/utdk_profile": "^3.20.0 || dev-develop"
   },
   "config": {
     "sort-packages": true

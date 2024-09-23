@@ -1,24 +1,4 @@
-node-display:
-  css:
-    theme:
-      css/node-display.css: {}
-      css/contact-info.css: {}
 node-form:
   css:
     theme:
       css/node-form.css: {}
-view-mode-utexas-basic:
-  css:
-    theme:
-      css/view-mode-base.css: {}
-      css/view-mode-utexas-basic.css: {}
-view-mode-utexas-name-only:
-  css:
-    theme:
-      css/view-mode-base.css: {}
-      css/view-mode-utexas-name-only.css: {}
-view-mode-utexas-prominent:
-  css:
-    theme:
-      css/view-mode-base.css: {}
-      css/view-mode-utexas-prominent.css: {}

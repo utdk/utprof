@@ -1,4 +1,0 @@
-block-profile-listing:
-  css:
-    theme:
-      css/block-profile-listing.css: {}

@@ -10,8 +10,8 @@ use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\utprof_block_type_profile_listing\Form\FormAlter;
-use Drupal\utprof_block_type_profile_listing\ProfileListingHelper;
 use Drupal\utprof_block_type_profile_listing\Plugin\EntityReferenceSelection\ViewModeSelection;
+use Drupal\utprof_block_type_profile_listing\ProfileListingHelper;
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
@@ -67,8 +67,6 @@ function utprof_block_type_profile_listing_preprocess_block(&$variables) {
       if ($listing) {
         $variables['listing'] = $listing;
         $variables['attributes']['class'][] = ProfileListingHelper::getViewMode($block) . '__wrapper';
-        $variables['#attached']['library'][] = 'utprof_block_type_profile_listing/block-profile-listing';
-        $variables['#attached']['library'][] = 'utprof_view_profiles/views-view-list';
       }
     }
   }
