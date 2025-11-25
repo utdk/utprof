@@ -15,7 +15,7 @@
     "source": "https://github.austin.utexas.edu/eis1-wcs/utprof"
   },
   "require": {
-    "drupal/bootstrap_horizontal_tabs": "3.0.2",
+    "drupal/bootstrap_horizontal_tabs": "3.1.0",
     "drupal/breadcrumbs_visibility": "2.0.0",
     "drupal/field_group": "4.0.0",
     "drupal/page_title_visibility": "2.0.0",
