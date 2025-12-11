@@ -116,7 +116,7 @@ class BlockCreationTest extends WebDriverTestBase {
     $block = $this->drupalGetBlockByInfo('Test Profile Listing Block Description');
 
     // Set display to "Name Only".
-    $this->drupalGet('block/' . $block->id());
+    $this->drupalGet('/admin/content/block/' . $block->id());
     // Set "Profiles Display Format" (node view mode) radio button.
     $page->selectFieldOption('edit-field-utprof-view-mode-nodeutexas-name-only', 'node.utexas_name_only');
     $page->pressButton('Save');
@@ -126,7 +126,7 @@ class BlockCreationTest extends WebDriverTestBase {
     $assert->elementExists('css', '.utexas-name-only');
 
     // Set display to "Prominent".
-    $this->drupalGet('block/' . $block->id());
+    $this->drupalGet('admin/content/block/' . $block->id());
     // Set "Profiles Display Format" (node view mode) radio button.
     $page->selectFieldOption('edit-field-utprof-view-mode-nodeutexas-prominent', 'node.utexas_prominent');
     $page->pressButton('Save');
