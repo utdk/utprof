@@ -2,87 +2,10 @@
 
 namespace Drupal\Tests\utprof\FunctionalJavascript;
 
-use Drupal\FunctionalJavascriptTests\WebDriverTestBase;
-
-use Drupal\Tests\node\Traits\NodeCreationTrait;
-use Drupal\Tests\utprof\Traits\EntityTestTrait;
-use Drupal\Tests\utprof\Traits\UserTestTrait;
-use Drupal\Tests\utprof\Traits\ViewModeTests\ProfileViewModeBasicTrait;
-use Drupal\Tests\utprof\Traits\ViewModeTests\ProfileViewModeDefaultTrait;
-use Drupal\Tests\utprof\Traits\ViewModeTests\ProfileViewModeFullTrait;
-use Drupal\Tests\utprof\Traits\ViewModeTests\ProfileViewModeNameOnlyTrait;
-use Drupal\Tests\utprof\Traits\ViewModeTests\ProfileViewModeProminentTrait;
-use Drupal\Tests\utprof\Traits\ViewModeTests\ProfileViewModeTeaserTrait;
-use Drupal\Tests\TestFileCreationTrait;
-
 /**
  * Test all aspects of Profile Node creation functionality.
- *
- * @group utexas
  */
-class NodeCreationTest extends WebDriverTestBase {
-
-  use TestFileCreationTrait;
-  use NodeCreationTrait;
-  use EntityTestTrait;
-  use UserTestTrait;
-
-  use ProfileViewModeBasicTrait;
-  use ProfileViewModeDefaultTrait;
-  use ProfileViewModeFullTrait;
-  use ProfileViewModeNameOnlyTrait;
-  use ProfileViewModeProminentTrait;
-  use ProfileViewModeTeaserTrait;
-
-  /**
-   * Use the 'utexas' installation profile.
-   *
-   * @var string
-   */
-  protected $profile = 'utexas';
-
-  /**
-   * Specify the theme to be used in testing.
-   *
-   * @var string
-   */
-  protected $defaultTheme = 'forty_acres';
-
-  /**
-   * Modules to enable.
-   *
-   * @var array
-   *
-   * @see Drupal\Tests\BrowserTestBase
-   */
-  protected static $modules = [
-    'utprof',
-    'utprof_content_type_profile',
-    // 'utprof_role_profile_editor',
-    'utprof_vocabulary_groups',
-    'utprof_vocabulary_tags',
-  ];
-
-  /**
-   * {@inheritdoc}
-   */
-  protected function setUp(): void {
-    $this->strictConfigSchema = NULL;
-    parent::setUp();
-
-    $this->entityTypeManager = $this->container->get('entity_type.manager');
-    $this->renderer = $this->container->get('renderer');
-    $this->viewBuilder = $this->entityTypeManager->getViewBuilder('node');
-
-    $this->testMediaImageId = $this->createTestMediaImage();
-    $this->testMediaImageFilename = $this->entityTypeManager->getStorage('media')
-      ->load($this->testMediaImageId)
-      ->get('field_utexas_media_image')
-      ->entity
-      ->getFileName();
-
-    $this->drupalLogin($this->rootUser);
-  }
+class NodeCreationTest extends TestBase {
 
   /**
    * Test Profile content type and output.
@@ -157,15 +80,13 @@ class NodeCreationTest extends WebDriverTestBase {
     // the end of the message.
     $assert->waitForText('has been created.');
 
-    // $this->node is used in the verify functions below.
-    $this->node = $this->getNodeByTitle('Test Profile Page title');
-
-    $this->verifyProfileViewModeBasic();
-    $this->verifyProfileViewModeDefault();
-    $this->verifyProfileViewModeFull();
-    $this->verifyProfileViewModeNameOnly();
-    $this->verifyProfileViewModeProminent();
-    $this->verifyProfileViewModeTeaser();
+    $node = $this->getNodeByTitle('Test Profile Page title');
+    $this->verifyProfileViewModeBasic($node);
+    $this->verifyProfileViewModeDefault($node);
+    $this->verifyProfileViewModeFull($node);
+    $this->verifyProfileViewModeNameOnly($node);
+    $this->verifyProfileViewModeProminent($node);
+    $this->verifyProfileViewModeTeaser($node);
   }
 
 }

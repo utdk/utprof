@@ -10,8 +10,8 @@ trait ProfileViewModeProminentTrait {
   /**
    * Test Profile node "Prominent" view mode.
    */
-  public function verifyProfileViewModeProminent() {
-    $build = $this->viewBuilder->view($this->node, 'utexas_prominent');
+  public function verifyProfileViewModeProminent($node) {
+    $build = $this->entityTypeManager->getViewBuilder('node')->view($node, 'utexas_prominent');
     $output = (string) $this->renderer->renderPlain($build);
 
     $fields_contains = [

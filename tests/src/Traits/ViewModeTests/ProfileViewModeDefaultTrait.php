@@ -10,8 +10,8 @@ trait ProfileViewModeDefaultTrait {
   /**
    * Test Profile node "Default" view mode.
    */
-  public function verifyProfileViewModeDefault() {
-    $build = $this->viewBuilder->view($this->node, 'default');
+  public function verifyProfileViewModeDefault($node) {
+    $build = $this->entityTypeManager->getViewBuilder('node')->view($node, 'default');
     $output = (string) $this->renderer->renderPlain($build);
 
     $fields_contains = [

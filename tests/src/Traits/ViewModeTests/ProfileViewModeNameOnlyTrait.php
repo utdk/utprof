@@ -10,8 +10,8 @@ trait ProfileViewModeNameOnlyTrait {
   /**
    * Test Profile node "Name Only" view mode.
    */
-  public function verifyProfileViewModeNameOnly() {
-    $build = $this->viewBuilder->view($this->node, 'utexas_name_only');
+  public function verifyProfileViewModeNameOnly($node) {
+    $build = $this->entityTypeManager->getViewBuilder('node')->view($node, 'utexas_name_only');
     $output = (string) $this->renderer->renderPlain($build);
 
     $fields_contains = [

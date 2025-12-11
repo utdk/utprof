@@ -2,81 +2,10 @@
 
 namespace Drupal\Tests\utprof\FunctionalJavascript;
 
-use Drupal\FunctionalJavascriptTests\WebDriverTestBase;
-
-use Drupal\Tests\TestFileCreationTrait;
-
-use Drupal\Tests\utprof\Traits\EntityTestTrait;
-use Drupal\Tests\utprof\Traits\ProfileTestTrait;
-use Drupal\Tests\utprof\Traits\UserTestTrait;
-
 /**
  * Test all aspects of Profile Listing block functionality.
- *
- * @group utexas
  */
-class BlockCreationTest extends WebDriverTestBase {
-
-  use TestFileCreationTrait;
-  use EntityTestTrait;
-  use UserTestTrait;
-
-  use ProfileTestTrait;
-
-  /**
-   * Use the 'utexas' installation profile.
-   *
-   * @var string
-   */
-  protected $profile = 'utexas';
-
-  /**
-   * Specify the theme to be used in testing.
-   *
-   * @var string
-   */
-  protected $defaultTheme = 'forty_acres';
-
-  /**
-   * Modules to enable.
-   *
-   * @var array
-   *
-   * @see Drupal\Tests\BrowserTestBase
-   */
-  protected static $modules = [
-    'utprof',
-    'utprof_demo_content',
-    'utprof_content_type_profile',
-    // 'utprof_role_profile_editor',
-    'utprof_block_type_profile_listing',
-    // 'utprof_view_profiles',
-    'utprof_vocabulary_groups',
-    'utprof_vocabulary_tags',
-  ];
-
-  /**
-   * {@inheritdoc}
-   */
-  protected function setUp(): void {
-    $this->strictConfigSchema = NULL;
-    parent::setUp();
-
-    $this->entityTypeManager = $this->container->get('entity_type.manager');
-    $this->renderer = $this->container->get('renderer');
-    $this->viewBuilder = $this->entityTypeManager->getViewBuilder('node');
-
-    $this->testMediaImageId = $this->createTestMediaImage();
-    $this->testMediaImageFilename = $this->entityTypeManager->getStorage('media')
-      ->load($this->testMediaImageId)
-      ->get('field_utexas_media_image')
-      ->entity
-      ->getFileName();
-
-    $this->node = $this->createProfileNode($this->testMediaImageId);
-
-    $this->drupalLogin($this->rootUser);
-  }
+class BlockCreationTest extends TestBase {
 
   /**
    * Test Profile List block and output.
