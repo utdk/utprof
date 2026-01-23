@@ -10,8 +10,8 @@ trait ProfileViewModeTeaserTrait {
   /**
    * Test Profile node "Teaser" view mode.
    */
-  public function verifyProfileViewModeTeaser() {
-    $build = $this->viewBuilder->view($this->node, 'teaser');
+  public function verifyProfileViewModeTeaser($node) {
+    $build = $this->entityTypeManager->getViewBuilder('node')->view($node, 'teaser');
     $output = (string) $this->renderer->renderPlain($build);
 
     $fields_contains = [

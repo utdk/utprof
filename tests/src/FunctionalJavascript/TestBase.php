@@ -1,14 +1,14 @@
 <?php
 
-namespace Drupal\Tests\utprof\Functional;
+declare(strict_types=1);
 
-use Drupal\Tests\BrowserTestBase;
+namespace Drupal\Tests\utprof\FunctionalJavascript;
+
+use Drupal\FunctionalJavascriptTests\WebDriverTestBase;
 use Drupal\Tests\TestFileCreationTrait;
-
 use Drupal\Tests\utprof\Traits\EntityTestTrait;
 use Drupal\Tests\utprof\Traits\ProfileTestTrait;
 use Drupal\Tests\utprof\Traits\UserTestTrait;
-
 use Drupal\Tests\utprof\Traits\ViewModeTests\ProfileViewModeBasicTrait;
 use Drupal\Tests\utprof\Traits\ViewModeTests\ProfileViewModeDefaultTrait;
 use Drupal\Tests\utprof\Traits\ViewModeTests\ProfileViewModeFullTrait;
@@ -17,17 +17,14 @@ use Drupal\Tests\utprof\Traits\ViewModeTests\ProfileViewModeProminentTrait;
 use Drupal\Tests\utprof\Traits\ViewModeTests\ProfileViewModeTeaserTrait;
 
 /**
- * Verifies that display modes for Profiles behave as expected.
- *
- * @group utexas
+ * Base class for Functional Javascript tests.
  */
-class NodeViewTest extends BrowserTestBase {
+abstract class TestBase extends WebDriverTestBase {
 
   use TestFileCreationTrait;
   use EntityTestTrait;
   use UserTestTrait;
   use ProfileTestTrait;
-
   use ProfileViewModeBasicTrait;
   use ProfileViewModeDefaultTrait;
   use ProfileViewModeFullTrait;
@@ -47,7 +44,35 @@ class NodeViewTest extends BrowserTestBase {
    *
    * @var string
    */
-  protected $defaultTheme = 'forty_acres';
+  protected $defaultTheme = 'speedway';
+
+  /**
+   * The entity manager service.
+   *
+   * @var Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  /**
+   * The renderer service.
+   *
+   * @var Drupal\Core\Render\RendererInterface
+   */
+  protected $renderer;
+
+  /**
+   * The test media ID.
+   *
+   * @var int
+   */
+  protected $testMediaImageId = 0;
+
+  /**
+   * The test media filename.
+   *
+   * @var string
+   */
+  protected $testMediaImageFilename = "";
 
   /**
    * Modules to enable.
@@ -58,8 +83,9 @@ class NodeViewTest extends BrowserTestBase {
    */
   protected static $modules = [
     'utprof',
+    'utprof_demo_content',
     'utprof_content_type_profile',
-    // 'utprof_role_profile_editor',
+    'utprof_block_type_profile_listing',
     'utprof_vocabulary_groups',
     'utprof_vocabulary_tags',
   ];
@@ -70,24 +96,15 @@ class NodeViewTest extends BrowserTestBase {
   protected function setUp(): void {
     $this->strictConfigSchema = NULL;
     parent::setUp();
-    $this->testImageId = $this->createTestMediaImage();
-    $this->node = $this->createProfileNode($this->testImageId);
-
     $this->entityTypeManager = $this->container->get('entity_type.manager');
-    $this->viewBuilder = $this->entityTypeManager->getViewBuilder('node');
     $this->renderer = $this->container->get('renderer');
-  }
-
-  /**
-   * Test Profile content type and output by view mode.
-   */
-  public function testViewModeValidation() {
-    $this->verifyProfileViewModeBasic();
-    $this->verifyProfileViewModeDefault();
-    $this->verifyProfileViewModeFull();
-    $this->verifyProfileViewModeNameOnly();
-    $this->verifyProfileViewModeProminent();
-    $this->verifyProfileViewModeTeaser();
+    $this->testMediaImageId = $this->createTestMediaImage();
+    $this->testMediaImageFilename = $this->entityTypeManager->getStorage('media')
+      ->load($this->testMediaImageId)
+      ->get('field_utexas_media_image')
+      ->entity
+      ->getFileName();
+    $this->drupalLogin($this->rootUser);
   }
 
 }

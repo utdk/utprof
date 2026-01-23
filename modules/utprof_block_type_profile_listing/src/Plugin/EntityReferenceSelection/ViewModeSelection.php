@@ -2,18 +2,20 @@
 
 namespace Drupal\utprof_block_type_profile_listing\Plugin\EntityReferenceSelection;
 
+use Drupal\Core\Entity\Attribute\EntityReferenceSelection;
 use Drupal\Core\Entity\Plugin\EntityReferenceSelection\DefaultSelection;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 
 /**
  * Provides specific content type control for the entity_view_mode entity type.
- *
- * @EntityReferenceSelection(
- *   id = "default:entity_view_mode",
- *   entity_types = {"entity_view_mode"},
- *   group = "default",
- *   weight = 1
- * )
  */
+#[EntityReferenceSelection(
+  id: "default:entity_view_mode",
+  label: new TranslatableMarkup("Entity reference selection"),
+  entity_types: ["entity_view_mode"],
+  group: "default",
+  weight: 1
+)]
 class ViewModeSelection extends DefaultSelection {
 
   /**

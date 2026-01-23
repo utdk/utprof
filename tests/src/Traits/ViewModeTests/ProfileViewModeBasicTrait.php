@@ -10,8 +10,8 @@ trait ProfileViewModeBasicTrait {
   /**
    * Test Profile node "Basic" view mode.
    */
-  public function verifyProfileViewModeBasic() {
-    $build = $this->viewBuilder->view($this->node, 'utexas_basic');
+  public function verifyProfileViewModeBasic($node) {
+    $build = $this->entityTypeManager->getViewBuilder('node')->view($node, 'utexas_basic');
     $output = (string) $this->renderer->renderPlain($build);
 
     $fields_contains = [

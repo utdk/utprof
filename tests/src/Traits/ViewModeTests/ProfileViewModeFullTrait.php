@@ -10,8 +10,8 @@ trait ProfileViewModeFullTrait {
   /**
    * Test Profile node "Full" view mode.
    */
-  public function verifyProfileViewModeFull() {
-    $build = $this->viewBuilder->view($this->node, 'full');
+  public function verifyProfileViewModeFull($node) {
+    $build = $this->entityTypeManager->getViewBuilder('node')->view($node, 'full');
     $output = (string) $this->renderer->renderPlain($build);
 
     $fields_contains = [
