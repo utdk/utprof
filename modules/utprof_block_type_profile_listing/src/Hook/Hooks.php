@@ -101,7 +101,7 @@ class Hooks {
    * Implements hook_form_alter().
    */
   #[Hook('form_alter')]
-  public function formAlter(&$form, FormStateInterface $form_state, $form_id) {
+  public function formAlter(&$form, FormStateInterface $form_state, string $form_id) {
     if (in_array($form_id, ['block_content_utprof_profile_listing_form', 'block_content_utprof_profile_listing_edit_form'])) {
       $alter = \Drupal::classResolver(FormAlter::class);
       $alter->alterProfileListingForm($form, $form_state, $form_id);
