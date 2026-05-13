@@ -8,6 +8,7 @@
 use Drupal\Core\Config\FileStorage;
 use Drupal\pathauto\Entity\PathautoPattern;
 use Drupal\utprof\Permissions;
+use Drupal\utprof_content_type_profile\Hook\Hooks;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -24,7 +25,7 @@ function utprof_content_type_profile_install() {
   Permissions::assignPermissions('manager', 'utexas_site_manager');
 
   // Add utprof_profile to workflow config (#361).
-  _utprof_content_type_profile_update_workflow();
+  Hooks::updateWorkflow();
 
   // Set bootstrap_horizontal_tabs to Bootstrap 4 (#392).
   $bootstrap_horizontal_tabs = \Drupal::configFactory()->getEditable('bootstrap_horizontal_tabs.settings');
@@ -329,7 +330,7 @@ function utprof_content_type_profile_update_8113() {
  * Add utprof_profile to workflow config (#361).
  */
 function utprof_content_type_profile_update_8114() {
-  _utprof_content_type_profile_update_workflow();
+  Hooks::updateWorkflow();
 }
 
 /**
