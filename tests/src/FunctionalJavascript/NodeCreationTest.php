@@ -2,9 +2,12 @@
 
 namespace Drupal\Tests\utprof\FunctionalJavascript;
 
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
+
 /**
  * Test all aspects of Profile Node creation functionality.
  */
+#[RunTestsInSeparateProcesses]
 class NodeCreationTest extends TestBase {
 
   /**
