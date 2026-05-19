@@ -45,22 +45,6 @@ class NodeCreationTest extends TestBase {
     // Assign value using CKEditor enabled field.
     $this->fillCkeditorField('.form-item--field-utprof-add-basic-info-0-value', 'Basic info text');
 
-    // Add field values for third tab.
-    // Click on third horizontal tab ("Main Content").
-    $horizontal_tabs = $page->findAll('css', '.horizontal-tab-button-2');
-    $horizontal_tabs[0]->click();
-    // Add first content tab values.
-    $page->fillField('field_utprof_content[0][header]', 'Test Profile Page content tab 1 header text');
-    // Assign value using CKEditor enabled field.
-    $this->fillCkeditorField('.form-item--field-utprof-content-0-body-value', 'Test Profile Page content tab 1 body text');
-    // Add additional content tab values.
-    $page->pressButton('edit-field-utprof-content-add-more');
-    $assert->assertWaitOnAjaxRequest();
-    $page->fillField('field_utprof_content[1][header]', 'Test Profile Page content tab 2 header text');
-    // Assign value using CKEditor enabled field.
-    $this->fillCkeditorField('.form-item--field-utprof-content-1-body-value', 'Test Profile Page content tab 2 body text');
-
-    // Add field values for fourth tab.
     // Click on fourth horizontal tab ("Contact Information").
     $horizontal_tabs = $page->findAll('css', '.horizontal-tab-button-3');
     $horizontal_tabs[0]->click();
@@ -76,6 +60,20 @@ class NodeCreationTest extends TestBase {
     $page->fillField('field_utprof_contact_form_link[0][title]', 'Contact me here');
     // Assign value using CKEditor enabled field.
     $this->fillCkeditorField('.form-item--field-utprof-add-contact-info-0-value', 'Contact info text');
+
+    // Click on third horizontal tab ("Main Content").
+    $horizontal_tabs = $page->findAll('css', '.horizontal-tab-button-2');
+    $horizontal_tabs[0]->click();
+    $page->fillField('field_utprof_content[0][header]', 'Test Profile Page content tab 1 header text');
+    // Assign value using CKEditor enabled field.
+    $this->fillCkeditorField('.form-item--field-utprof-content-0-body-value', 'Test Profile Page content tab 1 body text');
+    // Add additional content tab values.
+    $page->pressButton('edit-field-utprof-content-add-more');
+    $assert->assertWaitOnAjaxRequest();
+    $page->fillField('field_utprof_content[1][header]', 'Test Profile Page content tab 2 header text');
+    // Assign value using CKEditor enabled field.
+    $assert->waitForElement('css', '.form-item--field-utprof-content-1-body-value .ck-editor__editable');
+    $this->fillCkeditorField('.form-item--field-utprof-content-1-body-value', 'Test Profile Page content tab 2 body text');
 
     // Submit form.
     $page->pressButton('edit-submit');

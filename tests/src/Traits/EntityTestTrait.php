@@ -167,6 +167,7 @@ trait EntityTestTrait {
           const editorInstance = domEditableElement.ckeditorInstance;
           if (editorInstance) {
             editorInstance.setData(\"$value\");
+            domEditableElement.ckeditorInstance.updateSourceElement();
           } else {
             throw new Exception('Could not get the editor instance!');
           }
