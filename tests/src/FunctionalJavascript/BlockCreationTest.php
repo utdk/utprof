@@ -2,9 +2,12 @@
 
 namespace Drupal\Tests\utprof\FunctionalJavascript;
 
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
+
 /**
  * Test all aspects of Profile Listing block functionality.
  */
+#[RunTestsInSeparateProcesses]
 class BlockCreationTest extends TestBase {
 
   /**
