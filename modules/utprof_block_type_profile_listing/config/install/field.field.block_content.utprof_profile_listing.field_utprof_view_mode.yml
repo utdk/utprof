@@ -9,11 +9,11 @@ field_name: field_utprof_view_mode
 entity_type: block_content
 bundle: utprof_profile_listing
 label: 'Display profiles using the following format'
-description: 'See <a href="https://drupalkit.its.utexas.edu/docs/content/profile.html#profile-listings" target="blank">documentation on the default display types</a>.'
+description: 'See <a href="https://utexas.sharepoint.com/sites/UTDK/SitePages/profiles.aspx" target="blank">documentation on the default display types</a>.'
 required: true
 translatable: false
 default_value: {  }
-default_value_callback: utprof_block_type_profile_listing_view_mode_default_value
+default_value_callback: 'Drupal\utprof_block_type_profile_listing\Hook\Hooks::viewModeDefaultValue'
 settings:
   handler: 'default:entity_view_mode'
   handler_settings:

@@ -1,3 +1,6 @@
+parameters:
+  utprof_readonly.skip_procedural_hook_scan: true
+
 services:
   utprof_readonly.route_subscriber:
     class: Drupal\utprof_readonly\Routing\RouteSubscriber
